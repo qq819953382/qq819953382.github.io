@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta name="description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot(3)">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot3/index.html">
+<meta property="og:title" content="spring-boot4">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot4/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta property="og:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T08:45:13.886Z">
+<meta property="og:updated_time" content="2018-03-22T08:44:28.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-boot(3)">
-<meta name="twitter:description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta name="twitter:title" content="spring-boot4">
+<meta name="twitter:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
 
 
 
@@ -112,13 +112,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/22/spring-boot3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/spring-boot4/"/>
 
 
 
 
 
-  <title>spring-boot(3) | AnJ</title>
+  <title>spring-boot4 | AnJ</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/spring-boot3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/spring-boot4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AnJie">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-boot(3)</h1>
+          <h1 class="post-title" itemprop="name headline">spring-boot4</h1>
         
 
         <div class="post-meta">
@@ -284,7 +284,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T16:39:11+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T16:43:53+08:00">
                 2018-03-22
               </time>
             
@@ -322,256 +322,233 @@
       
 
       
-        <p>##阿里Druid连接池应用</p>
-<ol>
-<li><p>在pom.xml追加druid定义</p>
-<pre><code>&lt;parent&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-    &lt;version&gt;1.4.7.RELEASE&lt;/version&gt;
-&lt;/parent&gt;
-
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-
-    &lt;dependency&gt;
-        &lt;groupId&gt;com.oracle&lt;/groupId&gt;
-        &lt;artifactId&gt;ojdbc6&lt;/artifactId&gt;
-        &lt;version&gt;11.2.0.3&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;dependency&gt;
-        &lt;groupId&gt;junit&lt;/groupId&gt;
-        &lt;artifactId&gt;junit&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-
-    &lt;dependency&gt;
-      &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-      &lt;artifactId&gt;druid&lt;/artifactId&gt;
-      &lt;version&gt;1.1.6&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
-        &lt;version&gt;1.2.2&lt;/version&gt;
-    &lt;/dependency&gt;
-
-&lt;/dependencies&gt;
-</code></pre></li>
-<li><p>在application.properties配置连接参数</p>
-<pre><code>spring.datasource.username=SCOTT
-spring.datasource.password=TIGER
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
-spring.datasource.driverClassName=oracle.jdbc.OracleDriver
-</code></pre></li>
-<li><p>编写Configuration配置组件</p>
-<pre><code>@Configuration
-public class DruidDataSourceConfiguration {
-
-    @Bean
-    @ConfigurationProperties(prefix=&quot;spring.datasource&quot;)
-    public DataSource druid(){
-    //DruidDataSource ds = new DruidDataSource();
-        DataSource ds = 
-            DataSourceBuilder.create().type(DruidDataSource.class).build();
-        return ds;
-    }
-
-}
-</code></pre></li>
-</ol>
-<p>##SpringBoot MVC应用</p>
-<p>###开发Web服务（Restful服务）</p>
-<pre><code>/dept   GET  ： 查询所有dept信息
-/dept/1 GET  ： 查询id=1的DEPT信息
-/dept   POST ： 添加dept信息
-/dept/1 PUT  ： 修改id=1的dept信息
-/dept/1 DELETE ： 删除id=1的dept信息
-</code></pre><p>规则变型：查询利用GET、增删改用POST</p>
-<pre><code>/dept        GET  ： 查询所有dept信息
-/dept/1      GET  ： 查询id=1的DEPT信息
-/dept/add    POST ： 添加dept信息
-/dept/put      POST ： 修改id=1的dept信息
-/dept/remove POST ： 删除id=1的dept信息
-</code></pre><ol>
-<li><p>在pom.xml添加spring-boot-starter-web定义</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre></li>
-<li><p>编写DeptController，利用@RestController、@RequestMapping标记</p>
-<pre><code>@RestController//@Controller+@ResponseBody
-public class DeptController {
-
-    @Autowired
-    private DeptDao deptDao;
-
-    @RequestMapping(value=&quot;/dept&quot;,method=RequestMethod.GET)
-    public List&lt;Dept&gt; loadAll(){
-        return deptDao.loadAll();
-    }
-
-    @RequestMapping(value=&quot;/dept/{id}&quot;,method=RequestMethod.GET)
-    public MyResult loadDept(@PathVariable(&quot;id&quot;)int no){
-        MyResult result = new MyResult();
-        Dept dept = deptDao.loadById(no);
-        if(dept == null){
-            result.setStatus(0);
-            result.setMsg(&quot;未找到符合条件记录&quot;);
-        }else{
-            result.setStatus(1);
-            result.setMsg(&quot;查询成功&quot;);
-            result.setData(dept);
-        } 
-        return result;
-    }
-
-}
-</code></pre></li>
-</ol>
-<ol>
-<li><p>定义共同的返回对象MyResult.java</p>
-<pre><code>public class MyResult implements Serializable{
-
-    private int status;//处理结果状态
-    private String msg;//提示信息
-    private Object data;//返回的数据
-
-    //省略了set和get方法
-}
-</code></pre></li>
-</ol>
-<p>###开发JSP应用（PC网站应用）</p>
-<p>/dept/list.do–&gt;DispatcherServlet–&gt;HandlerMapping–&gt;ListController–&gt;DeptDao<br>–&gt;ModelAndView–&gt;ViewResolver–&gt;/list.jsp</p>
-<ol>
-<li><p>编写ListController</p>
+        <p>##SpringBootMVC异常处理</p>
+<p>SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应）</p>
+<p>当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。</p>
+<p>###自定义ErrorController（全局处理）</p>
+<p>自定义ErrorController组件，需要实现ErrorController接口或继承AbstractErrorController都可以。</p>
 <pre><code>@Controller
-public class ListController {
+public class MyErrorController implements ErrorController{
 
-    @Autowired
-    private DeptDao deptDao;
-
-    @RequestMapping(&quot;/dept/list.do&quot;)
-    public ModelAndView list(){
-        List&lt;Dept&gt; list = deptDao.loadAll();
+    //自定义/error请求处理逻辑
+    @RequestMapping(&quot;/error&quot;)
+    public ModelAndView error(){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName(&quot;list&quot;);
-        mav.getModel().put(&quot;depts&quot;, list);
+        mav.setViewName(&quot;error&quot;);//error.html
         return mav;
     }
 
+    @Override
+    public String getErrorPath() {
+        return &quot;/error&quot;;
+    }
+
+}
+</code></pre><p>###使用@ExceptionHandler</p>
+<p>处理某个Controller异常，应用方法就是在Controller添加带Exception参数的方法，然后使用@ExceptionHandler标记。</p>
+<pre><code>@ExceptionHandler
+@ResponseBody
+public MyResult handlerException(Exception e){
+    MyResult result = new MyResult();
+    result.setStatus(0);
+    result.setMsg(&quot;参数有错&quot;);
+    result.setData(e.getMessage());
+    return result;
+}
+</code></pre><p>##SpringBootMVC拦截器</p>
+<ol>
+<li><p>编写拦截器组件，实现HandlerInterceptor接口</p>
+<pre><code>@Component//扫描
+public class SomeInterceptor implements HandlerInterceptor{
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+        System.out.println(&quot;开始执行Controller处理&quot;);
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+            ModelAndView modelAndView) throws Exception {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;Controller执行完毕&quot;);
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+            throws Exception {
+        // TODO Auto-generated method stub
+        String param = request.getQueryString();
+        System.out.println(request.getRequestURI()+&quot;?&quot;+param+&quot;请求处理完毕&quot;);
+    }
+
 }
 </code></pre></li>
-<li><p>在application.properties添加view参数配置</p>
-<pre><code>spring.mvc.view.prefix=/
-spring.mvc.view.suffix=.jsp
+<li><p>配置拦截器</p>
+<pre><code>@Configuration
+public class InterceptorConfiguration extends WebMvcConfigurerAdapter{
+
+    @Autowired
+    private SomeInterceptor some;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(some).addPathPatterns(&quot;/compute.do&quot;);
+    }
+
+}
 </code></pre></li>
-<li><p>在pom.xml中追加jstl和tomcat-embed-jasper引擎</p>
+</ol>
+<p>##SpringBoot AOP</p>
+<p>AOP关键概念：切面、切入点、通知。</p>
+<p>案例：记录每个Controller方法执行的时间</p>
+<pre><code>- 切面：计算方法执行时间
+- 切入点：所有Controller方法 within(cn.xdl.controller.*)
+- 通知：环绕通知 @Around
+</code></pre><ol>
+<li><p>在pom.xml追加aop定义</p>
 <pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;jstl&lt;/groupId&gt;
-  &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-  &lt;version&gt;1.2&lt;/version&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
-  &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
 &lt;/dependency&gt;
 </code></pre></li>
-<li><p>编写list.jsp，使用JSTL和EL表达式显示</p>
-<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
-&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<li><p>编写切面组件，使用@Aspect、@Around等标记</p>
+<pre><code>@Component//ioc
+@Aspect//定义为切面
+public class WatchBean {
 
-    &lt;h1&gt;部门列表&lt;/h1&gt;
-    &lt;table&gt;
-        &lt;tr&gt;
-            &lt;td&gt;编号&lt;/td&gt;
-            &lt;td&gt;部门名&lt;/td&gt;
-            &lt;td&gt;地址&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;c:forEach items=&quot;${depts}&quot; var=&quot;dept&quot;&gt;
-        &lt;tr&gt;
-            &lt;td&gt;${dept.deptno}&lt;/td&gt;
-            &lt;td&gt;${dept.dname}&lt;/td&gt;
-            &lt;td&gt;${dept.loc}&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;/c:forEach&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-</code></pre><p> </p>
+    @Around(&quot;within(cn.xdl.controller.*)&quot;)
+    public Object execute(ProceedingJoinPoint pjp) throws Throwable{
+        //开始计时
+        StopWatch watch = new StopWatch();
+        watch.start();
+        Object obj = pjp.proceed();//执行controller方法
+        //结束计时
+        watch.stop();
+        long time = watch.getTotalTimeMillis();//执行时长
+        String targetClass = pjp.getTarget().getClass().getName();//组件名
+        String methodName = pjp.getSignature().getName();//方法名
+        System.out.println(&quot;组件：&quot;+targetClass+&quot;方法:&quot;+methodName+&quot;执行时长为:&quot;+time+&quot;ms&quot;);
+        return obj;
+    }
+
+}
+</code></pre></li>
+</ol>
+<p>##SpringBoot静态资源管理</p>
+<p>在SpringBoot工程中，默认静态资源目录如下：</p>
+<pre><code>src/main/resources/public (最低)
+src/main/resources/static
+src/main/resources/resources
+src/main/resources/META-INF/resources（最高）
+</code></pre><p>资源目录根据优先级，从高到低查找。</p>
+<p>如果需要自定义静态资源存储路径，可以采用下面配置类</p>
+<pre><code>@Configuration
+public class MyResourceConfiguration extends WebMvcConfigurerAdapter{
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(&quot;/mystatic/**&quot;)
+            .addResourceLocations(&quot;classpath:/mystatic/&quot;);
+    }
+
+}
+</code></pre><p>提示：不要使用/**映射，会破坏原有默认静态资源访问。</p>
+<p>##SpringBoot对JavaWeb集成</p>
+<ol>
+<li><p>Servlet</p>
+<ul>
+<li>编写Servlet组件，继承HttpServlet</li>
+<li>利用@WebServlet注解配置</li>
+<li>在启动类中，添加@ServletComponentScan</li>
+<li><p>案例代码</p>
+<pre><code>@WebServlet(name=&quot;helloservlet&quot;,urlPatterns=&quot;/hello.do&quot;)
+public class HelloServlet extends HttpServlet{
+
+    public void service(
+        HttpServletRequest request,HttpServletResponse response) throws IOException{
+        response.setContentType(&quot;text/html;charset=UTF-8&quot;);
+        PrintWriter out = response.getWriter();
+        out.println(&quot;Hello Servlet&quot;);
+        out.close();
+
+    }
+
+}
+</code></pre></li>
+</ul>
 </li>
 </ol>
-<p>###开发thymeleaf模板应用（PC网站应用）</p>
-<p>模板技术：velocity、freemarker、thymeleaf等。</p>
-<p>JSP–》转译成Servlet–》编译Servlet–》运行–》生成HTML响应输出</p>
-<p>模板文件+模板表达式（提取模型数据）–》生成HTML响应输出</p>
-<p>velocity技术： *.vm+VTL表达式</p>
-<p>freemarker技术： *.ftl+FTL表达式</p>
-<p>thymeleaf技术： *.html+TH表达式</p>
-<p>/template/list.do–&gt;DispatcherServlet–&gt;HandlerMapping–&gt;TemplateController–&gt;DeptDao–&gt;返回ModelAndView–&gt;thymeleaf模板文件<br>（src\main\resources\templates）</p>
 <ol>
-<li><p>在pom.xml追加thymeleaf定义</p>
-<pre><code>&lt;dependency&gt;
-      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-  &lt;/dependency&gt;
-</code></pre></li>
-<li><p>编写Controller（与JSP响应Controller相同）</p>
-<pre><code>@Controller
-public class TemplateController {
+<li><p>Filter</p>
+<ul>
+<li>编写Filter组件，实现Filter接口</li>
+<li>利用@WebFilter注解配置</li>
+<li>在启动类中，添加@ServletComponentScan</li>
+<li><p>案例代码</p>
+<pre><code>@WebFilter(urlPatterns=&quot;/hello.do&quot;,filterName=&quot;somefilter&quot;)
+public class SomeFilter implements Filter{
 
-    @Autowired
-    private DeptDao deptDao;
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        // TODO Auto-generated method stub
 
-    @RequestMapping(&quot;/template/list.do&quot;)
-    public ModelAndView list(){
-        List&lt;Dept&gt; list = deptDao.loadAll();
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName(&quot;list&quot;);
-        mav.getModel().put(&quot;depts&quot;, list);
-        return mav;
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        System.out.println(&quot;-----doFilter------&quot;);
+        chain.doFilter(request, response);//调用后续servlet\jsp等
+
+    }
+
+    @Override
+    public void destroy() {
+        // TODO Auto-generated method stub
+
     }
 
 }
 </code></pre></li>
-<li><p>在src/main/resources/templates添加模板文件</p>
-<p> 注意：html模板文件，开始和结束标记必须匹配；给&lt; html&gt;元素添加xmlns:th=”<a href="http://www.thymeleaf.org&quot;定义。" target="_blank" rel="noopener">http://www.thymeleaf.org&quot;定义。</a></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;/&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;部门列表(thymeleaf模板)&lt;/h1&gt;
-    &lt;table&gt;
-        &lt;tr&gt;
-            &lt;td&gt;编号&lt;/td&gt;
-            &lt;td&gt;名称&lt;/td&gt;
-            &lt;td&gt;地址&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr th:each=&quot;dept:${depts}&quot;&gt;
-            &lt;td th:text=&quot;${dept.deptno}&quot;&gt;&lt;/td&gt;
-            &lt;td th:text=&quot;${dept.dname}&quot;&gt;&lt;/td&gt;
-            &lt;td th:text=&quot;${dept.loc}&quot;&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>Listener</p>
+<ul>
+<li>编写Listener组件</li>
+<li>利用@WebListener注解配置</li>
+<li>在启动类中，添加@ServletComponentScan</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>启用druid连接池的监控功能</p>
+<ul>
+<li><p>配置启用StatViewServlet组件</p>
+<pre><code>@WebServlet(urlPatterns=&quot;/druid/*&quot;,initParams={
+    @WebInitParam(name=&quot;loginUsername&quot;,value=&quot;xdl&quot;),
+    @WebInitParam(name=&quot;loginPassword&quot;,value=&quot;123&quot;)
+})
+public class DruidStatServlet extends StatViewServlet{
+
+}
 </code></pre></li>
+<li><p>配置启用WebStatFilter组件</p>
+<pre><code>@WebFilter(urlPatterns=&quot;/*&quot;,initParams={
+@WebInitParam(name=&quot;exclusions&quot;,value=&quot;*.js,*.jpg,*.css,/druid/*&quot;)
+})
+public class DruidStatFilter extends WebStatFilter{
+
+}
+</code></pre></li>
+<li><p>打开浏览器访问</p>
+<p>  <a href="http://localhost:xxxx/druid/index.html" target="_blank" rel="noopener">http://localhost:xxxx/druid/index.html</a></p>
+</li>
+</ul>
+</li>
 </ol>
 
       
@@ -603,8 +580,8 @@ public class TemplateController {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/22/spring-boot2/" rel="next" title="spring-boot(2)">
-                <i class="fa fa-chevron-left"></i> spring-boot(2)
+              <a href="/2018/03/22/spring-boot3/" rel="next" title="spring-boot(3)">
+                <i class="fa fa-chevron-left"></i> spring-boot(3)
               </a>
             
           </div>
@@ -612,10 +589,6 @@ public class TemplateController {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/22/spring-boot4/" rel="prev" title="spring-boot4">
-                spring-boot4 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
