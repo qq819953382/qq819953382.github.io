@@ -60,7 +60,7 @@
 
 
 
-  <meta name="keywords" content="SpringBoot," />
+  <meta name="keywords" content="NoSQL,Redis," />
 
 
 
@@ -71,25 +71,21 @@
 
 
 
-<meta name="description" content="#SpringBoot框架 SpringBoot主要用于快速开发Spring应用程序。特点如下：  SpringBoot就对Spring框架做了封装 SpringBoot内置Tomcat服务器，启动时会自动将程序发布到Tomcat服务器 SpringBoot具有自动配置功能，去除了XML配置，完全采用Java配置（注解） SpringBoot内置自动创建很多对象，例如连接池\JdbcTemplat">
-<meta name="keywords" content="SpringBoot">
+<meta name="description" content="#对SpringBoot的整理  #Redis ##Redis简介 Redis是完全基于内存的存储（内存数据库），存储结构为key-value键值对模式，value可以是字符串、列表、集合、有序集合、哈希类型。 Redis是属于NoSQL数据库(非关系型数据库)之一，NoSQL包含： Redis优点：  存取速度异常快速 支持持久化（RDB和AOF机制） 支持多种存储类型,字符产、集合、列表等 适">
+<meta name="keywords" content="NoSQL,Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot(1)">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot/index.html">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/Redis/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="#SpringBoot框架 SpringBoot主要用于快速开发Spring应用程序。特点如下：  SpringBoot就对Spring框架做了封装 SpringBoot内置Tomcat服务器，启动时会自动将程序发布到Tomcat服务器 SpringBoot具有自动配置功能，去除了XML配置，完全采用Java配置（注解） SpringBoot内置自动创建很多对象，例如连接池\JdbcTemplat">
+<meta property="og:description" content="#对SpringBoot的整理  #Redis ##Redis简介 Redis是完全基于内存的存储（内存数据库），存储结构为key-value键值对模式，value可以是字符串、列表、集合、有序集合、哈希类型。 Redis是属于NoSQL数据库(非关系型数据库)之一，NoSQL包含： Redis优点：  存取速度异常快速 支持持久化（RDB和AOF机制） 支持多种存储类型,字符产、集合、列表等 适">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/eclipse-maven-1.png">
-<meta property="og:image" content="http://yoursite.com/images/eclipse-maven-2.png">
-<meta property="og:image" content="http://yoursite.com/images/maven-project-1.png">
-<meta property="og:image" content="http://yoursite.com/images/maven-project-2.png">
-<meta property="og:image" content="http://yoursite.com/images/maven-project-3.png">
-<meta property="og:image" content="http://yoursite.com/images/maven-project-4.png">
-<meta property="og:updated_time" content="2018-03-22T07:21:51.345Z">
+<meta property="og:image" content="http://yoursite.com/images/springboot.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/22/Redis/(/images/nosql.png">
+<meta property="og:updated_time" content="2018-03-22T11:05:30.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-boot(1)">
-<meta name="twitter:description" content="#SpringBoot框架 SpringBoot主要用于快速开发Spring应用程序。特点如下：  SpringBoot就对Spring框架做了封装 SpringBoot内置Tomcat服务器，启动时会自动将程序发布到Tomcat服务器 SpringBoot具有自动配置功能，去除了XML配置，完全采用Java配置（注解） SpringBoot内置自动创建很多对象，例如连接池\JdbcTemplat">
-<meta name="twitter:image" content="http://yoursite.com/images/eclipse-maven-1.png">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="#对SpringBoot的整理  #Redis ##Redis简介 Redis是完全基于内存的存储（内存数据库），存储结构为key-value键值对模式，value可以是字符串、列表、集合、有序集合、哈希类型。 Redis是属于NoSQL数据库(非关系型数据库)之一，NoSQL包含： Redis优点：  存取速度异常快速 支持持久化（RDB和AOF机制） 支持多种存储类型,字符产、集合、列表等 适">
+<meta name="twitter:image" content="http://yoursite.com/images/springboot.png">
 
 
 
@@ -119,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/22/spring-boot/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/Redis/"/>
 
 
 
 
 
-  <title>spring-boot(1) | AnJ</title>
+  <title>Redis | AnJ</title>
   
 
 
@@ -262,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/spring-boot/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AnJie">
@@ -279,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-boot(1)</h1>
+          <h1 class="post-title" itemprop="name headline">Redis</h1>
         
 
         <div class="post-meta">
@@ -291,7 +287,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T15:06:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T18:41:06+08:00">
                 2018-03-22
               </time>
             
@@ -329,239 +325,174 @@
       
 
       
-        <p>#SpringBoot框架</p>
-<p>SpringBoot主要用于快速开发Spring应用程序。特点如下：</p>
+        <p>#对SpringBoot的整理</p>
+<p><img src="/images/springboot.png" alt=""></p>
+<p>#Redis</p>
+<p>##Redis简介</p>
+<p>Redis是完全基于内存的存储（内存数据库），存储结构为key-value键值对模式，value可以是字符串、列表、集合、有序集合、哈希类型。</p>
+<p>Redis是属于NoSQL数据库(非关系型数据库)之一，NoSQL包含：<br><img src="(/images/nosql.png" alt=""></p>
+<p>Redis优点：</p>
 <ul>
-<li>SpringBoot就对Spring框架做了封装</li>
-<li>SpringBoot内置Tomcat服务器，启动时会自动将程序发布到Tomcat服务器</li>
-<li>SpringBoot具有自动配置功能，去除了XML配置，完全采用Java配置（注解）</li>
-<li>SpringBoot内置自动创建很多对象，例如连接池\JdbcTemplate\DispatcherServlet等，需要使用可以直接注入应用</li>
-<li><p>SpringBoot提供了一系列的工具包集合，便于开发引入</p>
-<pre><code>基础包：spring-boot-starter-parent
-IOC包：spring-boot-starter
-MVC：spring-boot-starter-web
-DAO：spring-boot-starter-jdbc
-AOP：spring-boot-starter-aop
-mybatis: mybatis-spring-boot-starter
-</code></pre></li>
+<li>存取速度异常快速</li>
+<li>支持持久化（RDB和AOF机制）</li>
+<li>支持多种存储类型,字符产、集合、列表等</li>
+<li>适合做应用程序的缓存</li>
 </ul>
-<p>#MAVEN安装和使用</p>
-<p>##简介<br>MAVEN是用于项目构建的工具，参与项目创建、代码编译、jar包管理、创建发布包等一系列过程。</p>
-<p>MAVEN目的：一种标准化的方式构建项目，一个清晰的方式定义项目的组成，一个容易的方式发布项目的信息，以及一种简单的方式在多个项目中共享JARs。</p>
-<p>##maven安装</p>
+<p>##Redis常用命令</p>
 <ol>
-<li><p>下载maven工具包</p>
+<li><p>字符串操作</p>
 <ul>
-<li>下载后解压，然后配置系统PATH环境变量</li>
-<li><p>之后打开cmd命令窗口，执行mvc命令</p>
-<pre><code>mvn archetype:generate 创建Maven项目
-mvn compile 编译源代码
-mvn deploy 发布项目
-mvn test-compile 编译测试源代码
-mvn test 运行应用程序中的单元测试
-mvn site 生成项目相关信息的网站
-mvn clean 清除项目目录中的生成结果
-mvn package 根据项目生成的jar
-mvn install 在本地Repository中安装jar
-mvntomcat:run 启动tomcat服务
-</code></pre></li>
+<li>set key value  //存</li>
+<li>get key  //取</li>
+<li>strlen key //取value字符长度</li>
+<li>incr key //value值加1</li>
+<li>incrby key n //value值加n</li>
+<li>decr key //value值减1</li>
+<li>decrby key n //value值减n</li>
+<li>append key str //将str拼接到原来value后面</li>
 </ul>
 </li>
-<li><p>在eclipse中配置maven工具</p>
-<p> <img src="/images/eclipse-maven-1.png" alt=""></p>
-<p> <img src="/images/eclipse-maven-2.png" alt=""></p>
-</li>
-</ol>
-<p>##maven使用</p>
-<p><img src="/images/maven-project-1.png" alt=""></p>
-<p><img src="/images/maven-project-2.png" alt=""></p>
-<p><img src="/images/maven-project-3.png" alt=""></p>
-<p><img src="/images/maven-project-4.png" alt=""></p>
-<ol>
-<li><p>设计案例流程</p>
-<p> /hello.do–&gt;DispatcherServlet–&gt;HandlerMapping–&gt;HelloController–&gt;@ResponseBody(gson)–&gt;{“msg”:”你好”}</p>
-</li>
-<li><p>在pom.xml添加jar包定义</p>
-<pre><code>&lt;dependencies&gt;
-    &lt;!-- springmvc --&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
-      &lt;version&gt;4.1.6.RELEASE&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- gson --&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
-      &lt;artifactId&gt;Gson&lt;/artifactId&gt;
-      &lt;version&gt;2.5&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre></li>
-<li><p>编写HelloController</p>
-<pre><code>@Controller
-public class HelloController {
-
-    @RequestMapping(&quot;/hello.do&quot;)
-    @ResponseBody
-    public Map&lt;String, Object&gt; execute(){
-        Map&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
-        data.put(&quot;msg&quot;, &quot;你好&quot;);
-        return data;
-    }
-
-}
-</code></pre></li>
-<li><p>流程配置</p>
+<li><p>key操作</p>
 <ul>
-<li><p>配置DispatcherServlet</p>
-<pre><code>&lt;servlet&gt;
-    &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;
-    org.springframework.web.servlet.DispatcherServlet
-    &lt;/servlet-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-        &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-    &lt;/init-param&gt;
-&lt;/servlet&gt;
-
-&lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;
-</code></pre></li>
-<li><p>配置HandlerMapping</p>
-<pre><code>&lt;mvc:annotation-driven/&gt;
-</code></pre></li>
-<li><p>配置Controller</p>
-<pre><code>&lt;context:component-scan base-package=&quot;cn.xdl&quot;/&gt;
-</code></pre></li>
+<li>del key //删除key</li>
+<li>keys pattern //查看有哪些key</li>
+<li>expire key 秒  //指定失效时长,单位秒</li>
+<li>pexpire key 毫秒 //指定失效时长,单位毫秒</li>
+<li>type key //查看value类型</li>
+</ul>
+</li>
+<li><p>哈希操作(Java map, Redis hash)</p>
+<ul>
+<li>hset key 字段名 字段值</li>
+<li>hmset key 字段名1 字段值1 字段名2 字段值2</li>
+<li>hget key 字段名</li>
+<li>hmget key 字段名1 字段名2</li>
+<li>hlen key //返回字段数量</li>
+<li>hkeys key //返回字段名</li>
+<li>hdel key 字段名 //删除字段名</li>
+</ul>
+</li>
+<li><p>列表操作(Java List, Redis list)</p>
+<ul>
+<li>lpush key value  //从头部添加<ul>
+<li>rpush key value  //从结尾添加</li>
+<li>lrange key begin end //获取指定区间的元素</li>
+<li>llen key //返回集合元素数</li>
+<li>lpop key //将头部元素弹出</li>
+<li>rpop key //将尾部元素弹出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>集合操作(Java Set, Redis set)</p>
+<ul>
+<li>sadd key value  //存值</li>
+<li>smembers key  //取值</li>
+<li>srem key value //删除元素</li>
+<li>scard key //获取元素数量</li>
+<li>srandmember key n //获取n个随机元素</li>
+<li>spop key //弹出一个随机元素</li>
+</ul>
+</li>
+<li><p>有序集合操作(Java TreeSet, Redis zet)</p>
+<ul>
+<li>zadd key score value //存值</li>
+<li>zrange key begin end //获取元素（由小到大）</li>
+<li>zrevrange key begin end //获取元素（由大到小）</li>
+<li>zcard key //获取元素个数</li>
+<li>zcount key min max //统计分数区间个数</li>
 </ul>
 </li>
 </ol>
-<p>##SpringBoot实现Hello案例</p>
+<p>##Java访问Redis</p>
+<p>###原始API Jedis对象操作</p>
 <ol>
-<li><p>创建maven project，在pom.xml添加boot包</p>
-<pre><code>&lt;parent&gt;
-  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-  &lt;version&gt;1.4.7.RELEASE&lt;/version&gt;
-&lt;/parent&gt;
-
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-          &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre></li>
-<li><p>编写HelloController</p>
-<pre><code>@RestController //等价于@Controller+@ResponseBody
-public class HelloController {
-
-    @RequestMapping(&quot;/hello.do&quot;)
-    public Map&lt;String,Object&gt; execute(){
-        Map&lt;String,Object&gt; data = new HashMap&lt;String, Object&gt;();
-        data.put(&quot;msg&quot;, &quot;Hello Boot&quot;);
-        return data;
-    }
-
+<li><p>测试连接</p>
+<pre><code>@Test
+public void test1(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+    System.out.println(jedis.ping());
+    jedis.close();
 }
 </code></pre></li>
-<li><p>编写启动Boot应用的类</p>
-<pre><code>@SpringBootApplication
-public class BootApplication {
+<li><p>查看所有key</p>
+<pre><code>@Test
+public void test2(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
 
-    public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
+    Set&lt;String&gt; keys = jedis.keys(&quot;*&quot;);//keys *
+    for(String s:keys){
+        System.out.println(s);
     }
+
+    jedis.close();
 }
 </code></pre></li>
-<li><p>修改tomcat端口号和请求项目名(application.properties)</p>
-<pre><code>server.port=8888
-server.context-path=/boot
+<li><p>字符串存取</p>
+<pre><code>@Test
+public void test3(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+    jedis.set(&quot;java&quot;, &quot;hello redis&quot;);
+    String name = jedis.get(&quot;name&quot;);
+    System.out.println(name);
+    jedis.close();
+}
+</code></pre></li>
+<li><p>哈希操作</p>
+<pre><code>@Test
+public void test4(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+    String name = jedis.hget(&quot;myhash1&quot;, &quot;name&quot;);
+    System.out.println(&quot;name:&quot;+name);
+    String no = jedis.hget(&quot;myhash1&quot;, &quot;no&quot;);
+    System.out.println(&quot;no:&quot;+no);
+    jedis.close();
+}
 </code></pre></li>
 </ol>
-<p>##SpringBoot工程搭建</p>
+<p>###封装API RedisTemplate（spring-data）</p>
 <ol>
-<li><p>工程jar包引入(pom.xml)</p>
-<pre><code>&lt;parent&gt;
-  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-  &lt;version&gt;1.4.7.RELEASE&lt;/version&gt;
-&lt;/parent&gt;
-</code></pre><p> 后续根据需要导入boot其他jar包工具集。</p>
-</li>
-<li><p>配置文件</p>
+<li><p>在pom.xml添加spring-boot-starter-redis定义</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>在application.properties添加redis连接参数</p>
+<pre><code>spring.redis.host=localhost
+spring.redis.port=6379
+</code></pre></li>
+<li><p>获取Spring容器中RedisTemplate使用</p>
 <ul>
-<li><p>application.properties</p>
-<pre><code>server.port=8888
-server.contextPath=/boot
-</code></pre></li>
-<li><p>application.yml</p>
-<pre><code>server:
- port: 8888
- contextPath: /boot
-</code></pre></li>
-</ul>
-</li>
-<li><p>启动类（放在根包下，这样能最大范围的扫描）</p>
-<pre><code>@SpringBootApplication
-public class BootApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
-    }
-}
-</code></pre></li>
-</ol>
-<p>##@SpringBootApplication</p>
-<p>@SpringBootApplication标记是一个集合，包含以下元素</p>
-<ol>
-<li><p>@SpringBootConfiguration–&gt;@Configuration–&gt;@Component</p>
-<p> 组件配置：程序员可以手动将组件对象配置到Spring容器。</p>
-<pre><code>@Configuration//&lt;beans&gt;
-public class DataSourceConfig {
-
-    //&lt;bean id=&quot;xxx&quot; class=&quot;xxxx&quot;&gt;
-    @Bean//将返回的ds对象放入Spring容器,id名为方法名createMyDataSource
-    public MyDataSource createMyDataSource(){
-        MyDataSource ds = new MyDataSource();
-        return ds;
-    }
-
-    //&lt;bean id=&quot;xxx&quot; class=&quot;xxxx&quot;&gt;
-    @Bean(&quot;mydatasource&quot;)//将返回的ds对象放入Spring容器,id名为mydatasource
-    public MyDataSource createMyDataSource1(){
-        MyDataSource ds = new MyDataSource();
-        return ds;
-    }
-
-}
-</code></pre></li>
-</ol>
-<ol>
-<li><p>@EnableAutoConfiguration</p>
-<p> 自动配置：自动加载组件并创建组件对象到Spring容器。</p>
-</li>
-<li><p>@ComponentScan</p>
-<p> 组件扫描：将指定目录下的带标记的组件纳入到Spring容器。（@Controller、@Service、@Component、@Respository）</p>
-<pre><code>//@ComponentScan(basePackages={&quot;cn.xdl.dao&quot;})
-@ComponentScan//默认当前包及其子包组件
-public class MyBootApplication {
-
-}
-</code></pre><p> 根据MyBootApplication创建Spring容器</p>
-<pre><code>public static void main(String[] args) {
+<li><p>写入Java对象</p>
+<pre><code>@Test
+public void test2(){
     ApplicationContext ac = 
-        SpringApplication.run(MyBootApplication.class);//@Configuration+@Bean
-    DeptDao deptDao = ac.getBean(&quot;deptDao&quot;,DeptDao.class);
-    deptDao.save();
-    DataSource dbcp = ac.getBean(&quot;dbcp&quot;,DataSource.class);
-    System.out.println(dbcp);
+        SpringApplication.run(MyBootApplication.class);
+    RedisTemplate template = 
+        ac.getBean(&quot;redisTemplate&quot;,RedisTemplate.class);
+
+    Dept dept = new Dept();
+    dept.setDeptno(1);
+    dept.setDname(&quot;SpringBoot&quot;);
+
+    template.opsForValue().set(&quot;spring&quot;, dept);
+
 }
 </code></pre></li>
+<li><p>读取Java对象</p>
+<pre><code>@Test
+public void test3(){
+    ApplicationContext ac = 
+        SpringApplication.run(MyBootApplication.class);
+    RedisTemplate template = 
+        ac.getBean(&quot;redisTemplate&quot;,RedisTemplate.class);
+    Dept dept = (Dept)template.opsForValue().get(&quot;spring&quot;);
+    System.out.println(dept.getDeptno()+&quot; &quot;+dept.getDname());
+}
+</code></pre></li>
+</ul>
+</li>
 </ol>
 
       
@@ -580,7 +511,9 @@ public class MyBootApplication {
       
         <div class="post-tags">
           
-            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -593,8 +526,8 @@ public class MyBootApplication {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/21/第一篇博客/" rel="next" title="第一篇博客">
-                <i class="fa fa-chevron-left"></i> 第一篇博客
+              <a href="/2018/03/22/spring-boot4/" rel="next" title="spring-boot(4)">
+                <i class="fa fa-chevron-left"></i> spring-boot(4)
               </a>
             
           </div>
@@ -602,10 +535,6 @@ public class MyBootApplication {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/22/spring-boot2/" rel="prev" title="spring-boot(2)">
-                spring-boot(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
