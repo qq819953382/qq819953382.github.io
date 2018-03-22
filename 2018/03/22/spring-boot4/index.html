@@ -74,15 +74,17 @@
 <meta name="description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot4">
+<meta property="og:title" content="spring-boot(4)">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot4/index.html">
 <meta property="og:site_name" content="AnJ">
 <meta property="og:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T08:44:28.943Z">
+<meta property="og:image" content="http://yoursite.com/images/cron_expression.png">
+<meta property="og:updated_time" content="2018-03-22T10:46:44.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-boot4">
+<meta name="twitter:title" content="spring-boot(4)">
 <meta name="twitter:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
+<meta name="twitter:image" content="http://yoursite.com/images/cron_expression.png">
 
 
 
@@ -118,7 +120,7 @@
 
 
 
-  <title>spring-boot4 | AnJ</title>
+  <title>spring-boot(4) | AnJ</title>
   
 
 
@@ -272,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-boot4</h1>
+          <h1 class="post-title" itemprop="name headline">spring-boot(4)</h1>
         
 
         <div class="post-meta">
@@ -550,6 +552,55 @@ public class DruidStatFilter extends WebStatFilter{
 </ul>
 </li>
 </ol>
+<p>##SpringBoot任务调用</p>
+<p>###服务器启动时自动执行某个任务</p>
+<p>SpringBoot提供了两种方法，编写一个组件实现ApplicationRunner或CommandLineRunner。</p>
+<ul>
+<li><p>ApplicationRunner</p>
+<pre><code>@Component
+@Order(2)
+public class MyTask1 implements ApplicationRunner{
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        System.out.println(&quot;自动执行任务1处理&quot;);
+    }
+
+}
+</code></pre></li>
+<li><p>CommandLineRunner</p>
+<pre><code>@Component
+@Order(1)
+public class MyTask2 implements CommandLineRunner{
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println(&quot;自动执行任务2处理&quot;);
+    }
+
+}
+</code></pre><p>  提示：可以利用@Order指定任务触发顺序，1、2、3..</p>
+</li>
+</ul>
+<p>###服务器启动后定时自动执行某个任务</p>
+<p>案例：每隔5S调用任务打印输出当前时间。</p>
+<ul>
+<li>在启动类前添加@EnableScheduling，开启Schedul任务调度模块</li>
+<li><p>编写任务组件，使用@@Scheduled</p>
+<pre><code>@Component
+public class MyTask3 {
+
+//    @Scheduled(fixedRate=5000,initialDelay=2000)
+    @Scheduled(cron=&quot;0/5 * * ? * *&quot;)
+    public void execute(){
+        System.out.println(&quot;自动执行任务3,时间:&quot;+new Date());
+    }
+
+}
+</code></pre></li>
+</ul>
+<p>通过corn表达式，方便定时，具体语法参考下面资料：</p>
+<p><img src="/images/cron_expression.png" alt=""></p>
 
       
     </div>
