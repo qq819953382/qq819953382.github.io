@@ -60,7 +60,7 @@
 
 
 
-  <meta name="keywords" content="Java,面试," />
+  <meta name="keywords" content="NoSQL,Redis," />
 
 
 
@@ -71,18 +71,20 @@
 
 
 
-<meta name="description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
-<meta name="keywords" content="Java,面试">
+<meta name="description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
+<meta name="keywords" content="NoSQL,Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java面试题(1)">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/Java面试题/index.html">
+<meta property="og:title" content="Redis(补充)">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/Redis2/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
+<meta property="og:description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-23T12:48:15.239Z">
+<meta property="og:image" content="http://yoursite.com/images/cache.png">
+<meta property="og:updated_time" content="2018-03-23T12:58:29.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java面试题(1)">
-<meta name="twitter:description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
+<meta name="twitter:title" content="Redis(补充)">
+<meta name="twitter:description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
+<meta name="twitter:image" content="http://yoursite.com/images/cache.png">
 
 
 
@@ -112,13 +114,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/22/Java面试题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/Redis2/"/>
 
 
 
 
 
-  <title>Java面试题(1) | AnJ</title>
+  <title>Redis(补充) | AnJ</title>
   
 
 
@@ -255,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/Java面试题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/Redis2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AnJie">
@@ -272,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java面试题(1)</h1>
+          <h1 class="post-title" itemprop="name headline">Redis(补充)</h1>
         
 
         <div class="post-meta">
@@ -284,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T18:41:06+08:00">
-                2018-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T20:50:31+08:00">
+                2018-03-23
               </time>
             
 
@@ -307,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试题/" itemprop="url" rel="index">
-                    <span itemprop="name">面试题</span>
+                  <a href="/categories/NoSQL数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">NoSQL数据库</span>
                   </a>
                 </span>
 
@@ -344,52 +346,159 @@
       
 
       
-        <p>#Java SE 部分</p>
-<p>###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？ </p>
-<blockquote>
-<p>可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。</p>
-</blockquote>
-<p>###2、说说&amp;和&amp;&amp;的区别。 </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一方为false，则结果为false。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;还具有短路的功能，即如果第一个表达式为false，则不再计算第二个表达式，<br>例如:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于if(str != null &amp;&amp; !str.equals(“”))表达式，当str为null时，后面的表达式不会执行，所以不会出现NullPointerException如果将&amp;&amp;改为&amp;，则会抛出NullPointerException异常。If(x==33 &amp; ++y&gt;0) y会增长，If(x==33 &amp;&amp; ++y&gt;0)不会增长。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;还可以用作位运算符，当&amp;操作符两边的表达式不是boolean类型时，&amp;表示按位与操作，我们通常使用0x0f来与一个整数进行&amp;运算，来获取该整数的最低4个bit位，例如，0x31 &amp; 0x0f的结果为0x01。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与，当运算符两边的表达式的结果为true时，整个运算结果才为&amp;&amp;还具有</p>
-</blockquote>
-<p>###3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在switch（expr1）中，expr1只能是一个整数表达式或者枚举常量（更大字体），整数表达式可以是int基本类型或Integer包装类型，由于，byte,short,char都可以隐含转换为int，所以，这些类型以及这些类型的包装类型也是可以的。显然，long和String类型都不符合switch的语法规定，并且不能被隐式转换成int类型，所以，它们不能作用于swtich语句中。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jdk1.7之后引入新特性，可以接受一个String类型的值，所以String可以作用在switch语句上</p>
-</blockquote>
-<p>###6、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于short s1 = 1; s1 = s1 + 1; 由于s1+1运算时会自动提升表达式的类型，所以结果是int型，再赋值给short类型s1时，编译器将报告需要强制转换类型的错误。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于short s1 = 1; s1 += 1;由于 += 是java语言规定的运算符，java编译器会对它进行特殊处理，因此可以正确编译。 </p>
-</blockquote>
-<p>###7、char型变量中能不能存贮一个中文汉字?为什么? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char型变量是用来存储Unicode编码的字符的，unicode编码字符集中包含了汉字，所以，char型变量中当然可以存储汉字啦。不过，如果某个特殊的汉字没有被包含在unicode编码字符集中，那么，这个char型变量中就不能存储这个特殊汉字。补充说明：unicode编码占用两个字节，所以，char类型的变量也是占用两个字节。</p>
-</blockquote>
-<p>###8、用最有效率的方法算出2乘以8等於几? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 &lt;&lt; 3，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为将一个数左移n位，就相当于乘以了2的n次方，那么，一个数乘以8只要将其左移3位即可，而位运算cpu直接支持的，效率最高，所以，2乘以8等於几的最效率的方法是2 &lt;&lt; 3。</p>
-</blockquote>
-<p>###9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？ </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用final关键字修饰一个变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。例如，对于如下语句：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;final StringBuffer a=new StringBuffer(“immutable”);<br>执行如下语句将报告编译期错误：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a=new StringBuffer(“”);<br>但是，执行如下语句则可以通过编译：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.append(“ broken!”);<br>有人在定义方法的参数时，可能想采用如下形式来阻止方法内部修改传进来的参数对象：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void method(final  StringBuffer  param){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>实际上，这是办不到的，在该方法内部仍然可以增加如下代码来修改参数对象：</p>
-</blockquote>
-<pre><code>param.append(&quot;a&quot;);
-</code></pre><p>###10、”==”和equals方法究竟有什么区别？</p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==操作符专门用来比较两个变量的值是否相等，也就是用于比较变量所对应的内存中所存储的数值是否相同，要比较两个基本类型的数据或两个引用变量是否相等，只能用==操作符。<br>如果一个变量指向的数据是对象类型的，那么，这时候涉及了两块内存，对象本身占用一块内存（堆内存），变量也占用一块内存，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：<br>    OBJET OBJ = NEW OBJECT();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;变量OBJ是一个内存，NEW OBJECT()是另一个内存，此时，变量OBJ所对应的内存中存储的数值就是对象占用的那块内存的首地址。对于指向对象类型的变量，如果要比较两个变量是否指向同一个对象，即要看这两个变量所对应的内存中的数值是否相等，这时候就需要用==操作符进行比较。<br>EQUALS方法是用于比较两个独立对象的内容是否相同，就好比去比较两个人的长相是否相同，它比较的两个对象是独立的。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：</p>
-</blockquote>
-<pre><code>STRING A=NEW STRING(&quot;FOO&quot;);
-STRING B=NEW STRING(&quot;FOO&quot;);
-</code></pre><blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;两条NEW语句创建了两个对象，然后用A,B这两个变量分别指向了其中一个对象，这是两个不同的对象，它们的首地址是不同的，即A和B中存储的数值是不相同的，所以，表达式A==B将返回FALSE，而这两个对象中的内容是相同的，所以，表达式A.EQUALS(B)将返回TRUE。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在实际开发中，我们经常要比较传递进行来的字符串内容是否等，<br>例如，</p>
-</blockquote>
-<pre><code>STRING INPUT = …;INPUT.EQUALS(“QUIT”)，
-</code></pre><p>  许多人稍不注意就使用==进行比较了，这是错误的，随便从网上找几个项目实战的教学视频看看，里面就有大量这样的错误。记住，字符串的比较基本上都是使用EQUALS方法。<br>  如果一个类没有自己定义EQUALS方法，那么它将继承OBJECT类的EQUALS方法，OBJECT类的EQUALS方法的实现代码如下：</p>
-<pre><code>BOOLEAN EQUALS(OBJECT O){
-    RETURN THIS==O;
-}
-</code></pre><p>  这说明，如果一个类没有自己定义EQUALS方法，它默认的EQUALS方法（从OBJECT 类继承的）就是使用==操作符，也是在比较两个变量指向的对象是否是同一对象，这时候使用EQUALS和使用==会得到同样的结果，如果比较的是两个独立的对象则总返回FALSE。如果你编写的类希望能够比较该类创建的两个实例对象的内容是否相同，那么你必须覆盖EQUALS方法，由你自己写代码来决定在什么情况即可认为两个对象的内容是相同的。</p>
+        <p>##Redis(补充)</p>
+<p>###Redis缓存</p>
+<p>Redis作为系统的缓存，介于业务和关系型数据库之间。</p>
+<p><img src="/images/cache.png" alt=""></p>
+<p>案例：利用Redis优化部门列表显示</p>
+<ol>
+<li><p>在pom.xml定义boot-redis</p>
+<pre><code>&lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-redis&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+</code></pre></li>
+<li><p>在application.properties定义redis连接参数</p>
+<pre><code>spring.redis.host=localhost
+spring.redis.port=6379
+</code></pre></li>
+<li><p>注入RedisTemplate&lt;Object,Object&gt;使用</p>
+<pre><code>@Controller
+public class TemplateController {
 
+    @Autowired
+    private DeptDao deptDao;
+
+    @Autowired
+    private RedisTemplate&lt;Object, Object&gt; redis;
+
+    @RequestMapping(&quot;/template/list.do&quot;)
+    public ModelAndView list(){
+        List&lt;Dept&gt; list = null;
+        //访问redis,加载缓存数据
+        list = (List)redis.opsForValue().get(&quot;depts&quot;);
+        //如果缓存没有，去数据库加载，并且将返回结果放入redis缓存
+        if(list == null){
+            list = deptDao.loadAll();
+            redis.opsForValue().set(&quot;depts&quot;, list);
+            System.out.println(&quot;从数据库缓存获取数据&quot;);
+        }else{
+            System.out.println(&quot;从Redis缓存获取数据&quot;);
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName(&quot;list&quot;);
+        mav.getModel().put(&quot;depts&quot;, list);
+        return mav;
+    }
+}
+</code></pre></li>
+</ol>
+<ol>
+<li><p>利用自动启动调用任务提前向缓存加载数据</p>
+<pre><code>@Component
+@Order(1)
+public class MyTask1 implements ApplicationRunner{
+
+    @Autowired
+    private DeptDao deptDao;
+
+    @Autowired
+    private RedisTemplate&lt;Object, Object&gt; redis;
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        System.out.println(&quot;自动执行任务1处理,将部门列表数据加载到缓存&quot;);
+        List&lt;Dept&gt; list = deptDao.loadAll();
+        redis.opsForValue().set(&quot;depts&quot;, list);
+        //将单个dept缓存
+        for(Dept dept:list){
+            redis.opsForValue().set(&quot;dept:&quot;+dept.getDeptno(), dept);
+        }
+    }
+
+}
+</code></pre></li>
+</ol>
+<p>##Redis持久化机制</p>
+<p>Redis内部提供了RDB和AOF两种持久化机制。</p>
+<ol>
+<li><p>RDB模式</p>
+<p> 快照机制，快速、但是两次快照之间数据会丢失。默认间隔为1分钟、5分钟、15分钟。（会存在1分钟数据丢失风险）</p>
+</li>
+<li><p>AOF模式</p>
+<p> 日志模式，将每一个命令都采用日志记录下来。日志文件会很大，恢复时慢。<br> 默认关闭，打开方式将appendonly设置为yes，然后appendfsync参数指定日志记录频率，有always、everysec、no。</p>
+</li>
+</ol>
+<p>提示：两种可以都开启，但是恢复时优先使用日志模式。</p>
+<p>##Boot补充</p>
+<ol>
+<li><p>Mybatis分页处理</p>
+<ul>
+<li><p>添加pom.xml定义</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+  &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+  &lt;version&gt;1.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>代码</p>
+<pre><code>PageHelper.startPage(2,5);
+List&lt;Dept&gt; list = deptDao.loadAll();
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>springboot test测试</p>
+<p> spring提供了一套test测试框架，与junit结合应用，利用junit启动。</p>
+<ul>
+<li><p>测试Spring容器中对象方法</p>
+<p>将DeptDao对象注入到Test类测试。</p>
+<pre><code>@RunWith(SpringRunner.class)
+@SpringBootTest(classes={MyBootApplication.class})
+public class TestDeptDao {
+
+    @Autowired
+    private DeptDao deptDao;
+
+    @Test
+    public void test1(){
+        List&lt;Dept&gt; list = deptDao.loadAll();
+        for(Dept dept:list){
+            System.out.println(dept.getDeptno()+&quot; &quot;+dept.getDname());
+        }
+    }
+
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<pre><code>- 测试SpringMVC处理流程
+
+将Controller注入，然后利用MockMVC、MockResult等API测试MVC流程。
+
+        @RunWith(SpringRunner.class)
+        @SpringBootTest(classes={MyBootApplication.class})
+        public class TestRestful {
+
+            @Autowired
+            private DeptController controller;
+
+            @Test
+            public void test1() throws Exception{
+                //发送http请求调用resuful服务
+                MockMvc mock = MockMvcBuilders.standaloneSetup(controller).build();
+                //创建一个/dept/10 GET类型请求
+                RequestBuilder getRequest = MockMvcRequestBuilders.get(&quot;/dept/10&quot;);
+                //发送请求,获取返回结果信息
+                MvcResult result = mock.perform(getRequest).andReturn();
+                String content = result.getResponse().getContentAsString();
+                System.out.println(content);
+            }
+
+        }
+</code></pre>
       
     </div>
     
@@ -406,9 +515,9 @@ STRING B=NEW STRING(&quot;FOO&quot;);
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
           
-            <a href="/tags/面试/" rel="tag"># 面试</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -421,8 +530,8 @@ STRING B=NEW STRING(&quot;FOO&quot;);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/22/Redis/" rel="next" title="Redis">
-                <i class="fa fa-chevron-left"></i> Redis
+              <a href="/2018/03/22/serializable/" rel="next" title="序列化和序列化工具代码">
+                <i class="fa fa-chevron-left"></i> 序列化和序列化工具代码
               </a>
             
           </div>
@@ -430,10 +539,6 @@ STRING B=NEW STRING(&quot;FOO&quot;);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/22/serializable/" rel="prev" title="序列化和序列化工具代码">
-                序列化和序列化工具代码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
