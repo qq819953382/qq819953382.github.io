@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###组件扫描    6.1 什么是组件扫描     Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)     这种技术可以大大简化xml的配置。    6.2 组件扫描的使用步骤     1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)     2.在Spring 容器对应的配置文件中开启组件扫描     &amp;lt;context">
+<meta name="description" content="#组件扫描 什么是组件扫描Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解) 这种技术可以大大简化xml的配置。 组件扫描的使用步骤1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的) 2.在Spring 容器对应的配置文件中开启组件扫描 &amp;lt;context:component-scan base-package=&amp;quot;包&amp;q">
 <meta name="keywords" content="Spring,IOC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-ioc3">
+<meta property="og:title" content="Spring-IOC-Day03(组件扫描)">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-ioc3/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###组件扫描    6.1 什么是组件扫描     Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)     这种技术可以大大简化xml的配置。    6.2 组件扫描的使用步骤     1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)     2.在Spring 容器对应的配置文件中开启组件扫描     &amp;lt;context">
+<meta property="og:description" content="#组件扫描 什么是组件扫描Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解) 这种技术可以大大简化xml的配置。 组件扫描的使用步骤1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的) 2.在Spring 容器对应的配置文件中开启组件扫描 &amp;lt;context:component-scan base-package=&amp;quot;包&amp;q">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T08:18:18.019Z">
+<meta property="og:updated_time" content="2018-03-25T09:31:13.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-ioc3">
-<meta name="twitter:description" content="###组件扫描    6.1 什么是组件扫描     Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)     这种技术可以大大简化xml的配置。    6.2 组件扫描的使用步骤     1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)     2.在Spring 容器对应的配置文件中开启组件扫描     &amp;lt;context">
+<meta name="twitter:title" content="Spring-IOC-Day03(组件扫描)">
+<meta name="twitter:description" content="#组件扫描 什么是组件扫描Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解) 这种技术可以大大简化xml的配置。 组件扫描的使用步骤1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的) 2.在Spring 容器对应的配置文件中开启组件扫描 &amp;lt;context:component-scan base-package=&amp;quot;包&amp;q">
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <title>spring-ioc3 | AnJ</title>
+  <title>Spring-IOC-Day03(组件扫描) | AnJ</title>
   
 
 
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring-ioc3</h1>
+          <h1 class="post-title" itemprop="name headline">Spring-IOC-Day03(组件扫描)</h1>
         
 
         <div class="post-meta">
@@ -294,6 +294,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jAVA框架/" itemprop="url" rel="index">
+                    <span itemprop="name">jAVA框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -322,15 +344,21 @@
       
 
       
-        <p>###组件扫描<br>    6.1 什么是组件扫描<br>     Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)<br>     这种技术可以大大简化xml的配置。<br>    6.2 组件扫描的使用步骤<br>     1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)<br>     2.在Spring 容器对应的配置文件中开启组件扫描<br>     &lt;context:component-scan base-package=”包”/&gt;<br>     3.在建立java类时需要在java类上打对应的标注 </p>
-<blockquote>
+        <p>#组件扫描</p>
+<h3 id="什么是组件扫描"><a href="#什么是组件扫描" class="headerlink" title="什么是组件扫描"></a>什么是组件扫描</h3><pre><code>Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)
+这种技术可以大大简化xml的配置。
+</code></pre><h3 id="组件扫描的使用步骤"><a href="#组件扫描的使用步骤" class="headerlink" title="组件扫描的使用步骤"></a>组件扫描的使用步骤</h3><pre><code>1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)
+2.在Spring 容器对应的配置文件中开启组件扫描
+&lt;context:component-scan base-package=&quot;包&quot;/&gt;
+3.在建立java类时需要在java类上打对应的标注 
+</code></pre><blockquote>
 <pre><code>@Component   通用注解 
 @Repository  持久化层组件注解   
 @Service   业务层组件注解 
 @Controller 控制层组件注解  
-</code></pre><p>  4.创建Spring 容器 从容器中获取对应的组件 </p>
-</blockquote>
-<p>###和组件创建相关的标注<br>      @Scope(“prototype”)    把组件在容器中创建时 设置成非单例<br>      @PostConstruct         加在组件对应的初始化方法上<br>      @PreDestroy            加在组件对应的销毁方法上   </p>
+</code></pre></blockquote>
+<pre><code>4.创建Spring 容器 从容器中获取对应的组件 
+</code></pre><p>###和组件创建相关的标注<br>      @Scope(“prototype”)    把组件在容器中创建时 设置成非单例<br>      @PostConstruct         加在组件对应的初始化方法上<br>      @PreDestroy            加在组件对应的销毁方法上   </p>
 <p>###和组件装配有关的标注<br>      @Value       可以装配基本值也可以借助EL表达式完成对象组件的装配<br>      @Autowired   可以用在成员变量set方法构造方法上<br>          注入对象默认必须能从容器中找到,有一个找不到就崩溃<br>          这个标注优先按照类型查找,找不到就会启用名字查找,再找不到就抛异常。<br>          除非加上requried=false。这个标注结合另外一个标注 @Qualifier(不能加在构造上)<br>          可以指定名字查找,如果找不到@Autowired也是抛异常(不会使用类型查找),<br>          借助requried=false 也可以解决。<br>      @Resource     可以用在成员变量和set方法上<br>           这个标注不属于Spring框架，是JDK中的标注,这个标注优先以名字进行组件查找<br>           找不到会启用类型进行查找。当然也可以使用name 进行组件指定名字查找.</p>
 
       
@@ -364,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/spring-di/" rel="next" title="Spring-IOC-day02(DI)">
-                <i class="fa fa-chevron-left"></i> Spring-IOC-day02(DI)
+              <a href="/2018/03/25/spring-di/" rel="next" title="Spring-IOC-Day02(DI)">
+                <i class="fa fa-chevron-left"></i> Spring-IOC-Day02(DI)
               </a>
             
           </div>
@@ -373,6 +401,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/25/spring-dao/" rel="prev" title="Spring-Dao-Day04(事务处理)">
+                Spring-Dao-Day04(事务处理) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -424,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -440,7 +481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -462,7 +503,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -507,6 +548,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是组件扫描"><span class="nav-number">1.</span> <span class="nav-text">什么是组件扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件扫描的使用步骤"><span class="nav-number">2.</span> <span class="nav-text">组件扫描的使用步骤</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
