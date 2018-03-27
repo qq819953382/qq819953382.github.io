@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###BeanFactory和ApplicationContext有什么区别 ###SpringBean的生命周期 ###SpringIOC是如何实现的 ###说说SpringAop ###SpringAop 实现原理 ###动态代理机制 ###Spring事物实现方式 ###Spring事物底层原理 ###如何自定义注解实现功能 ###Spring MVC 运行流程 ###Spring MVC">
+<meta name="description" content="###BeanFactory和ApplicationContext有什么区别 BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组">
 <meta name="keywords" content="Java,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java面试题-框架">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/java面试题-框架/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###BeanFactory和ApplicationContext有什么区别 ###SpringBean的生命周期 ###SpringIOC是如何实现的 ###说说SpringAop ###SpringAop 实现原理 ###动态代理机制 ###Spring事物实现方式 ###Spring事物底层原理 ###如何自定义注解实现功能 ###Spring MVC 运行流程 ###Spring MVC">
+<meta property="og:description" content="###BeanFactory和ApplicationContext有什么区别 BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T12:52:05.361Z">
+<meta property="og:updated_time" content="2018-03-25T14:35:51.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面试题-框架">
-<meta name="twitter:description" content="###BeanFactory和ApplicationContext有什么区别 ###SpringBean的生命周期 ###SpringIOC是如何实现的 ###说说SpringAop ###SpringAop 实现原理 ###动态代理机制 ###Spring事物实现方式 ###Spring事物底层原理 ###如何自定义注解实现功能 ###Spring MVC 运行流程 ###Spring MVC">
+<meta name="twitter:description" content="###BeanFactory和ApplicationContext有什么区别 BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组">
 
 
 
@@ -345,9 +345,16 @@
 
       
         <p>###BeanFactory和ApplicationContext有什么区别</p>
-<p>###SpringBean的生命周期</p>
+<pre><code>BeanFactory和ApplicationContext是Spring的两大核心接口，
+而其中ApplicationContext是BeanFactory的子接口。
+它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。
+在基于Spring的Java EE应用中，所有的组件都被当成Bean处理，
+包括数据源，Hibernate的SessionFactory、事务管理器等。
+</code></pre><p>###SpringBean的生命周期</p>
 <p>###SpringIOC是如何实现的</p>
-<p>###说说SpringAop</p>
+<pre><code>1、使用dom4j 解析xml配置文件
+2、获取
+</code></pre><p>###说说SpringAop</p>
 <p>###SpringAop 实现原理</p>
 <p>###动态代理机制</p>
 <p>###Spring事物实现方式</p>
