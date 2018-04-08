@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+  <meta name="keywords" content="SpringCloud,微服务," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+<meta name="keywords" content="SpringCloud,微服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-cloud">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/spring-cloud/index.html">
+<meta property="og:site_name" content="AnJ">
+<meta property="og:description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-08T01:26:41.134Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-cloud">
+<meta name="twitter:description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/08/spring-cloud/"/>
+
+
+
+
+
+  <title>spring-cloud | AnJ</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AnJ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/08/spring-cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AnJie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AnJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring-cloud</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T08:31:40+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jAVA框架/" itemprop="url" rel="index">
+                    <span itemprop="name">jAVA框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###分布式服务架构（微服务架构）<br>目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud</p>
+<p>利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。</p>
+<p>请求–&gt;处理1–&gt;处理2–&gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。</p>
+<p>Dubbo和Cloud的区别如下：</p>
+<pre><code>Dubbo和Cloud服务调用机制不同，一个RPC、一个HTTP请求响应
+Dubbo一般和zookeeper结合管理服务，Cloud内置集成Eureka管理服务
+Cloud提供一套服务管理的完整方案、Dubbo需要跟其他技术集成使用。
+Cloud仅用于Rest服务管理、Dubbo是将组件服务化管理
+</code></pre><p>###Spring Cloud<br>Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等。</p>
+<pre><code>Spring Cloud Netflix
+　　是对Netflix开发的一套分布式服务框架的封装，包括服务的发现和注册，负载均衡、断路器、REST客户端、请求路由等。
+
+Spring Cloud Config
+　　将配置信息中央化保存, 配置Spring Cloud Bus可以实现动态修改配置文件
+
+Spring Cloud Bus
+　　分布式消息队列，是对Kafka, MQ的封装
+
+Spring Cloud Security
+　　对Spring Security的封装，并能配合Netflix使用
+
+Spring Cloud Zookeeper
+　　对Zookeeper的封装，使之能配置其它Spring Cloud的子项目使用
+
+Spring Cloud Eureka
+
+Spring Cloud Eureka 是 Spring Cloud Netflix 微服务套件中的一部分，
+它基于Netflix Eureka 做了二次封装，主要负责完成微服务架构中的服务治理功能。
+</code></pre><p>##基于SpringCloud实现服务注册、查找、负载功能</p>
+<p>###搭建SpringCloud服务中心（eureka）</p>
+<p>1、创建maven project，引入pom.xml定义</p>
+<pre><code>&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.4.7.RELEASE&lt;/version&gt;
+    &lt;relativePath/&gt;
+&lt;/parent&gt;
+
+&lt;properties&gt;
+    &lt;java.version&gt;1.7&lt;/java.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+&lt;!-- springcloud-eureka-server --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-cloud-starter-eureka-server&lt;/artifactId&gt;
+  &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;/dependencies&gt;
+
+&lt;dependencyManagement&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-parent&lt;/artifactId&gt;
+      &lt;version&gt;Brixton.SR5&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre><p>2、追加application.properties中eureka参数定义</p>
+<pre><code>#eureka
+#spring.application.name=EUREKA-SERVER
+eureka.client.registerWithEureka=false
+eureka.client.fetchRegistry=false
+eureka.client.serviceUrl.defaultZone=http://localhost:7777/eureka
+</code></pre><p>3、追加启动类,使用@EnableEurekaServer</p>
+<pre><code>@EnableEurekaServer//启动eureka服务器
+@SpringBootApplication
+public class EurekaServerBootApplication {
+
+    public static void main(String[] args){
+        SpringApplication.run(EurekaServerBootApplication.class, args);
+    }
+
+}
+</code></pre><p>4、启动程序测试</p>
+<pre><code>打开浏览器输入http://localhost:7777
+</code></pre><p>###向SpringCloud注册Service服务（Restful服务）</p>
+<p>1、在工程中pom.xml中引入jar包定义</p>
+<pre><code>&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-cloud-starter-parent&lt;/artifactId&gt;
+          &lt;version&gt;Brixton.SR5&lt;/version&gt;
+          &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+      &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 指定导入jackson包版本，避免eureka和boot冲突 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+      &lt;version&gt;2.8.8&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+      &lt;version&gt;2.8.8&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre><p>2、在application.properties文件追加eureka定义</p>
+<pre><code>spring.application.name=PAPER-SERVICE
+eureka.client.serviceUrl.defaultZone=http://localhost:7777/eureka
+</code></pre><p>3、在启动类前追加@EnableDiscoveryClient</p>
+<pre><code>@EnableDiscoveryClient
+@SpringBootApplication
+@MapperScan(basePackages=&quot;cn.xdl.ovls.paper.dao&quot;)
+public class PaperBootApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(PaperBootApplication.class, args);
+    }
+
+}
+</code></pre><p>4、启动程序测试</p>
+<pre><code>先启动Eureka服务中心项目，然后启动服务项目。
+
+浏览器输入http://localhost:7777就可以查看注册实例
+</code></pre><p>##SpringCloud服务调用(RestTemplate模式)</p>
+<p>1、在项目中pom.xml引入定义</p>
+<pre><code>&lt;!-- ribbon --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+  &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
+  &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-cloud-starter-parent&lt;/artifactId&gt;
+          &lt;version&gt;Brixton.SR5&lt;/version&gt;
+          &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre><p>2、在application.properties追加eureka参数</p>
+<pre><code>eureka.client.serviceUrl.defaultZone=http://localhost:7777/eureka
+</code></pre><p>3、创建RestTemplate对象，追加@LoadBalanced，启用ribbon负载功能</p>
+<pre><code>@Configuration
+public class RestTemplateConfiguration {
+
+    @Bean
+    @LoadBalanced//追加ribbon负载功能
+    public RestTemplate createRestTemplate(){
+        return new RestTemplate();
+    }
+
+}
+</code></pre><p>4、注入RestTemplate对象，利用服务名调用Restful服务</p>
+<pre><code>@Autowired
+private RestTemplate template;
+
+//url规则： http://注册服务名/请求名
+ResponseResult result = template.getForObject(
+    &quot;http://SUBJECT-SERVICE/subject&quot;, ResponseResult.class);
+</code></pre><p>5、在启动类前，追加@EnableDiscoveryClient</p>
+<pre><code>@EnableDiscoveryClient//启用服务注册和查找
+@SpringBootApplication
+public class ExamWebBootApplication {
+
+    public static void main(String[] args){
+        SpringApplication.run(ExamWebBootApplication.class, args);
+    }
+
+}
+</code></pre><p>6、启动测试</p>
+<p>###SpringCloud服务调用(Feign接口对象模式)</p>
+<p>1、在pom.xml中追加ribbon和feign定义</p>
+<pre><code>&lt;dependencies&gt;
+    &lt;!-- ribbon --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+      &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
+      &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- feign调用 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;
+      &lt;version&gt;1.3.4.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+
+&lt;/dependencies&gt;
+
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-cloud-starter-parent&lt;/artifactId&gt;
+          &lt;version&gt;Brixton.SR5&lt;/version&gt;
+          &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre><p>2、在application.properties中配置eureka参数</p>
+<pre><code>eureka.client.serviceUrl.defaultZone=http://localhost:7777/eureka
+</code></pre><p>3、定义远程Feign接口，追加@FeignClient标记</p>
+<pre><code>@FeignClient(name=&quot;SUBJECT-SERVICE&quot;)//指定注册服务名
+public interface SubjectRemote {
+
+    //方法参考Controller定义编写   如果多个参数要加上@requestParam
+    @RequestMapping(value=&quot;/subject&quot;,method=RequestMethod.GET)
+    public ResponseResult loadSubjects();
+
+}
+</code></pre><p>4、注入Feign接口对象调用远程服务</p>
+<pre><code>@Autowired
+private SubjectRemote subjectRemote;
+//利用Feign接口对象方法调用远程服务
+ResponseResult result = subjectRemote.loadSubjects();
+</code></pre><p>5、在主入口类中追加@EnableFeignClients和@EnableDiscoveryClient标记</p>
+<pre><code>@EnableFeignClients//启用Feign接口模式调用服务
+@EnableDiscoveryClient//启用服务注册和查找
+@SpringBootApplication
+public class ExamWebBootApplication {
+
+    public static void main(String[] args){
+        SpringApplication.run(ExamWebBootApplication.class, args);
+    }
+
+}
+</code></pre><p>6、启动程序测试</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringCloud/" rel="tag"># SpringCloud</a>
+          
+            <a href="/tags/微服务/" rel="tag"># 微服务</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/27/oracle/" rel="next" title="oracle整理">
+                <i class="fa fa-chevron-left"></i> oracle整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">AnJie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AnJie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
