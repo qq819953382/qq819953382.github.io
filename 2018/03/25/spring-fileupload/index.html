@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###Spring 实现文件上传       1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )       2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver       3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其">
+<meta name="description" content="Spring 实现文件上传1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc ) 2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver   3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其中有个方法可以调整上传文件的页面。">
 <meta name="keywords" content="Spring,MVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-Day06-FileUpload">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-fileupload/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###Spring 实现文件上传       1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )       2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver       3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其">
+<meta property="og:description" content="Spring 实现文件上传1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc ) 2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver   3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其中有个方法可以调整上传文件的页面。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T09:59:33.546Z">
+<meta property="og:updated_time" content="2018-04-12T13:26:51.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-Day06-FileUpload">
-<meta name="twitter:description" content="###Spring 实现文件上传       1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )       2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver       3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其">
+<meta name="twitter:description" content="Spring 实现文件上传1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc ) 2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver   3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其中有个方法可以调整上传文件的页面。">
 
 
 
@@ -344,7 +344,13 @@
       
 
       
-        <p>###Spring 实现文件上传<br>       1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )<br>       2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver<br>       3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其中有个方法可以调整上传文件的页面。<br>       4 填充 upload.jsp 中的内容<br>         必须是post请求   enctype=”multipart/form-data”，必须有一个文件元素 file<br>       5 配置文件解析器和拷贝对应jar包<br>控制器代码如下：</p>
+        <h3 id="Spring-实现文件上传"><a href="#Spring-实现文件上传" class="headerlink" title="Spring 实现文件上传"></a>Spring 实现文件上传</h3><pre><code>1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )
+2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver  
+3 在WEB-INF 下写一个上传页面并写一个控制器(写组件创建标注和映射请求的标注)其中有个方法可以调整上传文件的页面。  
+4 填充 upload.jsp 中的内容
+  必须是post请求   enctype=&quot;multipart/form-data&quot;，必须有一个文件元素 file 
+5 配置文件解析器和拷贝对应jar包 
+</code></pre><p>控制器代码如下：</p>
 <pre><code>@RequestMapping(&quot;/fileUpload.do&quot;)
     public String FileUpload(MultipartFile myFile,String username,HttpServletRequest request){
         String orgFile  = myFile.getOriginalFilename();
@@ -461,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -544,6 +559,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-实现文件上传"><span class="nav-number">1.</span> <span class="nav-text">Spring 实现文件上传</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

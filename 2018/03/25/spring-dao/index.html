@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###SpringDAO 对JDBC 做了哪些改进       1 封装了JDBC,简化了DAO实现类编写       2 提供了AOP模式的事务处理       3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 ###SpringDAO 完成数据库访问的核心类 是JdbcTemplate     使用这个类无需关心、驱动加">
+<meta name="description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
 <meta name="keywords" content="Spring,Dao">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-Dao-Day04(事务处理)">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-dao/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###SpringDAO 对JDBC 做了哪些改进       1 封装了JDBC,简化了DAO实现类编写       2 提供了AOP模式的事务处理       3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 ###SpringDAO 完成数据库访问的核心类 是JdbcTemplate     使用这个类无需关心、驱动加">
+<meta property="og:description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T09:31:34.649Z">
+<meta property="og:updated_time" content="2018-04-12T13:27:10.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-Dao-Day04(事务处理)">
-<meta name="twitter:description" content="###SpringDAO 对JDBC 做了哪些改进       1 封装了JDBC,简化了DAO实现类编写       2 提供了AOP模式的事务处理       3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 ###SpringDAO 完成数据库访问的核心类 是JdbcTemplate     使用这个类无需关心、驱动加">
+<meta name="twitter:description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
 
 
 
@@ -344,10 +344,19 @@
       
 
       
-        <p>###SpringDAO 对JDBC 做了哪些改进<br>       1 封装了JDBC,简化了DAO实现类编写<br>       2 提供了AOP模式的事务处理<br>       3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。</p>
-<p>###SpringDAO 完成数据库访问的核心类 是JdbcTemplate<br>     使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放<br>     模板中的方法有:<br>     queryForInt     过时的查询一个整数的方法<br>     queryForObject  替代上面的方法<br>     query              完成查询的方法<br>     update             完成增 删 改的方法<br>     execute            可以执行任何sql语句 但基本上不用 </p>
-<p>###如何使用 JdbcTemplate<br>      1 第一种是继承 JdbcDaoSupport   这个类中有对应的模板</p>
-<pre><code>  1) XML 配置   配置数据源
+        <h3 id="SpringDAO-对JDBC-做了哪些改进"><a href="#SpringDAO-对JDBC-做了哪些改进" class="headerlink" title="SpringDAO 对JDBC 做了哪些改进"></a>SpringDAO 对JDBC 做了哪些改进</h3><pre><code>1 封装了JDBC,简化了DAO实现类编写 
+2 提供了AOP模式的事务处理 
+3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。
+</code></pre><h3 id="SpringDAO-完成数据库访问的核心类-是JdbcTemplate"><a href="#SpringDAO-完成数据库访问的核心类-是JdbcTemplate" class="headerlink" title="SpringDAO 完成数据库访问的核心类 是JdbcTemplate"></a>SpringDAO 完成数据库访问的核心类 是JdbcTemplate</h3><pre><code>使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放 
+模板中的方法有: 
+queryForInt     过时的查询一个整数的方法
+queryForObject  替代上面的方法
+query              完成查询的方法
+update             完成增 删 改的方法
+execute            可以执行任何sql语句 但基本上不用 
+</code></pre><h3 id="如何使用-JdbcTemplate"><a href="#如何使用-JdbcTemplate" class="headerlink" title="如何使用 JdbcTemplate"></a>如何使用 JdbcTemplate</h3><pre><code>1 第一种是继承 JdbcDaoSupport   这个类中有对应的模板
+
+  1) XML 配置   配置数据源
       &lt;context:component-scan base-package=&quot;com.xdl&quot;&gt;&lt;/context:component-scan&gt;
       &lt;util:properties id=&quot;proper&quot; location=&quot;classpath:db.properties&quot;&gt;
       &lt;/util:properties&gt;
@@ -379,9 +388,32 @@
           &lt;constructor-arg ref=&quot;dataSource&quot;&gt;&lt;/constructor-arg&gt;
       &lt;/bean&gt;
   2）使用标注的方式赋值
-</code></pre><p>###Spring  声明式事务的实现步骤<br>    1 开启标注形式的声明式事务  和 组件扫描<br>      <!-- 开启事务注解扫描 --><br>       &lt;tx:annotation-driven<br>           transaction-manager=”txManager” proxy-target-class=”true”/&gt;<br>      transaction-manager 这个属性对应一个事务管理器<br>      proxy-target-class  这个属性 如果取值为 “true”  则优先使用CGLIB 生成代理<br>             如果为”false” 就优先使用 JDK的代理机制(代理类和被代理类必须实现共同的接口)。<br>    2 配置事务管理器<br>       <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"><br>        <property name="dataSource" ref="ds"><br>       </property></bean><br>    3 在需要事务管理的地方 加事务控制的标注<br>       @Transactional</p>
-<p>###@Transactional 这个标注的属性<br>      rollBackFor    用来指定相应的检查异常进行事务回滚，因为Spring默认只针对运行时异常<br>                回滚事务。<br>      noRollbackFor  针对哪些运行时异常不回滚<br>      readOnly          事务中有修改数据的代码 则 readyOnly 为false    默认就是false<br>      isolation      事务隔离级别<br>                读未提交  读提交  可重复读   序列化<br>        用来解决三大读问题：<br>               脏读           一个事务读取到了另外一个事务没有提交的数据<br>               不可重复读      一个事务在开始时读取到一份数据 在这个事务执行的过程中另外一个事务修改了这份数据并进行了提交，哪第一个事务再次读取这份数据时发现数据发生了改变。<br>               幻读            一个事务对表中的所有数据都进行统计,这时候另外一个事务对表进行数据的增加并提交，再次统计时数据发生了改变 。<br>      propagation  事务传播特性 一共有七个 </p>
-
+</code></pre><h3 id="Spring-声明式事务的实现步骤"><a href="#Spring-声明式事务的实现步骤" class="headerlink" title="Spring  声明式事务的实现步骤"></a>Spring  声明式事务的实现步骤</h3><pre><code>1 开启标注形式的声明式事务  和 组件扫描
+  &lt;!-- 开启事务注解扫描 --&gt;
+   &lt;tx:annotation-driven
+       transaction-manager=&quot;txManager&quot; proxy-target-class=&quot;true&quot;/&gt;
+  transaction-manager 这个属性对应一个事务管理器 
+  proxy-target-class  这个属性 如果取值为 &quot;true&quot;  则优先使用CGLIB 生成代理
+         如果为&quot;false&quot; 就优先使用 JDK的代理机制(代理类和被代理类必须实现共同的接口)。  
+2 配置事务管理器 
+   &lt;bean id= &quot;txManager&quot;
+    class= &quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name= &quot;dataSource&quot; ref=&quot;ds&quot;/&gt;
+   &lt;/bean&gt;
+3 在需要事务管理的地方 加事务控制的标注 
+   @Transactional
+</code></pre><h3 id="Transactional-这个标注的属性"><a href="#Transactional-这个标注的属性" class="headerlink" title="@Transactional 这个标注的属性"></a>@Transactional 这个标注的属性</h3><pre><code>rollBackFor    用来指定相应的检查异常进行事务回滚，因为Spring默认只针对运行时异常
+          回滚事务。
+noRollbackFor  针对哪些运行时异常不回滚 
+readOnly          事务中有修改数据的代码 则 readyOnly 为false    默认就是false
+isolation      事务隔离级别    
+          读未提交  读提交  可重复读   序列化
+  用来解决三大读问题：
+         脏读           一个事务读取到了另外一个事务没有提交的数据   
+         不可重复读      一个事务在开始时读取到一份数据 在这个事务执行的过程中另外一个事务修改了这份数据并进行了提交，哪第一个事务再次读取这份数据时发现数据发生了改变。
+         幻读            一个事务对表中的所有数据都进行统计,这时候另外一个事务对表进行数据的增加并提交，再次统计时数据发生了改变 。   
+propagation  事务传播特性 一共有七个 
+</code></pre>
       
     </div>
     
@@ -477,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -560,6 +601,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringDAO-对JDBC-做了哪些改进"><span class="nav-number">1.</span> <span class="nav-text">SpringDAO 对JDBC 做了哪些改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringDAO-完成数据库访问的核心类-是JdbcTemplate"><span class="nav-number">2.</span> <span class="nav-text">SpringDAO 完成数据库访问的核心类 是JdbcTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用-JdbcTemplate"><span class="nav-number">3.</span> <span class="nav-text">如何使用 JdbcTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-声明式事务的实现步骤"><span class="nav-number">4.</span> <span class="nav-text">Spring  声明式事务的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transactional-这个标注的属性"><span class="nav-number">5.</span> <span class="nav-text">@Transactional 这个标注的属性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

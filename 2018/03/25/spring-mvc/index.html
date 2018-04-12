@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###基于标注的Spring  MVC的实现步骤      1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp      1.2在web.xml 中配置DispatcherServlet      1.3 开启组件扫描和 mvc 的标注         &amp;lt;context:component-scan">
+<meta name="description" content="基于标注的Spring  MVC的实现步骤1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp 1.2在web.xml 中配置DispatcherServlet 1.3 开启组件扫描和 mvc 的标注     &amp;lt;context:component-scan base-package=&amp;quot;&amp;qu">
 <meta name="keywords" content="Spring,MVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-mvc-Day05(异常，拦截器，中文乱码处理)">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-mvc/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###基于标注的Spring  MVC的实现步骤      1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp      1.2在web.xml 中配置DispatcherServlet      1.3 开启组件扫描和 mvc 的标注         &amp;lt;context:component-scan">
+<meta property="og:description" content="基于标注的Spring  MVC的实现步骤1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp 1.2在web.xml 中配置DispatcherServlet 1.3 开启组件扫描和 mvc 的标注     &amp;lt;context:component-scan base-package=&amp;quot;&amp;qu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T09:51:37.296Z">
+<meta property="og:updated_time" content="2018-04-12T13:26:25.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-mvc-Day05(异常，拦截器，中文乱码处理)">
-<meta name="twitter:description" content="###基于标注的Spring  MVC的实现步骤      1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp      1.2在web.xml 中配置DispatcherServlet      1.3 开启组件扫描和 mvc 的标注         &amp;lt;context:component-scan">
+<meta name="twitter:description" content="基于标注的Spring  MVC的实现步骤1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp 1.2在web.xml 中配置DispatcherServlet 1.3 开启组件扫描和 mvc 的标注     &amp;lt;context:component-scan base-package=&amp;quot;&amp;qu">
 
 
 
@@ -344,10 +344,28 @@
       
 
       
-        <p>###基于标注的Spring  MVC的实现步骤<br>      1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp<br>      1.2在web.xml 中配置DispatcherServlet<br>      1.3 开启组件扫描和 mvc 的标注<br>         &lt;context:component-scan base-package=””/&gt;<br>         <a href="mvc:annotation-driven/" target="_blank" rel="noopener">mvc:annotation-driven/</a><br>      1.4写一个控制器(不需要实现Controller接口) 返回值可以String 或者 ModelAndView<br>              以后可以是对象 或者 集合<br>              在控制器对应的方法上 写 @RequestMapping(“/请求路径”)<br>      1.5配置ViewResolver </p>
-<p>###Spring 中的重定向<br>      1 当控制器返回字符串时<br>       “redirect:路径”<br>        toLogin.do     /toLogin.do<br>        / 在这里代表 项目名以及项目名前面的部分<br>      2 当控制器中返回ModelAndView<br>         RedirectView rv = new RedirectView(“路径”);<br>         toLogin.do     /toLogin.do<br>         /  在这里代表 项目名前面的部分 不包含项目名</p>
-<p>###2.中文乱码问题<br>      1  之前的方式依然可用<br>          get  和 post 的处理方式<br>      2  使用Spring 提供的编码过滤器<br>            只针对post 方式</p>
-<p>###拦截器<br>1 作用:</p>
+        <h3 id="基于标注的Spring-MVC的实现步骤"><a href="#基于标注的Spring-MVC的实现步骤" class="headerlink" title="基于标注的Spring  MVC的实现步骤"></a>基于标注的Spring  MVC的实现步骤</h3><pre><code>1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp
+1.2在web.xml 中配置DispatcherServlet
+1.3 开启组件扫描和 mvc 的标注 
+   &lt;context:component-scan base-package=&quot;&quot;/&gt;
+   &lt;mvc:annotation-driven/&gt;
+1.4写一个控制器(不需要实现Controller接口) 返回值可以String 或者 ModelAndView
+        以后可以是对象 或者 集合 
+        在控制器对应的方法上 写 @RequestMapping(&quot;/请求路径&quot;)
+1.5配置ViewResolver 
+</code></pre><h3 id="Spring-中的重定向"><a href="#Spring-中的重定向" class="headerlink" title="Spring 中的重定向"></a>Spring 中的重定向</h3><pre><code>1 当控制器返回字符串时 
+ &quot;redirect:路径&quot;     
+  toLogin.do     /toLogin.do 
+  / 在这里代表 项目名以及项目名前面的部分 
+2 当控制器中返回ModelAndView
+   RedirectView rv = new RedirectView(&quot;路径&quot;);
+   toLogin.do     /toLogin.do 
+   /  在这里代表 项目名前面的部分 不包含项目名
+</code></pre><h3 id="2-中文乱码问题"><a href="#2-中文乱码问题" class="headerlink" title="2.中文乱码问题"></a>2.中文乱码问题</h3><pre><code>1  之前的方式依然可用 
+    get  和 post 的处理方式
+2  使用Spring 提供的编码过滤器  
+      只针对post 方式
+</code></pre><h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><p>1 作用:</p>
 <pre><code>可以实现日志记录、权限检查、控制、性能监控  
 </code></pre><p>2 如何实现?</p>
 <pre><code>a.自定义拦截器实现HandlerInterceptor接口,在对应的方法中编写业务逻辑
@@ -364,8 +382,7 @@ b.在Spring 的配置文件 配置拦截器
   &lt;/mvc:interceptors&gt;
 </code></pre><p>3 多个自定义拦截器的执行顺序 </p>
 <pre><code>preHandle 和 配置顺序一致  其它方法 和配置顺序相反
-</code></pre><p>###Spring 中的异常处理   </p>
-<p>1  使用Spring 提供的 SimpleMappingExceptionResolver  全局异常处理 </p>
+</code></pre><h3 id="Spring-中的异常处理"><a href="#Spring-中的异常处理" class="headerlink" title="Spring 中的异常处理"></a>Spring 中的异常处理</h3><p>1  使用Spring 提供的 SimpleMappingExceptionResolver  全局异常处理 </p>
 <pre><code>  &lt;bean class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt;
      &lt;property name=&quot;exceptionMappings&quot;&gt;
           &lt;props&gt;
@@ -487,8 +504,17 @@ public  String execute(Exception e){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -570,6 +596,22 @@ public  String execute(Exception e){
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于标注的Spring-MVC的实现步骤"><span class="nav-number">1.</span> <span class="nav-text">基于标注的Spring  MVC的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-中的重定向"><span class="nav-number">2.</span> <span class="nav-text">Spring 中的重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-中文乱码问题"><span class="nav-number">3.</span> <span class="nav-text">2.中文乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截器"><span class="nav-number">4.</span> <span class="nav-text">拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-中的异常处理"><span class="nav-number">5.</span> <span class="nav-text">Spring 中的异常处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

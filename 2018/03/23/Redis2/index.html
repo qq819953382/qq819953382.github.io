@@ -71,19 +71,19 @@
 
 
 
-<meta name="description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
+<meta name="description" content="Redis(补充)Redis缓存Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot">
 <meta name="keywords" content="NoSQL,Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis(补充)">
 <meta property="og:url" content="http://yoursite.com/2018/03/23/Redis2/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
+<meta property="og:description" content="Redis(补充)Redis缓存Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/cache.png">
-<meta property="og:updated_time" content="2018-03-23T12:58:29.078Z">
+<meta property="og:updated_time" content="2018-04-12T13:28:52.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis(补充)">
-<meta name="twitter:description" content="##Redis(补充) ###Redis缓存 Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spri">
+<meta name="twitter:description" content="Redis(补充)Redis缓存Redis作为系统的缓存，介于业务和关系型数据库之间。  案例：利用Redis优化部门列表显示  在pom.xml定义boot-redis &amp;lt;dependency&amp;gt;       &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot">
 <meta name="twitter:image" content="http://yoursite.com/images/cache.png">
 
 
@@ -346,9 +346,7 @@
       
 
       
-        <p>##Redis(补充)</p>
-<p>###Redis缓存</p>
-<p>Redis作为系统的缓存，介于业务和关系型数据库之间。</p>
+        <h2 id="Redis-补充"><a href="#Redis-补充" class="headerlink" title="Redis(补充)"></a>Redis(补充)</h2><h3 id="Redis缓存"><a href="#Redis缓存" class="headerlink" title="Redis缓存"></a>Redis缓存</h3><p>Redis作为系统的缓存，介于业务和关系型数据库之间。</p>
 <p><img src="/images/cache.png" alt=""></p>
 <p>案例：利用Redis优化部门列表显示</p>
 <ol>
@@ -419,8 +417,7 @@ public class MyTask1 implements ApplicationRunner{
 }
 </code></pre></li>
 </ol>
-<p>##Redis持久化机制</p>
-<p>Redis内部提供了RDB和AOF两种持久化机制。</p>
+<h2 id="Redis持久化机制"><a href="#Redis持久化机制" class="headerlink" title="Redis持久化机制"></a>Redis持久化机制</h2><p>Redis内部提供了RDB和AOF两种持久化机制。</p>
 <ol>
 <li><p>RDB模式</p>
 <p> 快照机制，快速、但是两次快照之间数据会丢失。默认间隔为1分钟、5分钟、15分钟。（会存在1分钟数据丢失风险）</p>
@@ -430,8 +427,7 @@ public class MyTask1 implements ApplicationRunner{
 </li>
 </ol>
 <p>提示：两种可以都开启，但是恢复时优先使用日志模式。</p>
-<p>##Boot补充</p>
-<ol>
+<h2 id="Boot补充"><a href="#Boot补充" class="headerlink" title="Boot补充"></a>Boot补充</h2><ol>
 <li><p>Mybatis分页处理</p>
 <ul>
 <li><p>添加pom.xml定义</p>
@@ -594,8 +590,17 @@ public class TestDeptDao {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -677,6 +682,22 @@ public class TestDeptDao {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-补充"><span class="nav-number">1.</span> <span class="nav-text">Redis(补充)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis缓存"><span class="nav-number">1.1.</span> <span class="nav-text">Redis缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis持久化机制"><span class="nav-number">2.</span> <span class="nav-text">Redis持久化机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boot补充"><span class="nav-number">3.</span> <span class="nav-text">Boot补充</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

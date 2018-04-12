@@ -344,11 +344,13 @@
       
         
           
-          ###Spring 实现文件上传       1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )       2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver 
+          Spring 实现文件上传1 建立一个项目拷贝Spring配置文件和导入对应的jar包(ioc aop mvc )
+2 分别在web.xml中配置DispatcherServlet和在Spring配置文件中开启组件扫描和标注形式的mvc，配置ViewResolver  
+3 在WEB-INF 下写一
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/spring-fileupload/#espandi" rel="contents">
+            <a class="btn" href="/2018/03/25/spring-fileupload/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -492,11 +494,14 @@
       
         
           
-          ###基于标注的Spring  MVC的实现步骤      1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp      1.2在web.xml 中配置DispatcherServlet      1.3 
+          基于标注的Spring  MVC的实现步骤1.1 创建一个工程，拷贝Spring容器对应的配置文件和导入jar包(ioc、aop、mvc)并在WEB-INF建立一个页面login.jsp
+1.2在web.xml 中配置DispatcherServlet
+1.3 开启组件扫描和 mvc 的标注 
+  
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/spring-mvc/#espandi" rel="contents">
+            <a class="btn" href="/2018/03/25/spring-mvc/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -640,12 +645,14 @@
       
         
           
-          ###SpringDAO 对JDBC 做了哪些改进       1 封装了JDBC,简化了DAO实现类编写       2 提供了AOP模式的事务处理       3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。
-###Spr
+          SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写 
+2 提供了AOP模式的事务处理 
+3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。
+SpringDAO 完成数据库访问的核心类 是Jdb
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/spring-dao/#espandi" rel="contents">
+            <a class="btn" href="/2018/03/25/spring-dao/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -789,15 +796,15 @@
       
         
           
-          #组件扫描
-什么是组件扫描Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)
+          组件扫描什么是组件扫描Spring 提供了一套可以把组件在容器中创建出来以及组装组件的标注(注解)
 这种技术可以大大简化xml的配置。
 组件扫描的使用步骤1.建立一个工程拷贝配置Spring容器对应的配置文件和导入jar包(IOC和AOP的)
 2.在Spring 容器对应的配置文件中开启组件扫描
+&
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/spring-ioc3/#espandi" rel="contents">
+            <a class="btn" href="/2018/03/25/spring-ioc3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -941,12 +948,14 @@
       
         
           
-          ###什么是DI    依赖注入(Dependence Injection)    DI是IOC的一种具体实现，解决的是组件之间的装配问题
-###Spring中依赖注入的实现方式    1 setter注入     基于set方法的注入                                
+          什么是DI依赖注入(Dependence Injection) 
+DI是IOC的一种具体实现，解决的是组件之间的装配问题
+Spring中依赖注入的实现方式1 setter注入     基于set方法的注入
+    &lt;bean id=&quot;cardb&quot;  class=&quot;
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/spring-di/#espandi" rel="contents">
+            <a class="btn" href="/2018/03/25/spring-di/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

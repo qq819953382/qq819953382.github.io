@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###什么是DI    依赖注入(Dependence Injection)    DI是IOC的一种具体实现，解决的是组件之间的装配问题 ###Spring中依赖注入的实现方式    1 setter注入     基于set方法的注入                                                2 构造器注入   基于构造方法的注入">
+<meta name="description" content="什么是DI依赖注入(Dependence Injection)  DI是IOC的一种具体实现，解决的是组件之间的装配问题 Spring中依赖注入的实现方式1 setter注入     基于set方法的注入     &amp;lt;bean id=&amp;quot;cardb&amp;quot;  class=&amp;quot;com.xdl.bean.Card&amp;quot;&amp;gt;          &amp;lt;property">
 <meta name="keywords" content="Spring,IOC,DI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-IOC-Day02(DI)">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-di/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###什么是DI    依赖注入(Dependence Injection)    DI是IOC的一种具体实现，解决的是组件之间的装配问题 ###Spring中依赖注入的实现方式    1 setter注入     基于set方法的注入                                                2 构造器注入   基于构造方法的注入">
+<meta property="og:description" content="什么是DI依赖注入(Dependence Injection)  DI是IOC的一种具体实现，解决的是组件之间的装配问题 Spring中依赖注入的实现方式1 setter注入     基于set方法的注入     &amp;lt;bean id=&amp;quot;cardb&amp;quot;  class=&amp;quot;com.xdl.bean.Card&amp;quot;&amp;gt;          &amp;lt;property">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T09:30:31.098Z">
+<meta property="og:updated_time" content="2018-04-12T13:27:00.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-IOC-Day02(DI)">
-<meta name="twitter:description" content="###什么是DI    依赖注入(Dependence Injection)    DI是IOC的一种具体实现，解决的是组件之间的装配问题 ###Spring中依赖注入的实现方式    1 setter注入     基于set方法的注入                                                2 构造器注入   基于构造方法的注入">
+<meta name="twitter:description" content="什么是DI依赖注入(Dependence Injection)  DI是IOC的一种具体实现，解决的是组件之间的装配问题 Spring中依赖注入的实现方式1 setter注入     基于set方法的注入     &amp;lt;bean id=&amp;quot;cardb&amp;quot;  class=&amp;quot;com.xdl.bean.Card&amp;quot;&amp;gt;          &amp;lt;property">
 
 
 
@@ -344,10 +344,27 @@
       
 
       
-        <p>###什么是DI<br>    依赖注入(Dependence Injection)<br>    DI是IOC的一种具体实现，解决的是组件之间的装配问题</p>
-<p>###Spring中依赖注入的实现方式<br>    1 setter注入     基于set方法的注入<br>        <bean id="cardb" class="com.xdl.bean.Card"><br>             <property name="suits" value="红桃"></property><br>             <property name="point" value="K"></property><br>        </bean><br>      2 构造器注入   基于构造方法的注入<br>        <bean id="cardc" class="com.xdl.bean.Card"><br>             <constructor-arg index="0" value="梅花"></constructor-arg><br>             <constructor-arg index="1" value="Q"> </constructor-arg><br>        </bean><br>      2 自动化注入<br>           在bean标记中使用autowire属性进行指定<br>        取值：<br>               byName         按照Spring容器中组件的id进行自动查找，看是否和属性名相同<br>            byType         根据属性的类型在容器进行查找，但是不要有多个符合条件的值，有则报错<br>            constructor   类似于byType但是类型冲突时会启用byName(看的是形参名)<br>            autodetect    早期版本的现在废弃了</p>
-<p>###Spring 的EL表达式<br>    把原来EL表达式中的$变成#  取的是Spring容器中对象的值</p>
-
+        <h3 id="什么是DI"><a href="#什么是DI" class="headerlink" title="什么是DI"></a>什么是DI</h3><pre><code>依赖注入(Dependence Injection) 
+DI是IOC的一种具体实现，解决的是组件之间的装配问题
+</code></pre><h3 id="Spring中依赖注入的实现方式"><a href="#Spring中依赖注入的实现方式" class="headerlink" title="Spring中依赖注入的实现方式"></a>Spring中依赖注入的实现方式</h3><pre><code>1 setter注入     基于set方法的注入
+    &lt;bean id=&quot;cardb&quot;  class=&quot;com.xdl.bean.Card&quot;&gt;
+         &lt;property name=&quot;suits&quot; value=&quot;红桃&quot; &gt;&lt;/property&gt;
+         &lt;property name=&quot;point&quot; value=&quot;K&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;     
+  2 构造器注入   基于构造方法的注入
+    &lt;bean  id=&quot;cardc&quot; class=&quot;com.xdl.bean.Card&quot;&gt;
+         &lt;constructor-arg  index=&quot;0&quot; value=&quot;梅花&quot;&gt;&lt;/constructor-arg&gt;
+         &lt;constructor-arg  index=&quot;1&quot; value=&quot;Q&quot;&gt; &lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+  2 自动化注入  
+       在bean标记中使用autowire属性进行指定   
+    取值：
+           byName         按照Spring容器中组件的id进行自动查找，看是否和属性名相同  
+        byType         根据属性的类型在容器进行查找，但是不要有多个符合条件的值，有则报错
+        constructor   类似于byType但是类型冲突时会启用byName(看的是形参名)
+        autodetect    早期版本的现在废弃了
+</code></pre><h3 id="Spring-的EL表达式"><a href="#Spring-的EL表达式" class="headerlink" title="Spring 的EL表达式"></a>Spring 的EL表达式</h3><pre><code>把原来EL表达式中的$变成#  取的是Spring容器中对象的值
+</code></pre>
       
     </div>
     
@@ -445,8 +462,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +554,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是DI"><span class="nav-number">1.</span> <span class="nav-text">什么是DI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring中依赖注入的实现方式"><span class="nav-number">2.</span> <span class="nav-text">Spring中依赖注入的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-的EL表达式"><span class="nav-number">3.</span> <span class="nav-text">Spring 的EL表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

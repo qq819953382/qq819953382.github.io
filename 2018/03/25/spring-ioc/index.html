@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###Spring 的框架的构成    IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    ###什么是IOC 控制反转 (Inversion of Control)   对象">
+<meta name="description" content="Spring 的框架的构成  IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    什么是IOC控制反转 (Inversion of Control)   对象的创建由原来的方式">
 <meta name="keywords" content="Spring,IOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-IOC-Day01(Spring容器)">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/spring-ioc/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###Spring 的框架的构成    IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    ###什么是IOC 控制反转 (Inversion of Control)   对象">
+<meta property="og:description" content="Spring 的框架的构成  IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    什么是IOC控制反转 (Inversion of Control)   对象的创建由原来的方式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-25T08:19:58.792Z">
+<meta property="og:updated_time" content="2018-04-12T13:26:48.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-IOC-Day01(Spring容器)">
-<meta name="twitter:description" content="###Spring 的框架的构成    IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    ###什么是IOC 控制反转 (Inversion of Control)   对象">
+<meta name="twitter:description" content="Spring 的框架的构成  IOC   控制反转  构成Spring框架的核心  DAO   Spring 对JDBC的封装和支持   MVC   Spring 对 Web部分支持  AOP   面向切面编程   ORM   对象关系映射 (mybatis)  JEE   远程调用  消息 邮件    什么是IOC控制反转 (Inversion of Control)   对象的创建由原来的方式">
 
 
 
@@ -344,8 +344,7 @@
       
 
       
-        <p>###Spring 的框架的构成 </p>
-<blockquote>
+        <h3 id="Spring-的框架的构成"><a href="#Spring-的框架的构成" class="headerlink" title="Spring 的框架的构成"></a>Spring 的框架的构成</h3><blockquote>
 <p> IOC   控制反转  构成Spring框架的核心</p>
 <p> DAO   Spring 对JDBC的封装和支持 </p>
 <p> MVC   Spring 对 Web部分支持</p>
@@ -353,27 +352,49 @@
 <p> ORM   对象关系映射 (mybatis)</p>
 <p> JEE   远程调用  消息 邮件  </p>
 </blockquote>
-<p>###什么是IOC</p>
-<pre><code>控制反转 (Inversion of Control) 
+<h3 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h3><pre><code>控制反转 (Inversion of Control) 
 
 对象的创建由原来的方式变成Spring来进行创建和管理，降低了组件之间的耦合度，
 
 IOC的作用：可以创建组件、管理组件和维护组件之间的关系。
-</code></pre><p>###Spring 容器 </p>
-<pre><code>用来管理、创建对象和维护对象的关系
+</code></pre><h3 id="Spring-容器"><a href="#Spring-容器" class="headerlink" title="Spring 容器"></a>Spring 容器</h3><pre><code>用来管理、创建对象和维护对象的关系
 Spring容器实现了IOC和AOP机制
 Spring容器的类型是：ApplicationContext和BeanFactory类型
-</code></pre><p>###Spring 容器的使用步骤<br>       1 建立一个项目，导入ioc对应的jar包，拷贝Spring容器对应的配置文件到src下<br>       2 在Spring容器对应的配置文件中写bean组件对应的配置<br>         <bean id="对象标识" class="包名+类名"> </bean><br>       3 在主方法中创建Spring容器对象并通过相应的API获取对应的组件<br>            // 创建Spring 容器对象<br>            ApplicationContext app =<br>                new ClassPathXmlApplicationContext(“applicationContext.xml”);<br>            // 通过容器的API获取对应的组件<br>            Date date = (Date)app.getBean(“date”);<br>            System.out.println(date);<br>            // 推荐使用的方式<br>            Date date2 = app.getBean(“date”, Date.class);<br>            System.out.println(date2); </p>
-<p>###Spring容器创建对象的三种形式<br>      1 构造器实例化    //默认调用无参构造方法<br>             <bean id="标识符" class="包名+类名"></bean><br>      2 静态工厂方法实例化    //在Spring容器中构建一个java.util.Calendar 类型的对象<br>             <bean id="目标对象的标识" class="包名+工厂类名" factory-method="静态方法名"></bean><br>      3 实例化工厂方法  //实例化<br>         <bean id="目标对象的标识" factory-bean="工厂对象" factory-method="实例化方法名"></bean>   </p>
-<p>###bean对象的作用域<br>          bean 对象默认(singleton)作用域是单例的<br>        可以通过bean标记中的scope属性 来指定作用域<br>        当指定成prototype时是非单例的(请求几次就创建几个对象)。<br>        其它的如request,session,在web部分中使用 </p>
-<p>###bean 对象的初始化<br>          在构造方法调用完成之后  可以通过beans标记中 加  default-init-method 指定初始化方法名<br>        由于这样配置 影响的范围比较大,所以bean 组件对应的类型中 没有 对应的方法 也不会报错。<br>        也可以在bean 标签中 加 init-method 指定初始化方法,由于影响比较小 所以没有对应的<br>        初始化方法则会报错。</p>
-<p>###bean 对象的销毁  </p>
-<pre><code> 在对象销毁之前可以通过beans标记中加default-destroy-method指定销毁方法名,
+</code></pre><h3 id="Spring-容器的使用步骤"><a href="#Spring-容器的使用步骤" class="headerlink" title="Spring 容器的使用步骤"></a>Spring 容器的使用步骤</h3><pre><code>1 建立一个项目，导入ioc对应的jar包，拷贝Spring容器对应的配置文件到src下
+2 在Spring容器对应的配置文件中写bean组件对应的配置
+  &lt;bean  id=&quot;对象标识&quot;  class=&quot;包名+类名&quot; &gt; &lt;/bean&gt;   
+3 在主方法中创建Spring容器对象并通过相应的API获取对应的组件
+     // 创建Spring 容器对象 
+     ApplicationContext app = 
+         new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+     // 通过容器的API获取对应的组件 
+     Date date = (Date)app.getBean(&quot;date&quot;);
+     System.out.println(date);
+     // 推荐使用的方式
+     Date date2 = app.getBean(&quot;date&quot;, Date.class);
+     System.out.println(date2); 
+</code></pre><h3 id="Spring容器创建对象的三种形式"><a href="#Spring容器创建对象的三种形式" class="headerlink" title="Spring容器创建对象的三种形式"></a>Spring容器创建对象的三种形式</h3><pre><code>1 构造器实例化    //默认调用无参构造方法
+       &lt;bean  id=&quot;标识符&quot;  class=&quot;包名+类名&quot; &gt;&lt;/bean&gt;
+2 静态工厂方法实例化    //在Spring容器中构建一个java.util.Calendar 类型的对象    
+       &lt;bean id=&quot;目标对象的标识&quot;  class=&quot;包名+工厂类名&quot;  factory-method=&quot;静态方法名&quot;&gt;&lt;/bean&gt;
+3 实例化工厂方法  //实例化 
+   &lt;bean id=&quot;目标对象的标识&quot;  factory-bean=&quot;工厂对象&quot;  factory-method=&quot;实例化方法名&quot;&gt;&lt;/bean&gt;   
+</code></pre><h3 id="bean对象的作用域"><a href="#bean对象的作用域" class="headerlink" title="bean对象的作用域"></a>bean对象的作用域</h3><pre><code>  bean 对象默认(singleton)作用域是单例的
+可以通过bean标记中的scope属性 来指定作用域 
+当指定成prototype时是非单例的(请求几次就创建几个对象)。
+其它的如request,session,在web部分中使用 
+</code></pre><h3 id="bean-对象的初始化"><a href="#bean-对象的初始化" class="headerlink" title="bean 对象的初始化"></a>bean 对象的初始化</h3><pre><code>  在构造方法调用完成之后  可以通过beans标记中 加  default-init-method 指定初始化方法名 
+由于这样配置 影响的范围比较大,所以bean 组件对应的类型中 没有 对应的方法 也不会报错。
+也可以在bean 标签中 加 init-method 指定初始化方法,由于影响比较小 所以没有对应的
+初始化方法则会报错。
+</code></pre><h3 id="bean-对象的销毁"><a href="#bean-对象的销毁" class="headerlink" title="bean 对象的销毁"></a>bean 对象的销毁</h3><pre><code> 在对象销毁之前可以通过beans标记中加default-destroy-method指定销毁方法名,
 由于这样配置影响的范围比较大,所以bean组件对应的类型中没有对应的方法也不会报错。
 也可以在bean标签中加destroy-method 指定销毁方法,由于影响比较小所以没有对应的
 销毁方法则会报错。       
-</code></pre><p>###bean 对象的延迟实例化<br>         bean 对象默认在容器启动时(单例)创建，可以通过beans标签中加<br>        default-lazy-init=”true”可以推迟对象实例化,也可以在bean标签<br>        中加 lazy-init=”true”来推迟对象的实例化。</p>
-
+</code></pre><h3 id="bean-对象的延迟实例化"><a href="#bean-对象的延迟实例化" class="headerlink" title="bean 对象的延迟实例化"></a>bean 对象的延迟实例化</h3><pre><code> bean 对象默认在容器启动时(单例)创建，可以通过beans标签中加 
+default-lazy-init=&quot;true&quot;可以推迟对象实例化,也可以在bean标签
+中加 lazy-init=&quot;true&quot;来推迟对象的实例化。
+</code></pre>
       
     </div>
     
@@ -469,8 +490,17 @@ Spring容器的类型是：ApplicationContext和BeanFactory类型
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,6 +582,22 @@ Spring容器的类型是：ApplicationContext和BeanFactory类型
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-的框架的构成"><span class="nav-number">1.</span> <span class="nav-text">Spring 的框架的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是IOC"><span class="nav-number">2.</span> <span class="nav-text">什么是IOC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-容器"><span class="nav-number">3.</span> <span class="nav-text">Spring 容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-容器的使用步骤"><span class="nav-number">4.</span> <span class="nav-text">Spring 容器的使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring容器创建对象的三种形式"><span class="nav-number">5.</span> <span class="nav-text">Spring容器创建对象的三种形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean对象的作用域"><span class="nav-number">6.</span> <span class="nav-text">bean对象的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean-对象的初始化"><span class="nav-number">7.</span> <span class="nav-text">bean 对象的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean-对象的销毁"><span class="nav-number">8.</span> <span class="nav-text">bean 对象的销毁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean-对象的延迟实例化"><span class="nav-number">9.</span> <span class="nav-text">bean 对象的延迟实例化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

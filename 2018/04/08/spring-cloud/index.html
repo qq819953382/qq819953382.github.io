@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+<meta name="description" content="分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下： D">
 <meta name="keywords" content="SpringCloud,微服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud">
 <meta property="og:url" content="http://yoursite.com/2018/04/08/spring-cloud/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+<meta property="og:description" content="分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下： D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-08T01:33:43.956Z">
+<meta property="og:updated_time" content="2018-04-12T13:25:54.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud">
-<meta name="twitter:description" content="###分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下">
+<meta name="twitter:description" content="分布式服务架构（微服务架构）目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud 利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。 请求–&amp;gt;处理1–&amp;gt;处理2–&amp;gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。 Dubbo和Cloud的区别如下： D">
 
 
 
@@ -344,7 +344,7 @@
       
 
       
-        <p>###分布式服务架构（微服务架构）<br>目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud</p>
+        <h3 id="分布式服务架构（微服务架构）"><a href="#分布式服务架构（微服务架构）" class="headerlink" title="分布式服务架构（微服务架构）"></a>分布式服务架构（微服务架构）</h3><p>目前主流实现：Dubbo+zookeeper和SpringBoot+Cloud</p>
 <p>利用上述技术都可以将功能服务分散到不同服务器部署，然后实现服务间通信（调用）。</p>
 <p>请求–&gt;处理1–&gt;处理2–&gt;响应。意思可以将处理1和处理2做成独立服务分开部署，然后再进行RPC（Dubbo）或HTTP请求和响应模式(Cloud)交互。</p>
 <p>Dubbo和Cloud的区别如下：</p>
@@ -352,7 +352,7 @@
 Dubbo一般和zookeeper结合管理服务，Cloud内置集成Eureka管理服务
 Cloud提供一套服务管理的完整方案、Dubbo需要跟其他技术集成使用。
 Cloud仅用于Rest服务管理、Dubbo是将组件服务化管理
-</code></pre><p>###Spring Cloud<br>Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等。</p>
+</code></pre><h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><p>Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等。</p>
 <pre><code>Spring Cloud Netflix
 　　是对Netflix开发的一套分布式服务框架的封装，包括服务的发现和注册，负载均衡、断路器、REST客户端、请求路由等。
 
@@ -372,9 +372,7 @@ Spring Cloud Eureka
 
 Spring Cloud Eureka 是 Spring Cloud Netflix 微服务套件中的一部分，
 它基于Netflix Eureka 做了二次封装，主要负责完成微服务架构中的服务治理功能。
-</code></pre><p>##基于SpringCloud实现服务注册、查找、负载功能</p>
-<p>###搭建SpringCloud服务中心（eureka）</p>
-<p>1、创建maven project，引入pom.xml定义</p>
+</code></pre><h2 id="基于SpringCloud实现服务注册、查找、负载功能"><a href="#基于SpringCloud实现服务注册、查找、负载功能" class="headerlink" title="基于SpringCloud实现服务注册、查找、负载功能"></a>基于SpringCloud实现服务注册、查找、负载功能</h2><h3 id="搭建SpringCloud服务中心（eureka）"><a href="#搭建SpringCloud服务中心（eureka）" class="headerlink" title="搭建SpringCloud服务中心（eureka）"></a>搭建SpringCloud服务中心（eureka）</h3><p>1、创建maven project，引入pom.xml定义</p>
 <pre><code>&lt;parent&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
@@ -424,8 +422,7 @@ public class EurekaServerBootApplication {
 }
 </code></pre><p>4、启动程序测试</p>
 <pre><code>打开浏览器输入http://localhost:7777
-</code></pre><p>###向SpringCloud注册Service服务（Restful服务）</p>
-<p>1、在工程中pom.xml中引入jar包定义</p>
+</code></pre><h3 id="向SpringCloud注册Service服务（Restful服务）"><a href="#向SpringCloud注册Service服务（Restful服务）" class="headerlink" title="向SpringCloud注册Service服务（Restful服务）"></a>向SpringCloud注册Service服务（Restful服务）</h3><p>1、在工程中pom.xml中引入jar包定义</p>
 <pre><code>&lt;dependencyManagement&gt;
     &lt;dependencies&gt;
         &lt;dependency&gt;
@@ -472,8 +469,7 @@ public class PaperBootApplication {
 <pre><code>先启动Eureka服务中心项目，然后启动服务项目。
 
 浏览器输入http://localhost:7777就可以查看注册实例
-</code></pre><p>##SpringCloud服务调用(RestTemplate模式)</p>
-<p>1、在项目中pom.xml引入定义</p>
+</code></pre><h2 id="SpringCloud服务调用-RestTemplate模式"><a href="#SpringCloud服务调用-RestTemplate模式" class="headerlink" title="SpringCloud服务调用(RestTemplate模式)"></a>SpringCloud服务调用(RestTemplate模式)</h2><p>1、在项目中pom.xml引入定义</p>
 <pre><code>&lt;!-- ribbon --&gt;
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
@@ -527,8 +523,7 @@ public class ExamWebBootApplication {
 
 }
 </code></pre><p>6、启动测试</p>
-<p>###SpringCloud服务调用(Feign接口对象模式)</p>
-<p>1、在pom.xml中追加ribbon和feign定义</p>
+<h3 id="SpringCloud服务调用-Feign接口对象模式"><a href="#SpringCloud服务调用-Feign接口对象模式" class="headerlink" title="SpringCloud服务调用(Feign接口对象模式)"></a>SpringCloud服务调用(Feign接口对象模式)</h3><p>1、在pom.xml中追加ribbon和feign定义</p>
 <pre><code>&lt;dependencies&gt;
     &lt;!-- ribbon --&gt;
     &lt;dependency&gt;
@@ -680,8 +675,17 @@ public class ExamWebBootApplication {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -763,6 +767,22 @@ public class ExamWebBootApplication {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式服务架构（微服务架构）"><span class="nav-number">1.</span> <span class="nav-text">分布式服务架构（微服务架构）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud"><span class="nav-number">2.</span> <span class="nav-text">Spring Cloud</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于SpringCloud实现服务注册、查找、负载功能"><span class="nav-number"></span> <span class="nav-text">基于SpringCloud实现服务注册、查找、负载功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建SpringCloud服务中心（eureka）"><span class="nav-number">1.</span> <span class="nav-text">搭建SpringCloud服务中心（eureka）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向SpringCloud注册Service服务（Restful服务）"><span class="nav-number">2.</span> <span class="nav-text">向SpringCloud注册Service服务（Restful服务）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringCloud服务调用-RestTemplate模式"><span class="nav-number"></span> <span class="nav-text">SpringCloud服务调用(RestTemplate模式)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringCloud服务调用-Feign接口对象模式"><span class="nav-number">1.</span> <span class="nav-text">SpringCloud服务调用(Feign接口对象模式)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

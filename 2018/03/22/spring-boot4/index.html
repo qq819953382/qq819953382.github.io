@@ -71,19 +71,19 @@
 
 
 
-<meta name="description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
+<meta name="description" content="SpringBootMVC异常处理SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 自定义ErrorController（全局处理）自定义Erro">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-boot(4)">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot4/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
+<meta property="og:description" content="SpringBootMVC异常处理SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 自定义ErrorController（全局处理）自定义Erro">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/cron_expression.png">
-<meta property="og:updated_time" content="2018-03-22T11:58:10.638Z">
+<meta property="og:updated_time" content="2018-04-12T13:27:35.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-boot(4)">
-<meta name="twitter:description" content="##SpringBootMVC异常处理 SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 ###自定义ErrorController（全局处理）">
+<meta name="twitter:description" content="SpringBootMVC异常处理SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应） 当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。 自定义ErrorController（全局处理）自定义Erro">
 <meta name="twitter:image" content="http://yoursite.com/images/cron_expression.png">
 
 
@@ -346,11 +346,9 @@
       
 
       
-        <p>##SpringBootMVC异常处理</p>
-<p>SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应）</p>
+        <h2 id="SpringBootMVC异常处理"><a href="#SpringBootMVC异常处理" class="headerlink" title="SpringBootMVC异常处理"></a>SpringBootMVC异常处理</h2><p>SpringBoot有一个ErrorMvcAutoConfiguration自动配置组件，默认加载BasicErrorController，Controller中定义了两个/error处理。（一个html响应、一个json响应）</p>
 <p>当MVC程序底层发生异常，会自动转向/error请求处理，显示错误界面。</p>
-<p>###自定义ErrorController（全局处理）</p>
-<p>自定义ErrorController组件，需要实现ErrorController接口或继承AbstractErrorController都可以。</p>
+<h3 id="自定义ErrorController（全局处理）"><a href="#自定义ErrorController（全局处理）" class="headerlink" title="自定义ErrorController（全局处理）"></a>自定义ErrorController（全局处理）</h3><p>自定义ErrorController组件，需要实现ErrorController接口或继承AbstractErrorController都可以。</p>
 <pre><code>@Controller
 public class MyErrorController implements ErrorController{
 
@@ -368,8 +366,7 @@ public class MyErrorController implements ErrorController{
     }
 
 }
-</code></pre><p>###使用@ExceptionHandler</p>
-<p>处理某个Controller异常，应用方法就是在Controller添加带Exception参数的方法，然后使用@ExceptionHandler标记。</p>
+</code></pre><h3 id="使用-ExceptionHandler"><a href="#使用-ExceptionHandler" class="headerlink" title="使用@ExceptionHandler"></a>使用@ExceptionHandler</h3><p>处理某个Controller异常，应用方法就是在Controller添加带Exception参数的方法，然后使用@ExceptionHandler标记。</p>
 <pre><code>@ExceptionHandler
 @ResponseBody
 public MyResult handlerException(Exception e){
@@ -379,8 +376,7 @@ public MyResult handlerException(Exception e){
     result.setData(e.getMessage());
     return result;
 }
-</code></pre><p>##SpringBootMVC拦截器</p>
-<ol>
+</code></pre><h2 id="SpringBootMVC拦截器"><a href="#SpringBootMVC拦截器" class="headerlink" title="SpringBootMVC拦截器"></a>SpringBootMVC拦截器</h2><ol>
 <li><p>编写拦截器组件，实现HandlerInterceptor接口</p>
 <pre><code>@Component//扫描
 public class SomeInterceptor implements HandlerInterceptor{
@@ -424,8 +420,7 @@ public class InterceptorConfiguration extends WebMvcConfigurerAdapter{
 }
 </code></pre></li>
 </ol>
-<p>##SpringBoot AOP</p>
-<p>AOP关键概念：切面、切入点、通知。</p>
+<h2 id="SpringBoot-AOP"><a href="#SpringBoot-AOP" class="headerlink" title="SpringBoot AOP"></a>SpringBoot AOP</h2><p>AOP关键概念：切面、切入点、通知。</p>
 <p>案例：记录每个Controller方法执行的时间</p>
 <pre><code>- 切面：计算方法执行时间
 - 切入点：所有Controller方法 within(cn.xdl.controller.*)
@@ -460,8 +455,7 @@ public class WatchBean {
 }
 </code></pre></li>
 </ol>
-<p>##SpringBoot静态资源管理</p>
-<p>在SpringBoot工程中，默认静态资源目录如下：</p>
+<h2 id="SpringBoot静态资源管理"><a href="#SpringBoot静态资源管理" class="headerlink" title="SpringBoot静态资源管理"></a>SpringBoot静态资源管理</h2><p>在SpringBoot工程中，默认静态资源目录如下：</p>
 <pre><code>src/main/resources/public (最低)
 src/main/resources/static
 src/main/resources/resources
@@ -479,8 +473,7 @@ public class MyResourceConfiguration extends WebMvcConfigurerAdapter{
 
 }
 </code></pre><p>提示：不要使用/**映射，会破坏原有默认静态资源访问。</p>
-<p>##SpringBoot对JavaWeb集成</p>
-<ol>
+<h2 id="SpringBoot对JavaWeb集成"><a href="#SpringBoot对JavaWeb集成" class="headerlink" title="SpringBoot对JavaWeb集成"></a>SpringBoot对JavaWeb集成</h2><ol>
 <li><p>Servlet</p>
 <ul>
 <li>编写Servlet组件，继承HttpServlet</li>
@@ -574,9 +567,7 @@ public class DruidStatFilter extends WebStatFilter{
 </ul>
 </li>
 </ol>
-<p>##SpringBoot任务调用</p>
-<p>###服务器启动时自动执行某个任务</p>
-<p>SpringBoot提供了两种方法，编写一个组件实现ApplicationRunner或CommandLineRunner。</p>
+<h2 id="SpringBoot任务调用"><a href="#SpringBoot任务调用" class="headerlink" title="SpringBoot任务调用"></a>SpringBoot任务调用</h2><h3 id="服务器启动时自动执行某个任务"><a href="#服务器启动时自动执行某个任务" class="headerlink" title="服务器启动时自动执行某个任务"></a>服务器启动时自动执行某个任务</h3><p>SpringBoot提供了两种方法，编写一个组件实现ApplicationRunner或CommandLineRunner。</p>
 <ul>
 <li><p>ApplicationRunner</p>
 <pre><code>@Component
@@ -604,8 +595,7 @@ public class MyTask2 implements CommandLineRunner{
 </code></pre><p>  提示：可以利用@Order指定任务触发顺序，1、2、3..</p>
 </li>
 </ul>
-<p>###服务器启动后定时自动执行某个任务</p>
-<p>案例：每隔5S调用任务打印输出当前时间。</p>
+<h3 id="服务器启动后定时自动执行某个任务"><a href="#服务器启动后定时自动执行某个任务" class="headerlink" title="服务器启动后定时自动执行某个任务"></a>服务器启动后定时自动执行某个任务</h3><p>案例：每隔5S调用任务打印输出当前时间。</p>
 <ul>
 <li>在启动类前添加@EnableScheduling，开启Schedul任务调度模块</li>
 <li><p>编写任务组件，使用@@Scheduled</p>
@@ -663,8 +653,8 @@ public class MyTask3 {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/22/Redis/" rel="prev" title="Redis">
-                Redis <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/22/Java面试题/" rel="prev" title="Java面试题(1)">
+                Java面试题(1) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -717,8 +707,17 @@ public class MyTask3 {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -800,6 +799,22 @@ public class MyTask3 {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootMVC异常处理"><span class="nav-number">1.</span> <span class="nav-text">SpringBootMVC异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义ErrorController（全局处理）"><span class="nav-number">1.1.</span> <span class="nav-text">自定义ErrorController（全局处理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-ExceptionHandler"><span class="nav-number">1.2.</span> <span class="nav-text">使用@ExceptionHandler</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootMVC拦截器"><span class="nav-number">2.</span> <span class="nav-text">SpringBootMVC拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-AOP"><span class="nav-number">3.</span> <span class="nav-text">SpringBoot AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot静态资源管理"><span class="nav-number">4.</span> <span class="nav-text">SpringBoot静态资源管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot对JavaWeb集成"><span class="nav-number">5.</span> <span class="nav-text">SpringBoot对JavaWeb集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot任务调用"><span class="nav-number">6.</span> <span class="nav-text">SpringBoot任务调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器启动时自动执行某个任务"><span class="nav-number">6.1.</span> <span class="nav-text">服务器启动时自动执行某个任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器启动后定时自动执行某个任务"><span class="nav-number">6.2.</span> <span class="nav-text">服务器启动后定时自动执行某个任务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

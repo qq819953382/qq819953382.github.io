@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta name="description" content="阿里Druid连接池应用 在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.7.R">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-boot(3)">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/spring-boot3/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta property="og:description" content="阿里Druid连接池应用 在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.7.R">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T12:26:52.013Z">
+<meta property="og:updated_time" content="2018-04-12T13:27:52.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-boot(3)">
-<meta name="twitter:description" content="##阿里Druid连接池应用  在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.">
+<meta name="twitter:description" content="阿里Druid连接池应用 在pom.xml追加druid定义 &amp;lt;parent&amp;gt;     &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.4.7.R">
 
 
 
@@ -344,8 +344,7 @@
       
 
       
-        <p>##阿里Druid连接池应用</p>
-<ol>
+        <h2 id="阿里Druid连接池应用"><a href="#阿里Druid连接池应用" class="headerlink" title="阿里Druid连接池应用"></a>阿里Druid连接池应用</h2><ol>
 <li><p>在pom.xml追加druid定义</p>
 <pre><code>&lt;parent&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -406,9 +405,7 @@ public class DruidDataSourceConfiguration {
 }
 </code></pre></li>
 </ol>
-<p>##SpringBoot MVC应用</p>
-<p>###开发Web服务（Restful服务）</p>
-<pre><code>/dept   GET  ： 查询所有dept信息
+<h2 id="SpringBoot-MVC应用"><a href="#SpringBoot-MVC应用" class="headerlink" title="SpringBoot MVC应用"></a>SpringBoot MVC应用</h2><h3 id="开发Web服务（Restful服务）"><a href="#开发Web服务（Restful服务）" class="headerlink" title="开发Web服务（Restful服务）"></a>开发Web服务（Restful服务）</h3><pre><code>/dept   GET  ： 查询所有dept信息
 /dept/1 GET  ： 查询id=1的DEPT信息
 /dept   POST ： 添加dept信息
 /dept/1 PUT  ： 修改id=1的dept信息
@@ -468,8 +465,7 @@ public class DeptController {
 }
 </code></pre></li>
 </ol>
-<p>###开发JSP应用（PC网站应用）</p>
-<p>/dept/list.do–&gt;DispatcherServlet–&gt;HandlerMapping–&gt;ListController–&gt;DeptDao<br>–&gt;ModelAndView–&gt;ViewResolver–&gt;/list.jsp</p>
+<h3 id="开发JSP应用（PC网站应用）"><a href="#开发JSP应用（PC网站应用）" class="headerlink" title="开发JSP应用（PC网站应用）"></a>开发JSP应用（PC网站应用）</h3><p>/dept/list.do–&gt;DispatcherServlet–&gt;HandlerMapping–&gt;ListController–&gt;DeptDao<br>–&gt;ModelAndView–&gt;ViewResolver–&gt;/list.jsp</p>
 <ol>
 <li><p>编写ListController</p>
 <pre><code>@Controller
@@ -536,8 +532,7 @@ pageEncoding=&quot;UTF-8&quot;%&gt;
 </code></pre><p> </p>
 </li>
 </ol>
-<p>###开发thymeleaf模板应用（PC网站应用）</p>
-<p>模板技术：velocity、freemarker、thymeleaf等。</p>
+<h3 id="开发thymeleaf模板应用（PC网站应用）"><a href="#开发thymeleaf模板应用（PC网站应用）" class="headerlink" title="开发thymeleaf模板应用（PC网站应用）"></a>开发thymeleaf模板应用（PC网站应用）</h3><p>模板技术：velocity、freemarker、thymeleaf等。</p>
 <p>JSP–》转译成Servlet–》编译Servlet–》运行–》生成HTML响应输出</p>
 <p>模板文件+模板表达式（提取模型数据）–》生成HTML响应输出</p>
 <p>velocity技术： *.vm+VTL表达式</p>
@@ -689,8 +684,17 @@ public class TemplateController {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -772,6 +776,22 @@ public class TemplateController {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里Druid连接池应用"><span class="nav-number">1.</span> <span class="nav-text">阿里Druid连接池应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-MVC应用"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot MVC应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发Web服务（Restful服务）"><span class="nav-number">2.1.</span> <span class="nav-text">开发Web服务（Restful服务）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发JSP应用（PC网站应用）"><span class="nav-number">2.2.</span> <span class="nav-text">开发JSP应用（PC网站应用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发thymeleaf模板应用（PC网站应用）"><span class="nav-number">2.3.</span> <span class="nav-text">开发thymeleaf模板应用（PC网站应用）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
+<meta name="description" content="Java SE 部分1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？ 可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。 &amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一">
 <meta name="keywords" content="Java,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面试题(1)">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/Java面试题/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
+<meta property="og:description" content="Java SE 部分1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？ 可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。 &amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-23T12:48:15.239Z">
+<meta property="og:updated_time" content="2018-04-12T14:52:23.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试题(1)">
-<meta name="twitter:description" content="#Java SE 部分 ###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？   可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  ###2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑">
+<meta name="twitter:description" content="Java SE 部分1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？ 可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。  2、说说&amp;amp;和&amp;amp;&amp;amp;的区别。 &amp;amp;和&amp;amp;&amp;amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一">
 
 
 
@@ -344,52 +344,137 @@
       
 
       
-        <p>#Java SE 部分</p>
-<p>###1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？ </p>
-<blockquote>
+        <h2 id="Java-SE-部分"><a href="#Java-SE-部分" class="headerlink" title="Java SE 部分"></a>Java SE 部分</h2><h3 id="1、一个”-java”源文件中是否可以包括多个类（不是内部类）？有什么限制？"><a href="#1、一个”-java”源文件中是否可以包括多个类（不是内部类）？有什么限制？" class="headerlink" title="1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？"></a>1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？</h3><blockquote>
 <p>可以有多个类，但只能有一个public的类，并且public的类名必须与文件名相一致。</p>
 </blockquote>
-<p>###2、说说&amp;和&amp;&amp;的区别。 </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一方为false，则结果为false。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;还具有短路的功能，即如果第一个表达式为false，则不再计算第二个表达式，<br>例如:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于if(str != null &amp;&amp; !str.equals(“”))表达式，当str为null时，后面的表达式不会执行，所以不会出现NullPointerException如果将&amp;&amp;改为&amp;，则会抛出NullPointerException异常。If(x==33 &amp; ++y&gt;0) y会增长，If(x==33 &amp;&amp; ++y&gt;0)不会增长。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;还可以用作位运算符，当&amp;操作符两边的表达式不是boolean类型时，&amp;表示按位与操作，我们通常使用0x0f来与一个整数进行&amp;运算，来获取该整数的最低4个bit位，例如，0x31 &amp; 0x0f的结果为0x01。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与，当运算符两边的表达式的结果为true时，整个运算结果才为&amp;&amp;还具有</p>
-</blockquote>
-<p>###3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在switch（expr1）中，expr1只能是一个整数表达式或者枚举常量（更大字体），整数表达式可以是int基本类型或Integer包装类型，由于，byte,short,char都可以隐含转换为int，所以，这些类型以及这些类型的包装类型也是可以的。显然，long和String类型都不符合switch的语法规定，并且不能被隐式转换成int类型，所以，它们不能作用于swtich语句中。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jdk1.7之后引入新特性，可以接受一个String类型的值，所以String可以作用在switch语句上</p>
-</blockquote>
-<p>###6、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于short s1 = 1; s1 = s1 + 1; 由于s1+1运算时会自动提升表达式的类型，所以结果是int型，再赋值给short类型s1时，编译器将报告需要强制转换类型的错误。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于short s1 = 1; s1 += 1;由于 += 是java语言规定的运算符，java编译器会对它进行特殊处理，因此可以正确编译。 </p>
-</blockquote>
-<p>###7、char型变量中能不能存贮一个中文汉字?为什么? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char型变量是用来存储Unicode编码的字符的，unicode编码字符集中包含了汉字，所以，char型变量中当然可以存储汉字啦。不过，如果某个特殊的汉字没有被包含在unicode编码字符集中，那么，这个char型变量中就不能存储这个特殊汉字。补充说明：unicode编码占用两个字节，所以，char类型的变量也是占用两个字节。</p>
-</blockquote>
-<p>###8、用最有效率的方法算出2乘以8等於几? </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 &lt;&lt; 3，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为将一个数左移n位，就相当于乘以了2的n次方，那么，一个数乘以8只要将其左移3位即可，而位运算cpu直接支持的，效率最高，所以，2乘以8等於几的最效率的方法是2 &lt;&lt; 3。</p>
-</blockquote>
-<p>###9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？ </p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用final关键字修饰一个变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。例如，对于如下语句：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;final StringBuffer a=new StringBuffer(“immutable”);<br>执行如下语句将报告编译期错误：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a=new StringBuffer(“”);<br>但是，执行如下语句则可以通过编译：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.append(“ broken!”);<br>有人在定义方法的参数时，可能想采用如下形式来阻止方法内部修改传进来的参数对象：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void method(final  StringBuffer  param){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>实际上，这是办不到的，在该方法内部仍然可以增加如下代码来修改参数对象：</p>
-</blockquote>
+<h3 id="2、说说-amp-和-amp-amp-的区别。"><a href="#2、说说-amp-和-amp-amp-的区别。" class="headerlink" title="2、说说&amp;和&amp;&amp;的区别。"></a>2、说说&amp;和&amp;&amp;的区别。</h3><p> &amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与（and），当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，只要有一方为false，则结果为false。</p>
+<p> &amp;&amp;还具有短路的功能，即如果第一个表达式为false，则不再计算第二个表达式，</p>
+<p> 例如:对于if(str != null &amp;&amp; !str.equals(“”))表达式，当str为null时，后面的表达式不会执行，所以不会出现NullPointerException如果将&amp;&amp;改为&amp;，则会抛出NullPointerException异常。If(x==33 &amp; ++y&gt;0) y会增长，If(x==33 &amp;&amp; ++y&gt;0)不会增长。</p>
+<p>&amp;还可以用作位运算符，当&amp;操作符两边的表达式不是boolean类型时，&amp;表示按位与操作，我们通常使用0x0f来与一个整数进行&amp;运算，来获取该整数的最低4个bit位，例如，0x31 &amp; 0x0f的结果为0x01。</p>
+<h3 id="3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上"><a href="#3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上" class="headerlink" title="3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上?"></a>3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上?</h3><p> 在switch（expr1）中，expr1只能是一个整数表达式或者枚举常量（更大字体），整数表达式可以是int基本类型或Integer包装类型，由于，byte,short,char都可以隐含转换为int，所以，这些类型以及这些类型的包装类型也是可以的。显然，long和String类型都不符合switch的语法规定，并且不能被隐式转换成int类型，所以，它们不能作用于swtich语句中。 </p>
+<p>Jdk1.7之后引入新特性，可以接受一个String类型的值，所以String可以作用在switch语句上</p>
+<h3 id="6、short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><a href="#6、short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错" class="headerlink" title="6、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?"></a>6、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?</h3><p>对于short s1 = 1; s1 = s1 + 1; 由于s1+1运算时会自动提升表达式的类型，所以结果是int型，再赋值给short类型s1时，编译器将报告需要强制转换类型的错误。</p>
+<p>对于short s1 = 1; s1 += 1;由于 += 是java语言规定的运算符，java编译器会对它进行特殊处理，因此可以正确编译。 </p>
+<h3 id="7、char型变量中能不能存贮一个中文汉字-为什么"><a href="#7、char型变量中能不能存贮一个中文汉字-为什么" class="headerlink" title="7、char型变量中能不能存贮一个中文汉字?为什么?"></a>7、char型变量中能不能存贮一个中文汉字?为什么?</h3><p>char型变量是用来存储Unicode编码的字符的，unicode编码字符集中包含了汉字，所以，char型变量中当然可以存储汉字啦。不过，如果某个特殊的汉字没有被包含在unicode编码字符集中，那么，这个char型变量中就不能存储这个特殊汉字。补充说明：unicode编码占用两个字节，所以，char类型的变量也是占用两个字节。</p>
+<h3 id="8、用最有效率的方法算出2乘以8等於几"><a href="#8、用最有效率的方法算出2乘以8等於几" class="headerlink" title="8、用最有效率的方法算出2乘以8等於几?"></a>8、用最有效率的方法算出2乘以8等於几?</h3><p>2 &lt;&lt; 3</p>
+<p>因为将一个数左移n位，就相当于乘以了2的n次方，那么，一个数乘以8只要将其左移3位即可，而位运算cpu直接支持的，效率最高，所以，2乘以8等於几的最效率的方法是2 &lt;&lt; 3。</p>
+<h3 id="9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？"><a href="#9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？" class="headerlink" title="9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？"></a>9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？</h3><p>使用final关键字修饰一个变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。例如，对于如下语句：</p>
+<pre><code>final StringBuffer a=new StringBuffer(&quot;immutable&quot;);
+</code></pre><p>执行如下语句将报告编译期错误：</p>
+<pre><code>a=new StringBuffer(&quot;&quot;);
+</code></pre><p>但是，执行如下语句则可以通过编译：</p>
+<pre><code>a.append(&quot; broken!&quot;); 
+</code></pre><p>有人在定义方法的参数时，可能想采用如下形式来阻止方法内部修改传进来的参数对象：</p>
+<pre><code>public void method(final  StringBuffer  param){
+} 
+</code></pre><p>实际上，这是办不到的，在该方法内部仍然可以增加如下代码来修改参数对象：</p>
 <pre><code>param.append(&quot;a&quot;);
-</code></pre><p>###10、”==”和equals方法究竟有什么区别？</p>
-<blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==操作符专门用来比较两个变量的值是否相等，也就是用于比较变量所对应的内存中所存储的数值是否相同，要比较两个基本类型的数据或两个引用变量是否相等，只能用==操作符。<br>如果一个变量指向的数据是对象类型的，那么，这时候涉及了两块内存，对象本身占用一块内存（堆内存），变量也占用一块内存，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：<br>    OBJET OBJ = NEW OBJECT();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;变量OBJ是一个内存，NEW OBJECT()是另一个内存，此时，变量OBJ所对应的内存中存储的数值就是对象占用的那块内存的首地址。对于指向对象类型的变量，如果要比较两个变量是否指向同一个对象，即要看这两个变量所对应的内存中的数值是否相等，这时候就需要用==操作符进行比较。<br>EQUALS方法是用于比较两个独立对象的内容是否相同，就好比去比较两个人的长相是否相同，它比较的两个对象是独立的。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：</p>
-</blockquote>
+</code></pre><h3 id="10、”-”和equals方法究竟有什么区别？"><a href="#10、”-”和equals方法究竟有什么区别？" class="headerlink" title="10、”==”和equals方法究竟有什么区别？"></a>10、”==”和equals方法究竟有什么区别？</h3><p>==操作符专门用来比较两个变量的值是否相等，也就是用于比较变量所对应的内存中所存储的数值是否相同，要比较两个基本类型的数据或两个引用变量是否相等，只能用==操作符。<br>如果一个变量指向的数据是对象类型的，那么，这时候涉及了两块内存，对象本身占用一块内存（堆内存），变量也占用一块内存。</p>
+<p>例如： </p>
+<pre><code>OBJET OBJ = NEW OBJECT();
+</code></pre><p>变量OBJ是一个内存，NEW OBJECT()是另一个内存，此时，变量OBJ所对应的内存中存储的数值就是对象占用的那块内存的首地址。对于指向对象类型的变量，如果要比较两个变量是否指向同一个对象，即要看这两个变量所对应的内存中的数值是否相等，这时候就需要用==操作符进行比较。<br>EQUALS方法是用于比较两个独立对象的内容是否相同，就好比去比较两个人的长相是否相同，它比较的两个对象是独立的。</p>
+<p>例如：</p>
 <pre><code>STRING A=NEW STRING(&quot;FOO&quot;);
 STRING B=NEW STRING(&quot;FOO&quot;);
-</code></pre><blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;两条NEW语句创建了两个对象，然后用A,B这两个变量分别指向了其中一个对象，这是两个不同的对象，它们的首地址是不同的，即A和B中存储的数值是不相同的，所以，表达式A==B将返回FALSE，而这两个对象中的内容是相同的，所以，表达式A.EQUALS(B)将返回TRUE。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在实际开发中，我们经常要比较传递进行来的字符串内容是否等，<br>例如，</p>
-</blockquote>
+</code></pre><p>两条NEW语句创建了两个对象，然后用A,B这两个变量分别指向了其中一个对象，这是两个不同的对象，它们的首地址是不同的，即A和B中存储的数值是不相同的，所以，表达式A==B将返回FALSE，而这两个对象中的内容是相同的，所以，表达式A.EQUALS(B)将返回TRUE。<br>在实际开发中，我们经常要比较传递进行来的字符串内容是否等，<br>例如:</p>
 <pre><code>STRING INPUT = …;INPUT.EQUALS(“QUIT”)，
 </code></pre><p>  许多人稍不注意就使用==进行比较了，这是错误的，随便从网上找几个项目实战的教学视频看看，里面就有大量这样的错误。记住，字符串的比较基本上都是使用EQUALS方法。<br>  如果一个类没有自己定义EQUALS方法，那么它将继承OBJECT类的EQUALS方法，OBJECT类的EQUALS方法的实现代码如下：</p>
 <pre><code>BOOLEAN EQUALS(OBJECT O){
     RETURN THIS==O;
 }
 </code></pre><p>  这说明，如果一个类没有自己定义EQUALS方法，它默认的EQUALS方法（从OBJECT 类继承的）就是使用==操作符，也是在比较两个变量指向的对象是否是同一对象，这时候使用EQUALS和使用==会得到同样的结果，如果比较的是两个独立的对象则总返回FALSE。如果你编写的类希望能够比较该类创建的两个实例对象的内容是否相同，那么你必须覆盖EQUALS方法，由你自己写代码来决定在什么情况即可认为两个对象的内容是相同的。</p>
+<h3 id="11、静态变量和实例变量的区别？"><a href="#11、静态变量和实例变量的区别？" class="headerlink" title="11、静态变量和实例变量的区别？"></a>11、静态变量和实例变量的区别？</h3><p>  在语法的区别：静态变量加static关键字，而实例变量不加。</p>
+<p>  在程序运行阶段的区别：</p>
+<blockquote>
+<p>实例对象属于某个对象的属性，必须创建实例对象，其中的实例变量才会被分配空间，<br>才能使用这个实例变量。</p>
+</blockquote>
+<blockquote>
+<p>静态变量属于类层级，所以也称为类变量，只要程序加载了类的字节码，不用创建任何实例对象，静态变量也会被分配空间，静态变量可以直接使用。</p>
+</blockquote>
+<p>实例变量必须创建对象后才可以通过这个对象来使用，静态变量则可以直接使用类名来引用。</p>
+<h3 id="12、是否可以从一个static方法内部发出对非static方法的调用？"><a href="#12、是否可以从一个static方法内部发出对非static方法的调用？" class="headerlink" title="12、是否可以从一个static方法内部发出对非static方法的调用？"></a>12、是否可以从一个static方法内部发出对非static方法的调用？</h3><p>   不可以，因为非静态方法要与对象绑定在一起，必须先创建一个对象后，才可以在该对象上进行方法调用。<br>而静态方法调用时不需要创建对象，可以直接调用。</p>
+<p>  也就是说，当一个static方法调用时，可能还没有创建任何实例对象，如果一个static方法中发出对非static方法的调用，那个非static方法是关联在那个对象上呢？这个逻辑无法成立，所以，一个static方法内部不可以对非static方法调用</p>
+<h3 id="13、Integer和int的区别"><a href="#13、Integer和int的区别" class="headerlink" title="13、Integer和int的区别"></a>13、Integer和int的区别</h3><p>  int是java提供的8种原始数据类型之一，Java为每一个原始类提供了封装类，Integer就是int的封装类。<br>int的默认值为0，Integer的默认值为null，即integer能够区分未赋值和0的区别。int则无法表达这种未赋值的情况。</p>
+<h3 id="14、Math-round-11-5-等於多少-Math-round-11-5-等於多少"><a href="#14、Math-round-11-5-等於多少-Math-round-11-5-等於多少" class="headerlink" title="14、Math.round(11.5)等於多少? Math.round(-11.5)等於多少?"></a>14、Math.round(11.5)等於多少? Math.round(-11.5)等於多少?</h3><p>Math类中提供了三个与取整有关的方法：ceil、floor、round，这些方法的作用与它们的英文名称的含义相对应，例如，ceil的英文意义是天花板，该方法就表示向上取整，Math.ceil(11.3)的结果为12,Math.ceil(-11.3)的结果是-11；floor的英文意义是地板，该方法就表示向下取整，Math.ceil(11.6)的结果为11,Math.ceil(-11.6)的结果是-12；最难掌握的是round方法，它表示“四舍五入”，算法为Math.floor(x+0.5)，即将原来的数字加上0.5后再向下取整，所以，Math.round(11.5)的结果为12，Math.round(-11.5)的结果为-11。</p>
+<h3 id="15、请说出作用域public，private，protected，以及不写时的区别"><a href="#15、请说出作用域public，private，protected，以及不写时的区别" class="headerlink" title="15、请说出作用域public，private，protected，以及不写时的区别"></a>15、请说出作用域public，private，protected，以及不写时的区别</h3><pre><code>这四个作用域的可见范围如下表所示。
+说明：如果在修饰的元素上面没有写任何访问修饰符，则表示friendly。
 
+作用域    当前类 同一package 子孙类 其他package 
+public    √     √          √       √ 
+protected  √     √          √      × 
+friendly   √     √          ×      × 
+private    √     ×          ×      × 
+</code></pre><h3 id="16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型"><a href="#16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型" class="headerlink" title="16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?"></a>16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?</h3><p>  Overload是重载的意思，Override是覆盖的意思，也就是重写。</p>
+<p>  重载 Overload 表示同一个类中可以多个同名方法，但是这些方法的形参列表各不相同(形参个数和形参类型不同)</p>
+<p>  重写 Override 表示子类中的方法可以与父类的方法完全相同，通过子类创建实例对象调用这个方法，将父类中定义的方法覆盖，这也是面向对象的一种体现。</p>
+<p>覆盖：</p>
+<pre><code>1、覆盖的方法的标志必须要和被覆盖的方法的标志完全匹配，才能达到覆盖的效果；
+2、覆盖的方法的返回值必须和被覆盖的方法的返回一致；
+3、覆盖的方法所抛出的异常必须和被覆盖方法的所抛出的异常一致，或者是其子类；
+4、被覆盖的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖。
+</code></pre><p>重载：</p>
+<pre><code>1、在使用重载时只能通过不同的参数样式。
+    例如，不同的参数类型，不同的参数个数，不同的参数顺序
+2、不能通过访问权限、返回类型、抛出的异常进行重载；
+3、方法的异常类型和数目不会对重载造成影响；
+4、对于继承来说，如果某一方法在父类中是访问权限是priavte，那么就不能在子类对其进行重载，
+   如果定义的话，也只是定义了一个新方法，而不会达到重载的效果。
+</code></pre><h3 id="17、构造器Constructor是否可被override"><a href="#17、构造器Constructor是否可被override" class="headerlink" title="17、构造器Constructor是否可被override?"></a>17、构造器Constructor是否可被override?</h3><p> 构造器Constructor不能被继承，因此不能重写Override，但可以被重载Overload。 </p>
+<h3 id="18、接口是否可继承接口-抽象类是否可实现-implements-接口-抽象类是否可继承具体类-concrete-class-抽象类中是否可以有静态的main方法？"><a href="#18、接口是否可继承接口-抽象类是否可实现-implements-接口-抽象类是否可继承具体类-concrete-class-抽象类中是否可以有静态的main方法？" class="headerlink" title="18、接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承具体类(concrete class)? 抽象类中是否可以有静态的main方法？"></a>18、接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承具体类(concrete class)? 抽象类中是否可以有静态的main方法？</h3><p>  接口可以继承接口，抽象类可以实现接口，抽象类可以继承具体类，抽象类中可以有静态main方法。</p>
+<h3 id="19、写clone方法是，通常都有一行代码，是什么？"><a href="#19、写clone方法是，通常都有一行代码，是什么？" class="headerlink" title="19、写clone方法是，通常都有一行代码，是什么？"></a>19、写clone方法是，通常都有一行代码，是什么？</h3><p>  clone有默认行为，super.clone();因为要把父类中的成员复制到位，然后在复制自己的成员。</p>
+<h3 id="20、面向对象的特征有哪些方面"><a href="#20、面向对象的特征有哪些方面" class="headerlink" title="20、面向对象的特征有哪些方面"></a>20、面向对象的特征有哪些方面</h3><p>   1、封装</p>
+<pre><code>封装就是把过程和数据包围起来,对数据的访问只能通过特定的接口。
+如：私有变量,用set,get方法获取
+</code></pre><p>2、继承</p>
+<pre><code>当多个类中有相同的特征和行为时，可以将相同的内容提取出来组成一个新的公共类，
+然后让多个类分别吸收公共类的特征和行为，在多个类中只需要编写自己独有的特征和行为的机制，叫做继承。
+继承可以提高代码的复用性、扩展性以及可维护性
+</code></pre><p>3，多态</p>
+<pre><code>同一事物表现出来的多种形态
+</code></pre><p>4、抽象</p>
+<pre><code>抽象就是对现实的一类事物，抽取其特点，并把这些特点整合一起，用java语言表示来表示该类事物。
+</code></pre><h3 id="21、java中实现多态的机制是什么？"><a href="#21、java中实现多态的机制是什么？" class="headerlink" title="21、java中实现多态的机制是什么？"></a>21、java中实现多态的机制是什么？</h3><p>靠的是父类或接口定义的引用变量可以指向子类或具体实现类的实例对象，而程序调用的方法在运行期才动态绑定，就是引用变量所指向的具体实例对象的方法，也就是内存里正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。 </p>
+<h3 id="22、abstract-class和interface有什么区别"><a href="#22、abstract-class和interface有什么区别" class="headerlink" title="22、abstract class和interface有什么区别?"></a>22、abstract class和interface有什么区别?</h3><p>含有abstract修饰符的class即为抽象类，abstract 类不能创建的实例对象。含有abstract方法的类必须定义为abstract class，abstract class类中的方法不必是抽象的。abstract class类中定义抽象方法必须在具体(Concrete)子类中实现，所以，不能有抽象构造方法或抽象静态方法。如果的子类没有实现抽象父类中的所有抽象方法，那么子类也必须定义为abstract类型。</p>
+<p>接口（interface）可以说成是抽象类的一种特例，接口中的所有方法都必须是抽象的。接口中的方法定义默认为public abstract类型，接口中的成员变量类型默认为public static final。</p>
+<p>区别：</p>
+<pre><code>1.抽象类可以有构造方法，接口中不能有构造方法。
+2.抽象类中可以有普通成员变量，接口中没有普通成员变量
+3.抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。
+4.抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。
+5.抽象类中可以包含静态方法，接口中不能包含静态方法
+6.抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。
+7.一个类可以实现多个接口，但只能继承一个抽象类。
+</code></pre><h3 id="23、abstract的method是否可同时是static-是否可同时是native，是否可同时是synchronized"><a href="#23、abstract的method是否可同时是static-是否可同时是native，是否可同时是synchronized" class="headerlink" title="23、abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?"></a>23、abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?</h3><p> 抽象方法不可以是static，因为抽象方法需要子类实现。<br> native方法：就是一个Java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由非java语言实现，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制，比如在C＋＋中，你可以用extern “C”告知C＋＋编译器去调用一个C的函数。</p>
+<p> 所以native方法不存在被子类实现的问题。所以它不能是抽象的，不能与abstract混用<br>关于synchronized与abstract合用的问题，我觉得也不行，我觉得synchronized应该是作用在一个具体的方法上才有意义。而且，方法上的synchronized同步所使用的同步锁对象是this，而抽象方法上无法确定this是什么。</p>
+<h3 id="24、什么是内部类？Static-Nested-Class-和-Inner-Class的不同。"><a href="#24、什么是内部类？Static-Nested-Class-和-Inner-Class的不同。" class="headerlink" title="24、什么是内部类？Static Nested Class 和 Inner Class的不同。"></a>24、什么是内部类？Static Nested Class 和 Inner Class的不同。</h3><p>内部类就是在一个类的内部定义的类，内部类中不能定义静态成员。（内部类是基于外部类的)<br>内部类可以直接访问外部类中的成员变量，内部类可以定义在外部类的方法外面，也可以定义在外部类的方法体中。</p>
+<p>定义在方法外注意：</p>
+<p>在方法体外面定义的内部类的访问类型可以是public,protecte,默认的，private等4种类型，这就好像类中定义的成员变量有4种访问类型一样，它们决定这个内部类的定义对其他类是否可见；</p>
+<p>对于这种情况，我们也可以在外面创建内部类的实例对象，创建内部类的实例对象时，一定要先创建外部类的实例对象，然后用这个外部类的实例对象去创建内部类的实例对象，代码如下</p>
+<pre><code>Outer outer = new Outer();
+Outer.Inner1 inner1 = outer.new Innner1();
+</code></pre><p>定义在方法内注意：</p>
+<p>在方法内部定义的内部类前面不能有访问类型修饰符，就好像方法中定义的局部变量一样，但这种内部类的前面可以使用final或abstract修饰符。这种内部类对其他类是不可见的其他类无法引用这种内部类，但是这种内部类创建的实例对象可以传递给其他类访问。</p>
+<p>在方法外部定义的内部类前面可以加上static关键字，从而成为Static Nested Class。它不具有内部类的特性，<br>从某种意义上讲，它不算是内部类。Static Nested Class与普通类在运行时的行为和功能上没有什么区别，只是在编程引用时的语法上有一些差别，它可以定义成public、protected、默认的、private等多种类型，而普通类只能定义成public和默认的这两种类型。在外面引用Static Nested Class类的名称为“外部类名.内部类名”。在外面不需要创建外部类的实例对象，就可以直接创建Static Nested Class，</p>
+<p>由于static Nested Class不依赖于外部类的实例对象，所以，static Nested Class能访问外部类的非static成员变量。当在外部类中访问Static Nested Class时，可以直接使用Static Nested Class的名字，而不需要加上外部类的名字了，在Static Nested Class中也可以直接引用外部类的static的成员变量，不需要加上外部类的名字。</p>
+<p>在静态方法中定义的内部类也是Static Nested Class，这时候不能在类前面加static关键字，静态方法中的Static Nested Class与普通方法中的内部类的应用方式很相似，它除了可以直接访问外部类中的static的成员变量，还可以访问静态方法中的局部变量，但是，该局部变量前必须加final修饰符。</p>
+<h3 id="内部类可以引用它的包含类的成员吗？有没有什么限制？"><a href="#内部类可以引用它的包含类的成员吗？有没有什么限制？" class="headerlink" title="内部类可以引用它的包含类的成员吗？有没有什么限制？"></a>内部类可以引用它的包含类的成员吗？有没有什么限制？</h3><p>完全可以。如果不是静态内部类，那没有什么限制！ </p>
+<p>如果你把静态嵌套类当作内部类的一种特例，那在这种情况下不可以访问外部类的普通成员变量，而只能访问外部类中的静态成员，</p>
+<h3 id="Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口"><a href="#Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口" class="headerlink" title="Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)?"></a>Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)?</h3><p>  可以，必须继承其他类或者接口</p>
+<h3 id="String是最基本的数据类型吗"><a href="#String是最基本的数据类型吗" class="headerlink" title="String是最基本的数据类型吗?"></a>String是最基本的数据类型吗?</h3><p>基本数据类型包括byte、int、char、long、float、double、boolean和short。<br>java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类 </p>
+<h3 id="String-s-“Hello”-s-s-“-world-”-这两行代码执行后，原始的String对象中的内容到底变了没有？"><a href="#String-s-“Hello”-s-s-“-world-”-这两行代码执行后，原始的String对象中的内容到底变了没有？" class="headerlink" title="String s = “Hello”;s = s + “ world!”;这两行代码执行后，原始的String对象中的内容到底变了没有？"></a>String s = “Hello”;s = s + “ world!”;这两行代码执行后，原始的String对象中的内容到底变了没有？</h3><p>没有。因为String被设计成不可变(immutable)类，所以它的所有对象都是不可变对象。在这段代码中，s原先指向一个String对象，内容是 “Hello”，然后我们对s进行了+操作，那么s所指向的那个对象是否发生了改变呢？答案是没有。这时，s不指向原来那个对象了，而指向了另一个 String对象，内容为”Hello world!”，原来那个对象还存在于内存之中，只是s这个引用变量不再指向它了。</p>
+<h3 id="是否可以继承String类"><a href="#是否可以继承String类" class="headerlink" title="是否可以继承String类?"></a>是否可以继承String类?</h3><p>String类是final类故不可以继承。 </p>
+<h3 id="String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？"><a href="#String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？" class="headerlink" title="String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？"></a>String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？</h3><p>两个或一个，”xyz”对应一个对象，这个对象放在字符串常量缓冲区，常量”xyz”不管出现多少遍，都是缓冲区中的那一个。New String每写一遍，就创建一个新的对象，它一句那个常量”xyz”对象的内容来创建出一个新String对象。如果以前就用过’xyz’，这句代表就不会创建”xyz”自己了，直接从缓冲区拿。</p>
+<h3 id="String-和StringBuffer的区别"><a href="#String-和StringBuffer的区别" class="headerlink" title="String 和StringBuffer的区别"></a>String 和StringBuffer的区别</h3><p>JAVA平台提供了两个类：String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String类提供了数值不可改变的字符串。而这个StringBuffer类提供的字符串进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。典型地，你可以使用StringBuffers来动态构造字符数据。</p>
+<p>String实现了equals方法，new String(“abc”).equals(new String(“abc”)的结果为true,而StringBuffer没有实现equals方法，所以，new StringBuffer(“abc”).equals(new StringBuffer(“abc”)的结果为false。</p>
+<p>String覆盖了equals方法和hashCode方法，而StringBuffer没有覆盖equals方法和hashCode方法，所以，将StringBuffer对象存储进Java集合类中时会出现问题。</p>
+<h3 id="如何把一段逗号分割的字符串转换成一个数组"><a href="#如何把一段逗号分割的字符串转换成一个数组" class="headerlink" title="如何把一段逗号分割的字符串转换成一个数组?"></a>如何把一段逗号分割的字符串转换成一个数组?</h3><p>1.用正则表达式，代码大概为：</p>
+<pre><code>String [] result = orgStr.split(“,”);
+</code></pre><p>2.用 StingTokenizer ,代码为：</p>
+<pre><code>StringTokenizer  tokener = StringTokenizer(orgStr,”,”);
+String [] result = new String[tokener .countTokens()];
+Int i=0;
+while(tokener.hasNext(){result[i++]=toker.nextToken();}
+</code></pre>
       
     </div>
     
@@ -421,8 +506,8 @@ STRING B=NEW STRING(&quot;FOO&quot;);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/22/Redis/" rel="next" title="Redis">
-                <i class="fa fa-chevron-left"></i> Redis
+              <a href="/2018/03/22/spring-boot4/" rel="next" title="spring-boot(4)">
+                <i class="fa fa-chevron-left"></i> spring-boot(4)
               </a>
             
           </div>
@@ -431,8 +516,8 @@ STRING B=NEW STRING(&quot;FOO&quot;);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/22/serializable/" rel="prev" title="序列化和序列化工具代码">
-                序列化和序列化工具代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/22/Redis/" rel="prev" title="Redis">
+                Redis <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,8 +570,17 @@ STRING B=NEW STRING(&quot;FOO&quot;);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -568,6 +662,22 @@ STRING B=NEW STRING(&quot;FOO&quot;);
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-SE-部分"><span class="nav-number">1.</span> <span class="nav-text">Java SE 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、一个”-java”源文件中是否可以包括多个类（不是内部类）？有什么限制？"><span class="nav-number">1.1.</span> <span class="nav-text">1、一个”.java”源文件中是否可以包括多个类（不是内部类）？有什么限制？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、说说-amp-和-amp-amp-的区别。"><span class="nav-number">1.2.</span> <span class="nav-text">2、说说&amp;和&amp;&amp;的区别。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上"><span class="nav-number">1.3.</span> <span class="nav-text">3、switch语句能否作用在byte上，能否作用在long上，能否作用在String上?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><span class="nav-number">1.4.</span> <span class="nav-text">6、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、char型变量中能不能存贮一个中文汉字-为什么"><span class="nav-number">1.5.</span> <span class="nav-text">7、char型变量中能不能存贮一个中文汉字?为什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、用最有效率的方法算出2乘以8等於几"><span class="nav-number">1.6.</span> <span class="nav-text">8、用最有效率的方法算出2乘以8等於几?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？"><span class="nav-number">1.7.</span> <span class="nav-text">9、使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、”-”和equals方法究竟有什么区别？"><span class="nav-number">1.8.</span> <span class="nav-text">10、”==”和equals方法究竟有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、静态变量和实例变量的区别？"><span class="nav-number">1.9.</span> <span class="nav-text">11、静态变量和实例变量的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、是否可以从一个static方法内部发出对非static方法的调用？"><span class="nav-number">1.10.</span> <span class="nav-text">12、是否可以从一个static方法内部发出对非static方法的调用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、Integer和int的区别"><span class="nav-number">1.11.</span> <span class="nav-text">13、Integer和int的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14、Math-round-11-5-等於多少-Math-round-11-5-等於多少"><span class="nav-number">1.12.</span> <span class="nav-text">14、Math.round(11.5)等於多少? Math.round(-11.5)等於多少?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15、请说出作用域public，private，protected，以及不写时的区别"><span class="nav-number">1.13.</span> <span class="nav-text">15、请说出作用域public，private，protected，以及不写时的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型"><span class="nav-number">1.14.</span> <span class="nav-text">16、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17、构造器Constructor是否可被override"><span class="nav-number">1.15.</span> <span class="nav-text">17、构造器Constructor是否可被override?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18、接口是否可继承接口-抽象类是否可实现-implements-接口-抽象类是否可继承具体类-concrete-class-抽象类中是否可以有静态的main方法？"><span class="nav-number">1.16.</span> <span class="nav-text">18、接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承具体类(concrete class)? 抽象类中是否可以有静态的main方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19、写clone方法是，通常都有一行代码，是什么？"><span class="nav-number">1.17.</span> <span class="nav-text">19、写clone方法是，通常都有一行代码，是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20、面向对象的特征有哪些方面"><span class="nav-number">1.18.</span> <span class="nav-text">20、面向对象的特征有哪些方面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21、java中实现多态的机制是什么？"><span class="nav-number">1.19.</span> <span class="nav-text">21、java中实现多态的机制是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22、abstract-class和interface有什么区别"><span class="nav-number">1.20.</span> <span class="nav-text">22、abstract class和interface有什么区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23、abstract的method是否可同时是static-是否可同时是native，是否可同时是synchronized"><span class="nav-number">1.21.</span> <span class="nav-text">23、abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24、什么是内部类？Static-Nested-Class-和-Inner-Class的不同。"><span class="nav-number">1.22.</span> <span class="nav-text">24、什么是内部类？Static Nested Class 和 Inner Class的不同。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类可以引用它的包含类的成员吗？有没有什么限制？"><span class="nav-number">1.23.</span> <span class="nav-text">内部类可以引用它的包含类的成员吗？有没有什么限制？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anonymous-Inner-Class-匿名内部类-是否可以extends-继承-其它类，是否可以implements-实现-interface-接口"><span class="nav-number">1.24.</span> <span class="nav-text">Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String是最基本的数据类型吗"><span class="nav-number">1.25.</span> <span class="nav-text">String是最基本的数据类型吗?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-s-“Hello”-s-s-“-world-”-这两行代码执行后，原始的String对象中的内容到底变了没有？"><span class="nav-number">1.26.</span> <span class="nav-text">String s = “Hello”;s = s + “ world!”;这两行代码执行后，原始的String对象中的内容到底变了没有？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否可以继承String类"><span class="nav-number">1.27.</span> <span class="nav-text">是否可以继承String类?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-s-new-String-“xyz”-创建了几个String-Object-二者之间有什么区别？"><span class="nav-number">1.28.</span> <span class="nav-text">String s = new String(“xyz”);创建了几个String Object? 二者之间有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-和StringBuffer的区别"><span class="nav-number">1.29.</span> <span class="nav-text">String 和StringBuffer的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何把一段逗号分割的字符串转换成一个数组"><span class="nav-number">1.30.</span> <span class="nav-text">如何把一段逗号分割的字符串转换成一个数组?</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
