@@ -60,7 +60,7 @@
 
 
 
-  <meta name="keywords" content="Spring,Dao," />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
-<meta name="keywords" content="Spring,Dao">
+<meta name="description" content="Spring和Struts2的整合1、搭建Struts2+Spring环境 引入struts2和spring的jar包 引入struts.xml和applicationContext.xml 引入struts2-spring-plugin.jar包 2、在web.xml配置ContextLoaderListener &amp;lt;context-param&amp;gt;     &amp;lt;param-name&amp;">
+<meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring-Dao-Day04(事务处理)">
-<meta property="og:url" content="http://yoursite.com/2018/03/25/spring-dao/index.html">
+<meta property="og:title" content="SSH整合">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/ssh整合/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
+<meta property="og:description" content="Spring和Struts2的整合1、搭建Struts2+Spring环境 引入struts2和spring的jar包 引入struts.xml和applicationContext.xml 引入struts2-spring-plugin.jar包 2、在web.xml配置ContextLoaderListener &amp;lt;context-param&amp;gt;     &amp;lt;param-name&amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-12T13:27:10.022Z">
+<meta property="og:updated_time" content="2018-04-13T14:50:23.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring-Dao-Day04(事务处理)">
-<meta name="twitter:description" content="SpringDAO 对JDBC 做了哪些改进1 封装了JDBC,简化了DAO实现类编写  2 提供了AOP模式的事务处理  3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。 SpringDAO 完成数据库访问的核心类 是JdbcTemplate使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放  模板中的方法">
+<meta name="twitter:title" content="SSH整合">
+<meta name="twitter:description" content="Spring和Struts2的整合1、搭建Struts2+Spring环境 引入struts2和spring的jar包 引入struts.xml和applicationContext.xml 引入struts2-spring-plugin.jar包 2、在web.xml配置ContextLoaderListener &amp;lt;context-param&amp;gt;     &amp;lt;param-name&amp;">
 
 
 
@@ -112,13 +112,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/25/spring-dao/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/13/ssh整合/"/>
 
 
 
 
 
-  <title>Spring-Dao-Day04(事务处理) | AnJ</title>
+  <title>SSH整合 | AnJ</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/spring-dao/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/ssh整合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AnJie">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring-Dao-Day04(事务处理)</h1>
+          <h1 class="post-title" itemprop="name headline">SSH整合</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T16:22:50+08:00">
-                2018-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T22:30:00+08:00">
+                2018-04-13
               </time>
             
 
@@ -344,76 +344,169 @@
       
 
       
-        <h3 id="SpringDAO-对JDBC-做了哪些改进"><a href="#SpringDAO-对JDBC-做了哪些改进" class="headerlink" title="SpringDAO 对JDBC 做了哪些改进"></a>SpringDAO 对JDBC 做了哪些改进</h3><pre><code>1 封装了JDBC,简化了DAO实现类编写 
-2 提供了AOP模式的事务处理 
-3 对JDBC中抛出的SQLException进行封装,封装成了一个运行时异常(DataAccessException)。
-</code></pre><h3 id="SpringDAO-完成数据库访问的核心类-是JdbcTemplate"><a href="#SpringDAO-完成数据库访问的核心类-是JdbcTemplate" class="headerlink" title="SpringDAO 完成数据库访问的核心类 是JdbcTemplate"></a>SpringDAO 完成数据库访问的核心类 是JdbcTemplate</h3><pre><code>使用这个类无需关心、驱动加载、连接获取、执行环境获取以及资源的释放 
-模板中的方法有: 
-queryForInt     过时的查询一个整数的方法
-queryForObject  替代上面的方法
-query              完成查询的方法
-update             完成增 删 改的方法
-execute            可以执行任何sql语句 但基本上不用 
-</code></pre><h3 id="如何使用-JdbcTemplate"><a href="#如何使用-JdbcTemplate" class="headerlink" title="如何使用 JdbcTemplate"></a>如何使用 JdbcTemplate</h3><pre><code>1 第一种是继承 JdbcDaoSupport   这个类中有对应的模板
+        <h2 id="Spring和Struts2的整合"><a href="#Spring和Struts2的整合" class="headerlink" title="Spring和Struts2的整合"></a>Spring和Struts2的整合</h2><p>1、搭建Struts2+Spring环境</p>
+<pre><code>引入struts2和spring的jar包
+引入struts.xml和applicationContext.xml
+引入struts2-spring-plugin.jar包
+</code></pre><p>2、在web.xml配置ContextLoaderListener</p>
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;!-- 内部加载contextConfigLocation指定的配置文件，创建Spring容器给StrutsSpringObjectFactory访问 --&gt;
+&lt;listener&gt;
+    &lt;listener-class&gt;
+    org.springframework.web.context.ContextLoaderListener
+    &lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre><p>3、编写Action</p>
+<pre><code>@Controller
+public class DeptAction {
 
-  1) XML 配置   配置数据源
-      &lt;context:component-scan base-package=&quot;com.xdl&quot;&gt;&lt;/context:component-scan&gt;
-      &lt;util:properties id=&quot;proper&quot; location=&quot;classpath:db.properties&quot;&gt;
-      &lt;/util:properties&gt;
-      &lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSourceFactory&quot; 
-      factory-method=&quot;createDataSource&quot;&gt;
-      &lt;constructor-arg ref=&quot;proper&quot;&gt;&lt;/constructor-arg&gt;
-      &lt;/bean&gt;
-  2)继承JdbcDaoSupport，对DataSource初始化
-  @Repository(&quot;bankDao&quot;)
-  public class BankAccountDaoImp extends JdbcDaoSupport implements BankAccountDao {
-      @Resource
-      public void setMyDataSources(DataSource data) {
-          super.setDataSource(data);
-      }
-  }
-  3)使用相应API
+    @Autowired
+    private DeptDao deptDao;
 
-2 不继承JdbcDaoSupport          需要自己创建模板
-  1) 在xml中 开启组件扫描，配置数据源，配置一个模板对象
-      &lt;context:component-scan base-package=&quot;com.waj&quot;&gt;&lt;/context:component-scan&gt;
-      &lt;!-- 配置一个数据源 --&gt;
-      &lt;util:properties id=&quot;proper&quot; location=&quot;classpath:db.properties&quot;&gt;&lt;/util:properties&gt;
-      &lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSourceFactory&quot;
-          factory-method=&quot;createDataSource&quot;&gt;
-          &lt;constructor-arg ref=&quot;proper&quot;&gt;&lt;/constructor-arg&gt;
-      &lt;/bean&gt;
-      &lt;!-- 创建一个模板对象 --&gt;
-      &lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
-          &lt;constructor-arg ref=&quot;dataSource&quot;&gt;&lt;/constructor-arg&gt;
-      &lt;/bean&gt;
-  2）使用标注的方式赋值
-</code></pre><h3 id="Spring-声明式事务的实现步骤"><a href="#Spring-声明式事务的实现步骤" class="headerlink" title="Spring  声明式事务的实现步骤"></a>Spring  声明式事务的实现步骤</h3><pre><code>1 开启标注形式的声明式事务  和 组件扫描
-  &lt;!-- 开启事务注解扫描 --&gt;
-   &lt;tx:annotation-driven
-       transaction-manager=&quot;txManager&quot; proxy-target-class=&quot;true&quot;/&gt;
-  transaction-manager 这个属性对应一个事务管理器 
-  proxy-target-class  这个属性 如果取值为 &quot;true&quot;  则优先使用CGLIB 生成代理
-         如果为&quot;false&quot; 就优先使用 JDK的代理机制(代理类和被代理类必须实现共同的接口)。  
-2 配置事务管理器 
-   &lt;bean id= &quot;txManager&quot;
-    class= &quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
-    &lt;property name= &quot;dataSource&quot; ref=&quot;ds&quot;/&gt;
-   &lt;/bean&gt;
-3 在需要事务管理的地方 加事务控制的标注 
-   @Transactional
-</code></pre><h3 id="Transactional-这个标注的属性"><a href="#Transactional-这个标注的属性" class="headerlink" title="@Transactional 这个标注的属性"></a>@Transactional 这个标注的属性</h3><pre><code>rollBackFor    用来指定相应的检查异常进行事务回滚，因为Spring默认只针对运行时异常
-          回滚事务。
-noRollbackFor  针对哪些运行时异常不回滚 
-readOnly          事务中有修改数据的代码 则 readyOnly 为false    默认就是false
-isolation      事务隔离级别    
-          读未提交  读提交  可重复读   序列化
-  用来解决三大读问题：
-         脏读           一个事务读取到了另外一个事务没有提交的数据   
-         不可重复读      一个事务在开始时读取到一份数据 在这个事务执行的过程中另外一个事务修改了这份数据并进行了提交，哪第一个事务再次读取这份数据时发现数据发生了改变。
-         幻读            一个事务对表中的所有数据都进行统计,这时候另外一个事务对表进行数据的增加并提交，再次统计时数据发生了改变 。   
-propagation  事务传播特性 一共有七个 
-</code></pre>
+    private List&lt;Dept&gt; depts;
+
+    public String execute(){
+        depts = deptDao.findDeptAll();
+        return &quot;success&quot;;
+    }
+
+    public List&lt;Dept&gt; getDepts() {
+        return depts;
+    }
+
+    public void setDepts(List&lt;Dept&gt; depts) {
+        this.depts = depts;
+    }
+
+
+
+}
+</code></pre><p>4、spring配置</p>
+<pre><code>&lt;context:component-scan base-package=&quot;cn.xdl&quot;/&gt;
+</code></pre><p>5、编写list.jsp</p>
+<p>6、配置Struts2请求响应处理流程</p>
+<blockquote>
+<p>1)、配置Filter控制器</p>
+</blockquote>
+<pre><code>    &lt;filter&gt;
+    &lt;filter-name&gt;strutsmvc&lt;/filter-name&gt;
+    &lt;filter-class&gt;
+org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
+    &lt;/filter-class&gt;
+    &lt;!-- 默认访问struts.xml --&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;strutsmvc&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><blockquote>
+<p>2)、配置Action+Result</p>
+</blockquote>
+<pre><code>&lt;package name=&quot;demo1&quot; extends=&quot;struts-default&quot;&gt;
+
+    &lt;!-- StrutsSpringObjectFactory根据class名做id查找Spring容器的Action对象 --&gt;
+    &lt;action name=&quot;hello&quot; class=&quot;helloAction&quot;&gt;
+        &lt;result&gt;/WEB-INF/hello.jsp&lt;/result&gt;
+    &lt;/action&gt;
+
+&lt;/package&gt;
+</code></pre><h2 id="Spring和Hibernate整合"><a href="#Spring和Hibernate整合" class="headerlink" title="Spring和Hibernate整合"></a>Spring和Hibernate整合</h2><p>Spring和Hibenate环境搭建<br>1、引入jar包(hibernate-core、spring-orm)</p>
+<p>2、引入hibernate.cfg.xml</p>
+<pre><code>&lt;hibernate-configuration&gt;
+
+    &lt;session-factory&gt;
+        &lt;property name=&quot;dialect&quot;&gt;
+            org.hibernate.dialect.MySQLDialect
+        &lt;/property&gt;
+        &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+        &lt;property name=&quot;format_sql&quot;&gt;true&lt;/property&gt;
+
+        &lt;!-- 加载映射描述信息 --&gt;
+        &lt;mapping class=&quot;cn.xdl.entity.Dept&quot;/&gt; 
+
+    &lt;/session-factory&gt;
+
+&lt;/hibernate-configuration&gt;
+</code></pre><p>3、定义实体类和映射描述</p>
+<pre><code>@Entity
+@Table(name=&quot;DEPT&quot;)
+public class Dept implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name=&quot;DEPTNO&quot;)
+    private int deptno;
+    @Column(name=&quot;DNAME&quot;)
+    private String dname;
+    @Column(name=&quot;LOC&quot;)
+    private String loc;
+    //省略set和get方法
+}
+</code></pre><h4 id="Spring提供了HibernateTemplate"><a href="#Spring提供了HibernateTemplate" class="headerlink" title="Spring提供了HibernateTemplate"></a>Spring提供了HibernateTemplate</h4><p>简化编写DAO组件。</p>
+<blockquote>
+<p>配置SessionFactory</p>
+</blockquote>
+<pre><code>&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;
+    &lt;!-- 指定datasource --&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dbcp&quot;&gt;&lt;/property&gt;
+    &lt;!-- 指定hibernate.cfg.xml --&gt;
+    &lt;property name=&quot;configLocations&quot; value=&quot;classpath:hibernate.cfg.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><blockquote>
+<p>配置HibernateTemplate</p>
+</blockquote>
+<pre><code>&lt;bean id=&quot;hibernateTemplate&quot; class=&quot;org.springframework.orm.hibernate4.HibernateTemplate&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;    
+&lt;/bean&gt;
+</code></pre><blockquote>
+<p>注入HibernateTemplate对象编写DAO</p>
+</blockquote>
+<pre><code>@Repository(&quot;deptDao&quot;)
+public class HibernateDeptDao implements DeptDao{
+
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
+
+    public List&lt;Dept&gt; selectAll() {
+        List list = hibernateTemplate.find(&quot;from Dept&quot;);
+        return list;
+    }
+
+    public void save(Dept dept) {
+        hibernateTemplate.save(dept);
+    }
+
+    public Dept selectById(int id) {
+        Dept dept = hibernateTemplate.load(Dept.class, id);
+        return dept;
+    }
+
+}
+</code></pre><h4 id="Spring提供了OpenSessionInViewFilter"><a href="#Spring提供了OpenSessionInViewFilter" class="headerlink" title="Spring提供了OpenSessionInViewFilter"></a>Spring提供了OpenSessionInViewFilter</h4><p>用于支持延迟加载操作。</p>
+<p>在web.xml配置Filter，注意必须放在Struts Filter控制器之前。</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;opensession&lt;/filter-name&gt;
+    &lt;filter-class&gt;
+    org.springframework.orm.hibernate4.support.OpenSessionInViewFilter
+    &lt;/filter-class&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;opensession&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><h4 id="Spring提供了HibernateTransactionManager"><a href="#Spring提供了HibernateTransactionManager" class="headerlink" title="Spring提供了HibernateTransactionManager"></a>Spring提供了HibernateTransactionManager</h4><p>用于@Transactional实现事务控制。</p>
+<pre><code>&lt;!-- 启用HibernateTransactionManager事务控制 --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+</code></pre><p>之后就可以在代码类前或方法前使用@Transactional标记。</p>
+
       
     </div>
     
@@ -430,9 +523,7 @@ propagation  事务传播特性 一共有七个
       
         <div class="post-tags">
           
-            <a href="/tags/Spring/" rel="tag"># Spring</a>
-          
-            <a href="/tags/Dao/" rel="tag"># Dao</a>
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
         </div>
       
@@ -445,8 +536,8 @@ propagation  事务传播特性 一共有七个
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/spring-ioc3/" rel="next" title="Spring-IOC-Day03(组件扫描)">
-                <i class="fa fa-chevron-left"></i> Spring-IOC-Day03(组件扫描)
+              <a href="/2018/04/08/spring-cloud/" rel="next" title="SpringCloud">
+                <i class="fa fa-chevron-left"></i> SpringCloud
               </a>
             
           </div>
@@ -454,10 +545,6 @@ propagation  事务传播特性 一共有七个
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/25/spring-mvc/" rel="prev" title="Spring-mvc-Day05(异常，拦截器，中文乱码处理)">
-                Spring-mvc-Day05(异常，拦截器，中文乱码处理) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,7 +698,7 @@ propagation  事务传播特性 一共有七个
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringDAO-对JDBC-做了哪些改进"><span class="nav-number">1.</span> <span class="nav-text">SpringDAO 对JDBC 做了哪些改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringDAO-完成数据库访问的核心类-是JdbcTemplate"><span class="nav-number">2.</span> <span class="nav-text">SpringDAO 完成数据库访问的核心类 是JdbcTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用-JdbcTemplate"><span class="nav-number">3.</span> <span class="nav-text">如何使用 JdbcTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-声明式事务的实现步骤"><span class="nav-number">4.</span> <span class="nav-text">Spring  声明式事务的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transactional-这个标注的属性"><span class="nav-number">5.</span> <span class="nav-text">@Transactional 这个标注的属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring和Struts2的整合"><span class="nav-number">1.</span> <span class="nav-text">Spring和Struts2的整合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring和Hibernate整合"><span class="nav-number">2.</span> <span class="nav-text">Spring和Hibernate整合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring提供了HibernateTemplate"><span class="nav-number">2.0.1.</span> <span class="nav-text">Spring提供了HibernateTemplate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring提供了OpenSessionInViewFilter"><span class="nav-number">2.0.2.</span> <span class="nav-text">Spring提供了OpenSessionInViewFilter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring提供了HibernateTransactionManager"><span class="nav-number">2.0.3.</span> <span class="nav-text">Spring提供了HibernateTransactionManager</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
