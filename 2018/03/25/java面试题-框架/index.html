@@ -71,18 +71,18 @@
 
 
 
-<meta name="description" content="BeanFactory和ApplicationContext有什么区别BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组件都被当">
+<meta name="description" content="SSHMybatis与Hibernate的区别hibernate可以自动生成SQL对数据库操作，Mybatis余姚手写SQL语句 hibernate封装复杂度高，学习难度大，Mybatis简单容易使用。 hibernate关联映射有很多种类，比如一对多，多对一，一对一，多对多等。Mybatis只有两种加载：一种是加载一个记录，一种是加载多个记录 hibernate缓存种类很多，比如一级、二级、查询">
 <meta name="keywords" content="Java,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java面试题-框架">
 <meta property="og:url" content="http://yoursite.com/2018/03/25/java面试题-框架/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="BeanFactory和ApplicationContext有什么区别BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组件都被当">
+<meta property="og:description" content="SSHMybatis与Hibernate的区别hibernate可以自动生成SQL对数据库操作，Mybatis余姚手写SQL语句 hibernate封装复杂度高，学习难度大，Mybatis简单容易使用。 hibernate关联映射有很多种类，比如一对多，多对一，一对一，多对多等。Mybatis只有两种加载：一种是加载一个记录，一种是加载多个记录 hibernate缓存种类很多，比如一级、二级、查询">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-12T13:24:17.146Z">
+<meta property="og:updated_time" content="2018-04-16T13:55:50.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面试题-框架">
-<meta name="twitter:description" content="BeanFactory和ApplicationContext有什么区别BeanFactory和ApplicationContext是Spring的两大核心接口， 而其中ApplicationContext是BeanFactory的子接口。 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。 在基于Spring的Java EE应用中，所有的组件都被当">
+<meta name="twitter:description" content="SSHMybatis与Hibernate的区别hibernate可以自动生成SQL对数据库操作，Mybatis余姚手写SQL语句 hibernate封装复杂度高，学习难度大，Mybatis简单容易使用。 hibernate关联映射有很多种类，比如一对多，多对一，一对一，多对多等。Mybatis只有两种加载：一种是加载一个记录，一种是加载多个记录 hibernate缓存种类很多，比如一级、二级、查询">
 
 
 
@@ -344,14 +344,40 @@
       
 
       
-        <h3 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h3><pre><code>BeanFactory和ApplicationContext是Spring的两大核心接口，
+        <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><h3 id="Mybatis与Hibernate的区别"><a href="#Mybatis与Hibernate的区别" class="headerlink" title="Mybatis与Hibernate的区别"></a>Mybatis与Hibernate的区别</h3><pre><code>hibernate可以自动生成SQL对数据库操作，Mybatis余姚手写SQL语句
+hibernate封装复杂度高，学习难度大，Mybatis简单容易使用。
+hibernate关联映射有很多种类，比如一对多，多对一，一对一，多对多等。Mybatis只有两种加载：一种是加载一个记录，一种是加载多个记录
+hibernate缓存种类很多，比如一级、二级、查询缓存，Mybatis只有一种缓存。
+hibernate自动生成SQL，自动映射SQL参数，Mybatis采用#{key}映射SQL参数
+</code></pre><h3 id="hibernate中的一级缓存和二级缓存"><a href="#hibernate中的一级缓存和二级缓存" class="headerlink" title="hibernate中的一级缓存和二级缓存"></a>hibernate中的一级缓存和二级缓存</h3><pre><code>一级缓存（默认开启）
+    属于session级别缓存，每个session对象都有一个缓存区，从对象创建到close关闭，session缓存是独享的。
+二级缓存（默认关闭）
+    属于sessionfactory级别缓存，一个sessionfactory对象只有一个，由sessionfactory创建出的多个session对象都可以访问二级缓存区。
+</code></pre><h3 id="Springmvc和Struts2的区别"><a href="#Springmvc和Struts2的区别" class="headerlink" title="Springmvc和Struts2的区别"></a>Springmvc和Struts2的区别</h3><h3 id="延迟加载机制和openSessionInViewFilter"><a href="#延迟加载机制和openSessionInViewFilter" class="headerlink" title="延迟加载机制和openSessionInViewFilter"></a>延迟加载机制和openSessionInViewFilter</h3><pre><code>在使用一些API查询数据时，并没有立刻发送SQL执行，而是在后续使用时才进行查询。
+在web应用中，dao中不能立刻关闭session，因为JSP才访问对象属性显示。
+使用filter或interceptor将session关闭。放在JSP解析之后执行。在spring框架中提供了一个opensessioninviewfilter组件
+</code></pre><h3 id="Hibernate多对多映射的使用"><a href="#Hibernate多对多映射的使用" class="headerlink" title="Hibernate多对多映射的使用"></a>Hibernate多对多映射的使用</h3><h3 id="什么是ValueStack？生命周期"><a href="#什么是ValueStack？生命周期" class="headerlink" title="什么是ValueStack？生命周期"></a>什么是ValueStack？生命周期</h3><pre><code>1.ValueStack是一个接口，在struts2中使用OGNL（Object-Graph Navigation Language）表达式实际上是使用
+实现了ValueStack接口的类OgnlValueStack.它是ValueStack的默认实现类. 
+2.ValueStack贯穿整个action的生命周期，每一个action实例都拥有一个ValueStack对象，其中保存了当前action对象和其他相关对象. 
+3.当action创建的时候，ValueStack就创建了，action被销毁的时候，ValueStack就销毁了
+4.ValueStack中的数据分两部分存放：root（栈结构，CompoundRoot）和context（map形式,OgnlContex
+</code></pre><h3 id="Struts2的执行过程"><a href="#Struts2的执行过程" class="headerlink" title="Struts2的执行过程"></a>Struts2的执行过程</h3><h3 id="对象的三种状态"><a href="#对象的三种状态" class="headerlink" title="对象的三种状态"></a>对象的三种状态</h3><pre><code>临时状态：刚new出的对象为临时状态
+持久状态：通过session查出的，或通过save、update方法处理的对象为持久状态
+游离状态：通过session的close、evict执行后，原有的持久对象就变为了游离状态
+</code></pre><h3 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h3><pre><code>BeanFactory和ApplicationContext是Spring的两大核心接口，
 而其中ApplicationContext是BeanFactory的子接口。
 它们都可以当做Spring的容器，Spring容器是生成Bean实例的工厂，并管理容器中的Bean。
 在基于Spring的Java EE应用中，所有的组件都被当成Bean处理，
 包括数据源，Hibernate的SessionFactory、事务管理器等。
-</code></pre><h3 id="SpringBean的生命周期"><a href="#SpringBean的生命周期" class="headerlink" title="SpringBean的生命周期"></a>SpringBean的生命周期</h3><h3 id="SpringIOC是如何实现的"><a href="#SpringIOC是如何实现的" class="headerlink" title="SpringIOC是如何实现的"></a>SpringIOC是如何实现的</h3><pre><code>1、使用dom4j 解析xml配置文件
+</code></pre><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="SpringBean的生命周期"><a href="#SpringBean的生命周期" class="headerlink" title="SpringBean的生命周期"></a>SpringBean的生命周期</h3><h3 id="SpringIOC是如何实现的"><a href="#SpringIOC是如何实现的" class="headerlink" title="SpringIOC是如何实现的"></a>SpringIOC是如何实现的</h3><pre><code>1、使用dom4j 解析xml配置文件
 2、获取
-</code></pre><h3 id="说说SpringAop"><a href="#说说SpringAop" class="headerlink" title="说说SpringAop"></a>说说SpringAop</h3><h3 id="SpringAop-实现原理"><a href="#SpringAop-实现原理" class="headerlink" title="SpringAop 实现原理"></a>SpringAop 实现原理</h3><h3 id="动态代理机制"><a href="#动态代理机制" class="headerlink" title="动态代理机制"></a>动态代理机制</h3><h3 id="Spring事物实现方式"><a href="#Spring事物实现方式" class="headerlink" title="Spring事物实现方式"></a>Spring事物实现方式</h3><h3 id="Spring事物底层原理"><a href="#Spring事物底层原理" class="headerlink" title="Spring事物底层原理"></a>Spring事物底层原理</h3><h3 id="如何自定义注解实现功能"><a href="#如何自定义注解实现功能" class="headerlink" title="如何自定义注解实现功能"></a>如何自定义注解实现功能</h3><h3 id="Spring-MVC-运行流程"><a href="#Spring-MVC-运行流程" class="headerlink" title="Spring MVC 运行流程"></a>Spring MVC 运行流程</h3><h3 id="Spring-MVC-启动流程"><a href="#Spring-MVC-启动流程" class="headerlink" title="Spring MVC 启动流程"></a>Spring MVC 启动流程</h3><h3 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h3><h3 id="Spring框架中用到了那些设计模式"><a href="#Spring框架中用到了那些设计模式" class="headerlink" title="Spring框架中用到了那些设计模式"></a>Spring框架中用到了那些设计模式</h3><h3 id="Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等"><a href="#Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等" class="headerlink" title="Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)"></a>Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)</h3>
+</code></pre><h3 id="说说SpringAop"><a href="#说说SpringAop" class="headerlink" title="说说SpringAop"></a>说说SpringAop</h3><h3 id="SpringAop-实现原理"><a href="#SpringAop-实现原理" class="headerlink" title="SpringAop 实现原理"></a>SpringAop 实现原理</h3><h3 id="动态代理机制"><a href="#动态代理机制" class="headerlink" title="动态代理机制"></a>动态代理机制</h3><h3 id="Spring事物实现方式"><a href="#Spring事物实现方式" class="headerlink" title="Spring事物实现方式"></a>Spring事物实现方式</h3><h3 id="Spring事物底层原理"><a href="#Spring事物底层原理" class="headerlink" title="Spring事物底层原理"></a>Spring事物底层原理</h3><h3 id="如何自定义注解实现功能"><a href="#如何自定义注解实现功能" class="headerlink" title="如何自定义注解实现功能"></a>如何自定义注解实现功能</h3><h3 id="Spring-MVC-运行流程"><a href="#Spring-MVC-运行流程" class="headerlink" title="Spring MVC 运行流程"></a>Spring MVC 运行流程</h3><h3 id="Spring-MVC-启动流程"><a href="#Spring-MVC-启动流程" class="headerlink" title="Spring MVC 启动流程"></a>Spring MVC 启动流程</h3><h3 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h3><h3 id="Spring框架中用到了那些设计模式"><a href="#Spring框架中用到了那些设计模式" class="headerlink" title="Spring框架中用到了那些设计模式"></a>Spring框架中用到了那些设计模式</h3><h3 id="Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等"><a href="#Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等" class="headerlink" title="Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)"></a>Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)</h3><h2 id="通用知识"><a href="#通用知识" class="headerlink" title="通用知识"></a>通用知识</h2><h3 id="谈谈拦截器与过滤器的区别："><a href="#谈谈拦截器与过滤器的区别：" class="headerlink" title="谈谈拦截器与过滤器的区别："></a>谈谈拦截器与过滤器的区别：</h3><pre><code>1、拦截器是基于java反射机制的，而过滤器是基于函数回调的。
+
+2、过滤器依赖于servlet容器，而拦截器不依赖于servlet容器。
+3、拦截器只能对Action请求起作用，而过滤器则可以对几乎所有请求起作用。
+4、拦截器可以访问Action上下文、值栈里的对象，而过滤器不能。
+5、在Action的生命周期中，拦截器可以多次调用，而过滤器只能在容器初始化时被调用一次。
+</code></pre>
       
     </div>
     
@@ -472,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +509,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -494,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -549,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanFactory和ApplicationContext有什么区别"><span class="nav-number">1.</span> <span class="nav-text">BeanFactory和ApplicationContext有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBean的生命周期"><span class="nav-number">2.</span> <span class="nav-text">SpringBean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringIOC是如何实现的"><span class="nav-number">3.</span> <span class="nav-text">SpringIOC是如何实现的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说说SpringAop"><span class="nav-number">4.</span> <span class="nav-text">说说SpringAop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringAop-实现原理"><span class="nav-number">5.</span> <span class="nav-text">SpringAop 实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态代理机制"><span class="nav-number">6.</span> <span class="nav-text">动态代理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring事物实现方式"><span class="nav-number">7.</span> <span class="nav-text">Spring事物实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring事物底层原理"><span class="nav-number">8.</span> <span class="nav-text">Spring事物底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自定义注解实现功能"><span class="nav-number">9.</span> <span class="nav-text">如何自定义注解实现功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-运行流程"><span class="nav-number">10.</span> <span class="nav-text">Spring MVC 运行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-启动流程"><span class="nav-number">11.</span> <span class="nav-text">Spring MVC 启动流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-的单例实现原理"><span class="nav-number">12.</span> <span class="nav-text">Spring 的单例实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架中用到了那些设计模式"><span class="nav-number">13.</span> <span class="nav-text">Spring框架中用到了那些设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等"><span class="nav-number">14.</span> <span class="nav-text">Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH"><span class="nav-number">1.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis与Hibernate的区别"><span class="nav-number">1.1.</span> <span class="nav-text">Mybatis与Hibernate的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hibernate中的一级缓存和二级缓存"><span class="nav-number">1.2.</span> <span class="nav-text">hibernate中的一级缓存和二级缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Springmvc和Struts2的区别"><span class="nav-number">1.3.</span> <span class="nav-text">Springmvc和Struts2的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟加载机制和openSessionInViewFilter"><span class="nav-number">1.4.</span> <span class="nav-text">延迟加载机制和openSessionInViewFilter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate多对多映射的使用"><span class="nav-number">1.5.</span> <span class="nav-text">Hibernate多对多映射的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是ValueStack？生命周期"><span class="nav-number">1.6.</span> <span class="nav-text">什么是ValueStack？生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Struts2的执行过程"><span class="nav-number">1.7.</span> <span class="nav-text">Struts2的执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的三种状态"><span class="nav-number">1.8.</span> <span class="nav-text">对象的三种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanFactory和ApplicationContext有什么区别"><span class="nav-number">1.9.</span> <span class="nav-text">BeanFactory和ApplicationContext有什么区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">2.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBean的生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">SpringBean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringIOC是如何实现的"><span class="nav-number">2.2.</span> <span class="nav-text">SpringIOC是如何实现的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说说SpringAop"><span class="nav-number">2.3.</span> <span class="nav-text">说说SpringAop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringAop-实现原理"><span class="nav-number">2.4.</span> <span class="nav-text">SpringAop 实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态代理机制"><span class="nav-number">2.5.</span> <span class="nav-text">动态代理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring事物实现方式"><span class="nav-number">2.6.</span> <span class="nav-text">Spring事物实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring事物底层原理"><span class="nav-number">2.7.</span> <span class="nav-text">Spring事物底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自定义注解实现功能"><span class="nav-number">2.8.</span> <span class="nav-text">如何自定义注解实现功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-运行流程"><span class="nav-number">2.9.</span> <span class="nav-text">Spring MVC 运行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-启动流程"><span class="nav-number">2.10.</span> <span class="nav-text">Spring MVC 启动流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-的单例实现原理"><span class="nav-number">2.11.</span> <span class="nav-text">Spring 的单例实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架中用到了那些设计模式"><span class="nav-number">2.12.</span> <span class="nav-text">Spring框架中用到了那些设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring其他产品-Srping-Boot、Spring-Cloud、SpringSecuirity、Spring-Data、Spring-AMQP等"><span class="nav-number">2.13.</span> <span class="nav-text">Spring其他产品(Srping Boot、Spring Cloud、SpringSecuirity、Spring Data、Spring AMQP等)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用知识"><span class="nav-number">3.</span> <span class="nav-text">通用知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈拦截器与过滤器的区别："><span class="nav-number">3.1.</span> <span class="nav-text">谈谈拦截器与过滤器的区别：</span></a></li></ol></li></ol></div>
             
 
           </div>
