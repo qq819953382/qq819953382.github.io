@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="AnJ">
 <meta property="og:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-16T14:09:06.182Z">
+<meta property="og:updated_time" content="2018-05-02T03:15:19.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux配置">
 <meta name="twitter:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
@@ -433,6 +433,92 @@ cd java7
     export PATH=$PATH:$JAVA_HOME/bin
 </code></pre><h5 id="8：使配置文件生效"><a href="#8：使配置文件生效" class="headerlink" title="8：使配置文件生效"></a>8：使配置文件生效</h5><pre><code>source ~/.bash_profile 
 </code></pre><h5 id="9：查看安装后的JDK版本"><a href="#9：查看安装后的JDK版本" class="headerlink" title="9：查看安装后的JDK版本"></a>9：查看安装后的JDK版本</h5><pre><code>java -version
+</code></pre><h2 id="Linux里安装MySQL57"><a href="#Linux里安装MySQL57" class="headerlink" title="Linux里安装MySQL57"></a>Linux里安装MySQL57</h2><h3 id="软件要求"><a href="#软件要求" class="headerlink" title="软件要求"></a>软件要求</h3><p>虚拟机：VMware Workstation</p>
+<p>系统版本：CentOS-7-x86_64(Linux)</p>
+<p>Mysql版本：mysql57-community-release-el7-11.noarch.rpm</p>
+<p>安装工具：SSH客户端</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>本教程，使用在线安装模式，请保持外网络畅通</p>
+<p>使用root用户登录系统，并切换到根目录<br>进入opt文件下，创建文件目录mysql57，并进入</p>
+<blockquote>
+<p>在/opt/mysql57/，目录下，输入命令,下载mysql的安装文件，使用rpm安装:</p>
+</blockquote>
+<pre><code>wget http://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
+</code></pre><blockquote>
+<p>如果提示wget命令未找到，则在保持外网网络畅通下执行命令：</p>
+</blockquote>
+<pre><code>cd /
+yum install wget -y
+</code></pre><blockquote>
+<p>再次切换到/opt/mysql57目录下，执行下载命令：</p>
+</blockquote>
+<pre><code>wget http://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
+</code></pre><blockquote>
+<p>下载完毕之后，执行如下命令：</p>
+</blockquote>
+<pre><code>sudo rpm -ivh mysql57-community-release-el7-11.noarch.rpm
+</code></pre><blockquote>
+<p>执行如下命令，安装mysql数据库</p>
+</blockquote>
+<pre><code>sudo yum install mysql-server
+</code></pre><blockquote>
+<p>输入如下命令，登录数据库客户端</p>
+</blockquote>
+<pre><code>mysql -u root
+会有一个 error2002
+</code></pre><blockquote>
+<p>是因为此目录，没有对应的操作权限问题，执行如下命令修改目录权限</p>
+</blockquote>
+<pre><code>sudo chown -R root:root /var/lib/mysql
+</code></pre><blockquote>
+<p>重新启动数据库，执行如下命令：</p>
+</blockquote>
+<pre><code>service mysqld restart
+</code></pre><blockquote>
+<p>再次登录，执行如下命令：</p>
+</blockquote>
+<pre><code>mysql -u root -p
+
+初始化密码查看：
+
+通过命令：more /var/log/mysqld.log   获取：1#;htwi(e&gt;Bw
+</code></pre><blockquote>
+<p>再次登录，执行如下命令：</p>
+</blockquote>
+<pre><code>mysql -u root -p
+</code></pre><blockquote>
+<p>修改登录密码</p>
+</blockquote>
+<pre><code>alter user user() identified by &apos;Likang123qwe&apos;;
+
+会提示密码安全问题
+</code></pre><blockquote>
+<p>执行如下命令，修改密码安全策略后，再次修改密码</p>
+</blockquote>
+<pre><code>set global validate_password_policy=0;
+</code></pre><blockquote>
+<p>重启mysql数据库，测试密码登录</p>
+</blockquote>
+<pre><code>service mysqld restart
+</code></pre><h4 id="如果此时需要远程客户端访问数据库，则还需要进行如下配置"><a href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置" class="headerlink" title="如果此时需要远程客户端访问数据库，则还需要进行如下配置"></a>如果此时需要远程客户端访问数据库，则还需要进行如下配置</h4><p>开启3306默认端口，并保存</p>
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+</code></pre><p>设置远程连接信息</p>
+<pre><code>mysql -u root -p
+
+use mysql;
+
+update user set host=&apos;%&apos; where user =&apos;root&apos; and host=&apos;localhost&apos;;
+
+select host,user from user;
+
+set global validate_password_policy=0;
+
+grant all privileges on *.* to root@&apos;%&apos; identified by &apos;Likang123qwe&apos; with grant option;
+</code></pre><p>重启mysql服务</p>
+<pre><code>service mysqld restart
+</code></pre><p>取消mysql默认分区表、字段的大小写</p>
+<pre><code>修改配置文件/etc/my.conf
+lower_case_table_names=1  不区分大小写
+lower_case_table_names=0  默认、区分大小写
 </code></pre>
       
     </div>
@@ -629,7 +715,7 @@ cd java7
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux里安装MySQL57"><span class="nav-number">4.</span> <span class="nav-text">Linux里安装MySQL57</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件要求"><span class="nav-number">4.1.</span> <span class="nav-text">软件要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">如果此时需要远程客户端访问数据库，则还需要进行如下配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
