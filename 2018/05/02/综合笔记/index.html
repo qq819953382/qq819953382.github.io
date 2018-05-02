@@ -71,13 +71,13 @@
 
 
 
-<meta name="description" content="#day01-linux 参考第一天的笔记 #day02 ## ##linux系统下部署tomcat ####前提 必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 ####部署 1：通过">
+<meta name="description" content="day01-linux参考第一天的笔记 day02## linux系统下部署tomcat前提必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 部署1：通过SCP将tomcat拖拽到服务器中">
 <meta name="keywords" content="项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四阶段综合笔记">
 <meta property="og:url" content="http://yoursite.com/2018/05/02/综合笔记/index.html">
 <meta property="og:site_name" content="AnJ">
-<meta property="og:description" content="#day01-linux 参考第一天的笔记 #day02 ## ##linux系统下部署tomcat ####前提 必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 ####部署 1：通过">
+<meta property="og:description" content="day01-linux参考第一天的笔记 day02## linux系统下部署tomcat前提必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 部署1：通过SCP将tomcat拖拽到服务器中">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.imgur.com/i3RYXMY.png">
 <meta property="og:image" content="https://i.imgur.com/qdB5A3G.png">
@@ -106,10 +106,10 @@
 <meta property="og:image" content="https://i.imgur.com/tIbdpL5.png">
 <meta property="og:image" content="https://i.imgur.com/rUyy9qq.png">
 <meta property="og:image" content="https://i.imgur.com/Mu8amo4.png">
-<meta property="og:updated_time" content="2018-05-02T12:54:44.579Z">
+<meta property="og:updated_time" content="2018-05-02T12:57:56.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四阶段综合笔记">
-<meta name="twitter:description" content="#day01-linux 参考第一天的笔记 #day02 ## ##linux系统下部署tomcat ####前提 必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 ####部署 1：通过">
+<meta name="twitter:description" content="day01-linux参考第一天的笔记 day02## linux系统下部署tomcat前提必须首先配置JAVA环境  查看是否配置java环境的命令：     java -version     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置 部署1：通过SCP将tomcat拖拽到服务器中">
 <meta name="twitter:image" content="https://i.imgur.com/i3RYXMY.png">
 
 
@@ -372,25 +372,19 @@
       
 
       
-        <p>#day01-linux</p>
-<pre><code>参考第一天的笔记
-</code></pre><p>#day02</p>
-<p>##</p>
-<p>##linux系统下部署tomcat</p>
-<p>####前提</p>
-<pre><code>必须首先配置JAVA环境
+        <h1 id="day01-linux"><a href="#day01-linux" class="headerlink" title="day01-linux"></a>day01-linux</h1><pre><code>参考第一天的笔记
+</code></pre><h1 id="day02"><a href="#day02" class="headerlink" title="day02"></a>day02</h1><p>##</p>
+<h2 id="linux系统下部署tomcat"><a href="#linux系统下部署tomcat" class="headerlink" title="linux系统下部署tomcat"></a>linux系统下部署tomcat</h2><h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><pre><code>必须首先配置JAVA环境
 
 查看是否配置java环境的命令：
     java -version
     如何显示java的版本信息，则代表配置java环境成功，如何没有任何显示或者错误显示，则需要参照第一天的《linux系统下配置java环境》文件，进行配置
-</code></pre><p>####部署</p>
-<pre><code>1：通过SCP将tomcat拖拽到服务器中
+</code></pre><h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><pre><code>1：通过SCP将tomcat拖拽到服务器中
 </code></pre><p><img src="https://i.imgur.com/i3RYXMY.png" alt=""></p>
 <pre><code>2：进入到tomcat的bin目录，ctrl+A，全选授权
 </code></pre><p><img src="https://i.imgur.com/qdB5A3G.png" alt=""></p>
 <pre><code>3：暂时可以清除webapps目录下和logs目录下的所有文件
-</code></pre><p>####启动</p>
-<pre><code>进入到tomcat的bin目录，执行如下命令
+</code></pre><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><pre><code>进入到tomcat的bin目录，执行如下命令
     ./startup.sh
 
 查看是否启动成功有两种方式：
@@ -404,8 +398,7 @@
 
         ps -ef|grep tomcat
 </code></pre><p><img src="https://i.imgur.com/CbjPrzE.png" alt=""></p>
-<p>####停止</p>
-<pre><code>停止tomcat有两种方式：
+<h4 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h4><pre><code>停止tomcat有两种方式：
 
 1：使用命令停止，如下
     首先切换到bin目录，执行：
@@ -418,18 +411,14 @@
 
 验证是否停止成功，可以使用查看tomcat进程命令，如果显示如下，则代表停止成功。
 </code></pre><p><img src="https://i.imgur.com/pt6dHEs.png" alt=""></p>
-<p>##开发工具搭建</p>
-<p>####配置JDK</p>
-<pre><code>参考下图
+<h2 id="开发工具搭建"><a href="#开发工具搭建" class="headerlink" title="开发工具搭建"></a>开发工具搭建</h2><h4 id="配置JDK"><a href="#配置JDK" class="headerlink" title="配置JDK"></a>配置JDK</h4><pre><code>参考下图
 </code></pre><p><img src="https://i.imgur.com/rpoWPvN.gif" alt=""></p>
-<p>####配置Tomcat</p>
-<pre><code>tomcat是一款开源的项目应用服务器，目前已经更新到tomcat9版本，从tomcat7以后，新增支持基于协议的长连接websocket功能(比较耗费服务器资源)
+<h4 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h4><pre><code>tomcat是一款开源的项目应用服务器，目前已经更新到tomcat9版本，从tomcat7以后，新增支持基于协议的长连接websocket功能(比较耗费服务器资源)
 </code></pre><p>目录说明：</p>
 <p><img src="https://i.imgur.com/s64PvIj.png" alt=""></p>
 <p>myeclipse中配置tomcat步骤，参考下图：</p>
 <p><img src="https://i.imgur.com/00bAIoi.gif" alt=""></p>
-<p>####配置Maven</p>
-<pre><code>1：命令行
+<h4 id="配置Maven"><a href="#配置Maven" class="headerlink" title="配置Maven"></a>配置Maven</h4><pre><code>1：命令行
 
     mvn test 测试命令
     mvn bulid 构建命令----不会生成war、jar包到中央仓库
@@ -441,8 +430,7 @@
     eg：eclipse\myeclipse\IDEA等
 </code></pre><p>myeclipse中配置maven步骤，参考下图：</p>
 <p><img src="https://i.imgur.com/VEUekfJ.gif" alt=""></p>
-<p>###开发工具快捷键</p>
-<pre><code>ctrl+N：新建
+<h3 id="开发工具快捷键"><a href="#开发工具快捷键" class="headerlink" title="开发工具快捷键"></a>开发工具快捷键</h3><pre><code>ctrl+N：新建
 ctrl+1：提示错误信息
 ctrl+D：删除
 ctrl+/：行注释
@@ -455,24 +443,17 @@ ctrl+T：查找类(支持模糊查找)
 ctrl+R：查找文件（支持模糊查找、支持资源文件查找）
 ctrl+shift+I：debug模式下，查看当前执行代码信息
 ctrl+G：定位文件(不常用)
-</code></pre><p>###DEBUG模式快捷键</p>
-<pre><code>F5：进入到方法内
+</code></pre><h3 id="DEBUG模式快捷键"><a href="#DEBUG模式快捷键" class="headerlink" title="DEBUG模式快捷键"></a>DEBUG模式快捷键</h3><pre><code>F5：进入到方法内
 F6：执行下一步
 F7：跳出方法外
 F8：执行到下一个断点
-</code></pre><p>#day03</p>
-<p>##企业类型、项目类型、企业IT组成</p>
-<p><img src="https://i.imgur.com/euKNxIE.png" alt=""></p>
+</code></pre><h1 id="day03"><a href="#day03" class="headerlink" title="day03"></a>day03</h1><h2 id="企业类型、项目类型、企业IT组成"><a href="#企业类型、项目类型、企业IT组成" class="headerlink" title="企业类型、项目类型、企业IT组成"></a>企业类型、项目类型、企业IT组成</h2><p><img src="https://i.imgur.com/euKNxIE.png" alt=""></p>
 <p><img src="https://i.imgur.com/yxMYwP6.png" alt=""></p>
-<p>##项目研发流程、人员搭配</p>
-<p><img src="https://i.imgur.com/nKwv5Br.png" alt=""></p>
+<h2 id="项目研发流程、人员搭配"><a href="#项目研发流程、人员搭配" class="headerlink" title="项目研发流程、人员搭配"></a>项目研发流程、人员搭配</h2><p><img src="https://i.imgur.com/nKwv5Br.png" alt=""></p>
 <p><img src="https://i.imgur.com/GdFNnE6.png" alt=""></p>
-<p>##发展路线</p>
-<p><img src="https://i.imgur.com/X92T38V.png" alt=""></p>
-<p>##常使用软件汇总</p>
-<p><img src="https://i.imgur.com/AWqWcB4.png" alt=""></p>
-<p>##BUG、需求变更如何处理（分析日志、定位问题）</p>
-<p>代码版本控制器：</p>
+<h2 id="发展路线"><a href="#发展路线" class="headerlink" title="发展路线"></a>发展路线</h2><p><img src="https://i.imgur.com/X92T38V.png" alt=""></p>
+<h2 id="常使用软件汇总"><a href="#常使用软件汇总" class="headerlink" title="常使用软件汇总"></a>常使用软件汇总</h2><p><img src="https://i.imgur.com/AWqWcB4.png" alt=""></p>
+<h2 id="BUG、需求变更如何处理（分析日志、定位问题）"><a href="#BUG、需求变更如何处理（分析日志、定位问题）" class="headerlink" title="BUG、需求变更如何处理（分析日志、定位问题）"></a>BUG、需求变更如何处理（分析日志、定位问题）</h2><p>代码版本控制器：</p>
 <pre><code>SVN、GIT：
 
     注意事项：
@@ -571,8 +552,7 @@ KPI:
 报表：
     BUG处理排行榜：
     BUG处理情况：
-</code></pre><p>##如何部署补丁文件、如何上线</p>
-<p>代码补丁：</p>
+</code></pre><h2 id="如何部署补丁文件、如何上线"><a href="#如何部署补丁文件、如何上线" class="headerlink" title="如何部署补丁文件、如何上线"></a>如何部署补丁文件、如何上线</h2><p>代码补丁：</p>
 <pre><code>出具步骤：
 </code></pre><p><img src="https://i.imgur.com/Foq0i0K.gif" alt=""></p>
 <pre><code>出具规范：
@@ -596,8 +576,7 @@ KPI:
 <p><img src="https://i.imgur.com/Olv6xtA.gif" alt=""></p>
 <p>文档补丁：</p>
 <pre><code>文档最上面，《修改记录》，提交SVN
-</code></pre><p>##数据库、数据库服务器、框架、架构</p>
-<p>数据库：</p>
+</code></pre><h2 id="数据库、数据库服务器、框架、架构"><a href="#数据库、数据库服务器、框架、架构" class="headerlink" title="数据库、数据库服务器、框架、架构"></a>数据库、数据库服务器、框架、架构</h2><p>数据库：</p>
 <pre><code>databasename
 </code></pre><p>数据库服务器：</p>
 <pre><code>mysql、oracle、SqlServer、db2、derby
@@ -610,8 +589,7 @@ SSM\SSH\SM:整合框架
 B/S：
 
 微服务、SOA区别：
-</code></pre><p>##分布式、集群、高并发、负载、缓存、云端</p>
-<p>分布式：</p>
+</code></pre><h2 id="分布式、集群、高并发、负载、缓存、云端"><a href="#分布式、集群、高并发、负载、缓存、云端" class="headerlink" title="分布式、集群、高并发、负载、缓存、云端"></a>分布式、集群、高并发、负载、缓存、云端</h2><p>分布式：</p>
 <pre><code>不同的业务，不同的模块，不同的功能，分别部署到不同的服务器
 </code></pre><p>集群：</p>
 <pre><code>相同的业务，相同的模块，相同的功能，分别部署到不同的服务器
@@ -623,34 +601,22 @@ B/S：
 <pre><code>提高服务器性能，和用户体验的，提高服务器访问的事务安全性
 </code></pre><p>云：</p>
 <pre><code>腾讯云、阿里云、七牛云等
-</code></pre><p>##小明的故事</p>
-<p><img src="https://i.imgur.com/PgTUw19.png" alt=""></p>
-<p>##层次架构（技术选型）</p>
-<p><img src="https://i.imgur.com/zRmUkNF.png" alt=""></p>
+</code></pre><h2 id="小明的故事"><a href="#小明的故事" class="headerlink" title="小明的故事"></a>小明的故事</h2><p><img src="https://i.imgur.com/PgTUw19.png" alt=""></p>
+<h2 id="层次架构（技术选型）"><a href="#层次架构（技术选型）" class="headerlink" title="层次架构（技术选型）"></a>层次架构（技术选型）</h2><p><img src="https://i.imgur.com/zRmUkNF.png" alt=""></p>
 <hr>
-<p>#day04</p>
-<p>##技术架构</p>
-<p><img src="https://i.imgur.com/ZdFTdGt.png" alt=""></p>
-<p>##负载架构</p>
-<p><img src="https://i.imgur.com/42B6tkd.png" alt=""></p>
-<p>##二维码工具类</p>
-<p>开发步骤：</p>
+<h1 id="day04"><a href="#day04" class="headerlink" title="day04"></a>day04</h1><h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><p><img src="https://i.imgur.com/ZdFTdGt.png" alt=""></p>
+<h2 id="负载架构"><a href="#负载架构" class="headerlink" title="负载架构"></a>负载架构</h2><p><img src="https://i.imgur.com/42B6tkd.png" alt=""></p>
+<h2 id="二维码工具类"><a href="#二维码工具类" class="headerlink" title="二维码工具类"></a>二维码工具类</h2><p>开发步骤：</p>
 <pre><code>1：新建一个web project或者java project
 2：导入二维码所需jar包
 3：编写生成二维码的java类，运行main方法即可
 </code></pre><p>代码参考下图</p>
 <p><img src="https://i.imgur.com/1YkWZVB.png" alt=""></p>
-<p>#项目1—–【CRM客户管理系统】</p>
-<p>##调研</p>
-<pre><code>略
-</code></pre><p>##产品</p>
-<pre><code>略
-</code></pre><p>##需求</p>
-<pre><code>参考《01_CRM需求概要文档V1.0》
-</code></pre><p>##UI</p>
-<pre><code>略
-</code></pre><p>##开发</p>
-<p>技术选型：</p>
+<h1 id="项目1—–【CRM客户管理系统】"><a href="#项目1—–【CRM客户管理系统】" class="headerlink" title="项目1—–【CRM客户管理系统】"></a>项目1—–【CRM客户管理系统】</h1><h2 id="调研"><a href="#调研" class="headerlink" title="调研"></a>调研</h2><pre><code>略
+</code></pre><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2><pre><code>略
+</code></pre><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>参考《01_CRM需求概要文档V1.0》
+</code></pre><h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><pre><code>略
+</code></pre><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>技术选型：</p>
 <pre><code>SSM、MYSQL57、tomcat7、jdk1.7、boostrap、anglur.js、quartz、ehcache、富文本编辑器(百度编辑器)
 </code></pre><p>框架搭建：</p>
 <pre><code>数据库设计：
@@ -846,8 +812,7 @@ hj_role_menu  角色-菜单关系表
 解决方式：
 
     参考代码
-</code></pre><p>###登录页面跳转</p>
-<p>开发步骤：</p>
+</code></pre><h3 id="登录页面跳转"><a href="#登录页面跳转" class="headerlink" title="登录页面跳转"></a>登录页面跳转</h3><p>开发步骤：</p>
 <pre><code>1：获取跳转页面的接口地址(前端获取)
 2：增加controller类进行页面跳转
 </code></pre><p>代码示例：</p>
@@ -873,8 +838,7 @@ public class UserLoginController {
 }
 </code></pre><p>页面展示：</p>
 <p><img src="https://i.imgur.com/nS0sDEd.png" alt=""></p>
-<p>###登录</p>
-<p>开发步骤:</p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>开发步骤:</p>
 <pre><code>1：通过点击【登录】按钮，获取登录的接口地址
 2：在UserLoginController类中，增加登录接口
 3：首先判断用户名是否存在，其次判断匹配是否匹配
@@ -1026,8 +990,7 @@ public class UserServiceImpl implements IUserService{
     &lt;mapper resource=&quot;commonsqlmappings/CommonMapper.xml&quot; /&gt;
     &lt;mapper resource=&quot;mybatis/UserMapper.xml&quot;/&gt;
 &lt;/mappers&gt;
-</code></pre><p>###登录功能-首页访问–完善功能</p>
-<p>代码如下：</p>
+</code></pre><h3 id="登录功能-首页访问–完善功能"><a href="#登录功能-首页访问–完善功能" class="headerlink" title="登录功能-首页访问–完善功能"></a>登录功能-首页访问–完善功能</h3><p>代码如下：</p>
 <p>UserLoginController.java:</p>
 <pre><code>/**
  * 登录首页
@@ -1114,8 +1077,7 @@ public class UserLoginController {
         return ReturnConstants.PARAM_NULL;//接收参数为空
     }
 }
-</code></pre><p>###登录功能-cookie问题</p>
-<p>开发步骤：</p>
+</code></pre><h3 id="登录功能-cookie问题"><a href="#登录功能-cookie问题" class="headerlink" title="登录功能-cookie问题"></a>登录功能-cookie问题</h3><p>开发步骤：</p>
 <pre><code>1：为了解决用户端禁用浏览器cookie第三方数据的问题
 2：只需要在服务器中保存一份cookie即可，同步到浏览器客户端
 </code></pre><p>示例代码：</p>
@@ -1172,8 +1134,7 @@ private static final String COOKIE_SPI = &quot;_#_&quot;;
         }
         return ReturnConstants.PARAM_NULL;//接收参数为空
     }
-</code></pre><p>##退出功能</p>
-<p>开发步骤：</p>
+</code></pre><h2 id="退出功能"><a href="#退出功能" class="headerlink" title="退出功能"></a>退出功能</h2><p>开发步骤：</p>
 <pre><code>1：清除session信息
 2：清除存放于服务器中的cookie数据
 3：清除客户端中的cookie数据
@@ -1203,8 +1164,7 @@ private static final String COOKIE_SPI = &quot;_#_&quot;;
         //跳转登录页面
         return &quot;redirect:/main.do&quot;;
     }
-</code></pre><p>##登录成功-权限管理-左侧菜单展示功能</p>
-<p>开发步骤：</p>
+</code></pre><h2 id="登录成功-权限管理-左侧菜单展示功能"><a href="#登录成功-权限管理-左侧菜单展示功能" class="headerlink" title="登录成功-权限管理-左侧菜单展示功能"></a>登录成功-权限管理-左侧菜单展示功能</h2><p>开发步骤：</p>
 <pre><code>1：根据登录成功用户的角色ID，查询对应的菜单信息，参考第一天的sql语句
 2：首先查询一级菜单信息
 3：循环遍历一级菜单信息，查询当前一级菜单对应的二级菜单信息
@@ -1270,11 +1230,8 @@ public List&lt;Menu&gt; queryMenusByRoleId(String roleId) {
         where rm.roleid = #{roleId} and m.menuparaid = #{menuparaid}
     &lt;/if&gt;
 &lt;/select&gt;
-</code></pre><p>####页面展示：</p>
-<p><img src="https://i.imgur.com/tIbdpL5.png" alt=""></p>
-<p>##用户管理</p>
-<p>###页面跳转</p>
-<p>开发步骤：</p>
+</code></pre><h4 id="页面展示："><a href="#页面展示：" class="headerlink" title="页面展示："></a>页面展示：</h4><p><img src="https://i.imgur.com/tIbdpL5.png" alt=""></p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><p>开发步骤：</p>
 <pre><code>1：通过前端找到接口地址
 2：为菜单的查询添加url的字段
 </code></pre><p>示例代码：</p>
@@ -1291,8 +1248,7 @@ public String userManger(Model model){
     }
     return JumpViewConstants.SYSTEM_LOGIN;
 }
-</code></pre><p>###列表查询</p>
-<p>开发步骤：</p>
+</code></pre><h3 id="列表查询"><a href="#列表查询" class="headerlink" title="列表查询"></a>列表查询</h3><p>开发步骤：</p>
 <pre><code>1：通过浏览器debug，获取接口地址（红色的404接口）
 2：支持分页查询
 </code></pre><p>示例代码：</p>
@@ -1354,8 +1310,7 @@ public List&lt;User&gt; queryAllUser(PageBean pageBean);
         u.userid,u.username,u.email,u.roleid,u.deptid,u.ischange
     from hj_user u
 &lt;/select&gt;
-</code></pre><p>###增加、修改</p>
-<p>开发步骤：</p>
+</code></pre><h3 id="增加、修改"><a href="#增加、修改" class="headerlink" title="增加、修改"></a>增加、修改</h3><p>开发步骤：</p>
 <pre><code>1：通过前端获取增加、修改的接口地址
 2：添加查询所有部门信息接口
 3：添加根据部门ID查询当前部门下所有角色信息的接口
@@ -1499,8 +1454,7 @@ public void saveOrUpdateUser(User user);
         }
     }
 }
-</code></pre><p>###删除</p>
-<p>开发步骤：</p>
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>开发步骤：</p>
 <pre><code>1：通过前端找到删除的接口地址(支持批量删除，真正企业做的时候，接口是后台来定义)
 2：增加删除的接口和方法
 </code></pre><p>示例代码：</p>
@@ -1534,10 +1488,8 @@ public void deleteUserByIds(String ids);
 </code></pre><p>提示：</p>
 <pre><code>1：课下回顾mysql的删除别名问题
 2：课下练习mybatis中的for标签
-</code></pre><p>###页面展示</p>
-<p><img src="https://i.imgur.com/rUyy9qq.png" alt=""></p>
-<p>##测试环境项目部署过程</p>
-<p>系统环境：</p>
+</code></pre><h3 id="页面展示"><a href="#页面展示" class="headerlink" title="页面展示"></a>页面展示</h3><p><img src="https://i.imgur.com/rUyy9qq.png" alt=""></p>
+<h2 id="测试环境项目部署过程"><a href="#测试环境项目部署过程" class="headerlink" title="测试环境项目部署过程"></a>测试环境项目部署过程</h2><p>系统环境：</p>
 <pre><code>linux-CentOS7
 </code></pre><p>使用工具：</p>
 <pre><code>CRT\SCP
@@ -1560,15 +1512,10 @@ public void deleteUserByIds(String ids);
     - xml对应的sql语句
 4：查看服务器mysql是否开启的命令
     ps -ef|grep mysql
-</code></pre><p>##菜单管理</p>
-<p>###跳转页面</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###查询</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###增加、修改</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###删除</p>
-<p>需求：</p>
+</code></pre><h2 id="菜单管理"><a href="#菜单管理" class="headerlink" title="菜单管理"></a>菜单管理</h2><h3 id="跳转页面"><a href="#跳转页面" class="headerlink" title="跳转页面"></a>跳转页面</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="增加、修改-1"><a href="#增加、修改-1" class="headerlink" title="增加、修改"></a>增加、修改</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p>需求：</p>
 <pre><code>1：如果菜单存在下一级菜单，则不允许删除
 2：如果菜单已经被分配，则不允许删除
 </code></pre><p>开发步骤：</p>
@@ -1727,17 +1674,11 @@ public void deleleMenuById(String id);
 &lt;select id=&quot;isHasRoleMenu&quot; parameterType=&quot;java.util.Map&quot; resultType=&quot;com.hjcrm.system.entity.Role_menu&quot;&gt;
     select rm.id from hj_role_menu rm where rm.menuid = #{mid}
 &lt;/select&gt;
-</code></pre><p>##角色管理</p>
-<p>###跳转页面</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###查询</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###增加、修改</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###删除</p>
-<pre><code>略，参考工程文件
-</code></pre><p>###权限分配</p>
-<p>需求：</p>
+</code></pre><h2 id="角色管理"><a href="#角色管理" class="headerlink" title="角色管理"></a>角色管理</h2><h3 id="跳转页面-1"><a href="#跳转页面-1" class="headerlink" title="跳转页面"></a>跳转页面</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="增加、修改-2"><a href="#增加、修改-2" class="headerlink" title="增加、修改"></a>增加、修改</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><pre><code>略，参考工程文件
+</code></pre><h3 id="权限分配"><a href="#权限分配" class="headerlink" title="权限分配"></a>权限分配</h3><p>需求：</p>
 <pre><code>1：选中角色，点击【权限分配】，弹出分配框
 2：展示所有的菜单信息，并树形分级展示
 3：如果之前已经分配过的菜单，则自动勾选复选框
@@ -2010,8 +1951,7 @@ public class MenuServiceImpl implements IMenuService {
         delete from hj_role_menu where roleid=#{roleid}
     &lt;/delete&gt;
 &lt;/mapper&gt; 
-</code></pre><p>##CRM第三方缓存技术</p>
-<p>开发步骤：</p>
+</code></pre><h2 id="CRM第三方缓存技术"><a href="#CRM第三方缓存技术" class="headerlink" title="CRM第三方缓存技术"></a>CRM第三方缓存技术</h2><p>开发步骤：</p>
 <pre><code>1：在resource文件内，导入缓存的配置文件
 2：在事务开启执行之前，使用注解，进行数据缓存
 </code></pre><p>常用注解：</p>
@@ -2043,8 +1983,7 @@ public List&lt;Dept&gt; queryAllDepts() {
     List&lt;Dept&gt; list = deptDao.queryByStatment(&quot;queryAllDepts&quot;, null, null);
     return list;
 }
-</code></pre><p>##调度任务Quartz</p>
-<p>开发步骤：</p>
+</code></pre><h2 id="调度任务Quartz"><a href="#调度任务Quartz" class="headerlink" title="调度任务Quartz"></a>调度任务Quartz</h2><p>开发步骤：</p>
 <pre><code>1:导入调度任务的配置模块文件
 2：在spring的配置文件中，引入调度任务的配置信息
 </code></pre><p>示例代码：</p>
@@ -2055,10 +1994,8 @@ public List&lt;Dept&gt; queryAllDepts() {
 <pre><code>参考文件
 </code></pre><p>注意：</p>
 <pre><code>cron表达式，可以百度，找一个在线生成器生成即可
-</code></pre><p>###百度编辑器（富文本编辑器）</p>
-<pre><code>后台字段设计为：text
-</code></pre><p>##自定义注解</p>
-<pre><code>注解的注解：
+</code></pre><h3 id="百度编辑器（富文本编辑器）"><a href="#百度编辑器（富文本编辑器）" class="headerlink" title="百度编辑器（富文本编辑器）"></a>百度编辑器（富文本编辑器）</h3><pre><code>后台字段设计为：text
+</code></pre><h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><pre><code>注解的注解：
 
     1.@Target,修饰的对象范围
     2.@Retention,保留的时间长短
@@ -2117,8 +2054,7 @@ public @interface Name {
         }
     }
 }
-</code></pre><p>###excel导入、导出</p>
-<p>解析：POI</p>
+</code></pre><h3 id="excel导入、导出"><a href="#excel导入、导出" class="headerlink" title="excel导入、导出"></a>excel导入、导出</h3><p>解析：POI</p>
 <pre><code>本地---数据库
 </code></pre><p>导入：</p>
 <pre><code>1：读取本地excel文件
@@ -2130,10 +2066,8 @@ public @interface Name {
 1：获取要导出的数据
 2：在应用服务器中创建一个空的excel文件，并将导出的数据写入
 3：将应用服务器中excel文件，下载本地
-</code></pre><p>###项目总结</p>
-<p><img src="https://i.imgur.com/Mu8amo4.png" alt=""></p>
-<p>##简历</p>
-<p>简历标题：</p>
+</code></pre><h3 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h3><p><img src="https://i.imgur.com/Mu8amo4.png" alt=""></p>
+<h2 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h2><p>简历标题：</p>
 <pre><code>姓名-3年-Java工程师-本科.doc
 </code></pre><p>个人信息</p>
 <pre><code>姓   名：        出生年月：
@@ -2269,8 +2203,17 @@ public @interface Name {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2352,6 +2295,22 @@ public @interface Name {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day01-linux"><span class="nav-number">1.</span> <span class="nav-text">day01-linux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day02"><span class="nav-number">2.</span> <span class="nav-text">day02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux系统下部署tomcat"><span class="nav-number">2.1.</span> <span class="nav-text">linux系统下部署tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前提"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">停止</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发工具搭建"><span class="nav-number">2.2.</span> <span class="nav-text">开发工具搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置JDK"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">配置JDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">配置Tomcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Maven"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">配置Maven</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发工具快捷键"><span class="nav-number">2.2.1.</span> <span class="nav-text">开发工具快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DEBUG模式快捷键"><span class="nav-number">2.2.2.</span> <span class="nav-text">DEBUG模式快捷键</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day03"><span class="nav-number">3.</span> <span class="nav-text">day03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#企业类型、项目类型、企业IT组成"><span class="nav-number">3.1.</span> <span class="nav-text">企业类型、项目类型、企业IT组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目研发流程、人员搭配"><span class="nav-number">3.2.</span> <span class="nav-text">项目研发流程、人员搭配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发展路线"><span class="nav-number">3.3.</span> <span class="nav-text">发展路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常使用软件汇总"><span class="nav-number">3.4.</span> <span class="nav-text">常使用软件汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG、需求变更如何处理（分析日志、定位问题）"><span class="nav-number">3.5.</span> <span class="nav-text">BUG、需求变更如何处理（分析日志、定位问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何部署补丁文件、如何上线"><span class="nav-number">3.6.</span> <span class="nav-text">如何部署补丁文件、如何上线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库、数据库服务器、框架、架构"><span class="nav-number">3.7.</span> <span class="nav-text">数据库、数据库服务器、框架、架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式、集群、高并发、负载、缓存、云端"><span class="nav-number">3.8.</span> <span class="nav-text">分布式、集群、高并发、负载、缓存、云端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小明的故事"><span class="nav-number">3.9.</span> <span class="nav-text">小明的故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次架构（技术选型）"><span class="nav-number">3.10.</span> <span class="nav-text">层次架构（技术选型）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day04"><span class="nav-number">4.</span> <span class="nav-text">day04</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术架构"><span class="nav-number">4.1.</span> <span class="nav-text">技术架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负载架构"><span class="nav-number">4.2.</span> <span class="nav-text">负载架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维码工具类"><span class="nav-number">4.3.</span> <span class="nav-text">二维码工具类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目1—–【CRM客户管理系统】"><span class="nav-number">5.</span> <span class="nav-text">项目1—–【CRM客户管理系统】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调研"><span class="nav-number">5.1.</span> <span class="nav-text">调研</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品"><span class="nav-number">5.2.</span> <span class="nav-text">产品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">5.3.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI"><span class="nav-number">5.4.</span> <span class="nav-text">UI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发"><span class="nav-number">5.5.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录页面跳转"><span class="nav-number">5.5.1.</span> <span class="nav-text">登录页面跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录"><span class="nav-number">5.5.2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能-首页访问–完善功能"><span class="nav-number">5.5.3.</span> <span class="nav-text">登录功能-首页访问–完善功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能-cookie问题"><span class="nav-number">5.5.4.</span> <span class="nav-text">登录功能-cookie问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出功能"><span class="nav-number">5.6.</span> <span class="nav-text">退出功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录成功-权限管理-左侧菜单展示功能"><span class="nav-number">5.7.</span> <span class="nav-text">登录成功-权限管理-左侧菜单展示功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面展示："><span class="nav-number">5.7.0.1.</span> <span class="nav-text">页面展示：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">5.8.</span> <span class="nav-text">用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面跳转"><span class="nav-number">5.8.1.</span> <span class="nav-text">页面跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表查询"><span class="nav-number">5.8.2.</span> <span class="nav-text">列表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加、修改"><span class="nav-number">5.8.3.</span> <span class="nav-text">增加、修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">5.8.4.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面展示"><span class="nav-number">5.8.5.</span> <span class="nav-text">页面展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试环境项目部署过程"><span class="nav-number">5.9.</span> <span class="nav-text">测试环境项目部署过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单管理"><span class="nav-number">5.10.</span> <span class="nav-text">菜单管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转页面"><span class="nav-number">5.10.1.</span> <span class="nav-text">跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">5.10.2.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加、修改-1"><span class="nav-number">5.10.3.</span> <span class="nav-text">增加、修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-number">5.10.4.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角色管理"><span class="nav-number">5.11.</span> <span class="nav-text">角色管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转页面-1"><span class="nav-number">5.11.1.</span> <span class="nav-text">跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询-1"><span class="nav-number">5.11.2.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加、修改-2"><span class="nav-number">5.11.3.</span> <span class="nav-text">增加、修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-2"><span class="nav-number">5.11.4.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限分配"><span class="nav-number">5.11.5.</span> <span class="nav-text">权限分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRM第三方缓存技术"><span class="nav-number">5.12.</span> <span class="nav-text">CRM第三方缓存技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度任务Quartz"><span class="nav-number">5.13.</span> <span class="nav-text">调度任务Quartz</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#百度编辑器（富文本编辑器）"><span class="nav-number">5.13.1.</span> <span class="nav-text">百度编辑器（富文本编辑器）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义注解"><span class="nav-number">5.14.</span> <span class="nav-text">自定义注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#excel导入、导出"><span class="nav-number">5.14.1.</span> <span class="nav-text">excel导入、导出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目总结"><span class="nav-number">5.14.2.</span> <span class="nav-text">项目总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简历"><span class="nav-number">5.15.</span> <span class="nav-text">简历</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
