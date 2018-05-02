@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="AnJ">
 <meta property="og:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-02T03:15:19.035Z">
+<meta property="og:updated_time" content="2018-05-02T06:08:35.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux配置">
 <meta name="twitter:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
@@ -519,6 +519,56 @@ grant all privileges on *.* to root@&apos;%&apos; identified by &apos;Likang123q
 <pre><code>修改配置文件/etc/my.conf
 lower_case_table_names=1  不区分大小写
 lower_case_table_names=0  默认、区分大小写
+</code></pre><h2 id="Linux中搭建MYSQL主从配置"><a href="#Linux中搭建MYSQL主从配置" class="headerlink" title="Linux中搭建MYSQL主从配置"></a>Linux中搭建MYSQL主从配置</h2><p>Mysql主服务器：</p>
+<pre><code>版本：mysql  Ver 14.14 Distrib 5.7.20
+IP:192.168.56.220
+PORT:3306
+</code></pre><p>Mysql从服务器</p>
+<pre><code>版本：mysql  Ver 14.14 Distrib 5.7.20
+IP:192.168.56.221
+PORT:3306
+</code></pre><p>服务器：</p>
+<pre><code>CentOS 7
+</code></pre><h3 id="搭建步骤-1"><a href="#搭建步骤-1" class="headerlink" title="搭建步骤"></a>搭建步骤</h3><p>登录主服务器，执行如下命令：</p>
+<pre><code>mysql -u root -p
+
+提示密码安全策略问题：
+set global validate_password_policy=0;
+
+grant replication slave on *.* TO &apos;backup&apos;@&apos;192.168.168.221&apos; identified by &apos;ronaldo..&apos;;
+flush privileges
+</code></pre><p>编辑主服务器的数据库配置文件信息my.cnf</p>
+<pre><code>vi /etc/my.cnf
+
+添加如下信息：
+    server-id=220
+    log_bin=/var/log/mysql/mysql-bin.log
+    read-only=0
+    binlog-do-db=test
+    binlog-ignore-db=mysql
+</code></pre><p>重启主服务器<br>    service mysqld restart</p>
+<p>编辑从服务器的数据库配置文件信息：my.cnf</p>
+<pre><code>vi /etc/my.cnf
+
+server-id=227
+log_bin=/var/log/mysql/mysql-bin.log
+</code></pre><p>重启主服务器<br>    service mysqld restart</p>
+<p>登录主服务器，查看master状态</p>
+<pre><code>show master status\G;
+</code></pre><p>登录从服务器，设置主从关系</p>
+<pre><code>change master to master_host=&apos;192.168.168.226&apos;,master_user=&apos;backup&apos;,master_password=&apos;Likang123qwe&apos;,master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=154;
+</code></pre><p>查看从服务器的主从关系状态</p>
+<pre><code>show slave status\G;
+</code></pre><p>主服务器下执行</p>
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+</code></pre><p>从服务器下执行</p>
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+</code></pre><p>如果主从库中不存在test库，则需要重新建库，然后重启，重新构建主从关系</p>
+<p>从服务器下</p>
+<pre><code> Slave_IO_Running: Yes
+ Slave_SQL_Running: Yes
+
+如果都为yes，则主从搭建成功
 </code></pre>
       
     </div>
@@ -715,7 +765,7 @@ lower_case_table_names=0  默认、区分大小写
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux里安装MySQL57"><span class="nav-number">4.</span> <span class="nav-text">Linux里安装MySQL57</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件要求"><span class="nav-number">4.1.</span> <span class="nav-text">软件要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">如果此时需要远程客户端访问数据库，则还需要进行如下配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux里安装MySQL57"><span class="nav-number">4.</span> <span class="nav-text">Linux里安装MySQL57</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件要求"><span class="nav-number">4.1.</span> <span class="nav-text">软件要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">如果此时需要远程客户端访问数据库，则还需要进行如下配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux中搭建MYSQL主从配置"><span class="nav-number">5.</span> <span class="nav-text">Linux中搭建MYSQL主从配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤-1"><span class="nav-number">5.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li></ol></div>
             
 
           </div>
