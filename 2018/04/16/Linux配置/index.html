@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="AnJ">
 <meta property="og:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-02T06:08:35.631Z">
+<meta property="og:updated_time" content="2018-05-03T08:20:53.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux配置">
 <meta name="twitter:description" content="Linux常用命令cd /opt                    进入/opt目录，支持多级目录 cd ..                      切换到上一级目录 cd /                       切换到根目录 ll                         显示当前目录下文件信息 ls                         显示当前目录下文件信息">
@@ -569,7 +569,52 @@ log_bin=/var/log/mysql/mysql-bin.log
  Slave_SQL_Running: Yes
 
 如果都为yes，则主从搭建成功
-</code></pre>
+</code></pre><h2 id="Linux下如何安装Nginx"><a href="#Linux下如何安装Nginx" class="headerlink" title="Linux下如何安装Nginx"></a>Linux下如何安装Nginx</h2><h4 id="软件环境-1"><a href="#软件环境-1" class="headerlink" title="软件环境"></a>软件环境</h4><pre><code>虚拟机：VMware Workstation
+
+系统：Linux：CentOS-7-x86_64
+</code></pre><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p>安装工具：SSH客户端</p>
+<h4 id="安装步骤-1"><a href="#安装步骤-1" class="headerlink" title="安装步骤"></a>安装步骤</h4><p>安装前环境准备</p>
+<p>1：安装wget,用来下载nginx安装包</p>
+<pre><code>cd /
+yum install wget -y
+</code></pre><p>2：因为Nginx以来与gcc的编译环境，所以，在mini centos中需要安装编译环境来使Nginx能够编译起来</p>
+<pre><code>yum install gcc-c++
+</code></pre><p>3：Nginx的http模块需要使用pcre来解析正则表达式</p>
+<pre><code>yum -y install pcre pcre-devel
+</code></pre><p>4：依赖的解压包</p>
+<pre><code>yum -y install zlib zlib-devel
+</code></pre><p>5：openssl安装</p>
+<pre><code>yum install -y openssl openssl-devel
+</code></pre><p>6：官网下载 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a> 找到自己需要的版本下载(以下为最新版本)</p>
+<pre><code>切换到opt目录下，新建文件夹nginx，然后进入nginx文件夹
+执行如下命令：
+wget  http://nginx.org/download/nginx-1.13.11.tar.gz
+</code></pre><h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><p>1：解决nginx文件</p>
+<pre><code>tar zxvf nginx-1.13.11.tar.gz
+</code></pre><p>2：编译，安装</p>
+<pre><code>先切换到opt目录下，新建文件夹nginx-1-13
+cd nginx-1.13.11
+./configure  --prefix=/opt/nginx-1-13      #指定安装目录
+</code></pre><p>3：在/opt/nginx/nginx-1.13.11目录下执行编译命令</p>
+<pre><code>make
+</code></pre><p>4:执行安装命令</p>
+<pre><code>make install
+</code></pre><p>5:切换到安装目录</p>
+<pre><code>cd /opt/nginx-1-13
+</code></pre><p>6:启动</p>
+<pre><code>cd sbin/
+
+./nginx 
+./nginx -s stop
+./nginx -s quit
+./nginx -s reload
+./nginx -s quit:此方式停止步骤是待nginx进程处理任务完毕进行停止。
+./nginx -s stop:此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程。
+</code></pre><p>7：开放nginx默认端口号80</p>
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+</code></pre><p>8：远程访问测试</p>
+<p>至此，linux下安装nginx成功，并可以远程访问</p>
+
       
     </div>
     
@@ -765,7 +810,7 @@ log_bin=/var/log/mysql/mysql-bin.log
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux里安装MySQL57"><span class="nav-number">4.</span> <span class="nav-text">Linux里安装MySQL57</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件要求"><span class="nav-number">4.1.</span> <span class="nav-text">软件要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">如果此时需要远程客户端访问数据库，则还需要进行如下配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux中搭建MYSQL主从配置"><span class="nav-number">5.</span> <span class="nav-text">Linux中搭建MYSQL主从配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤-1"><span class="nav-number">5.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟机中配置网络环境"><span class="nav-number">2.</span> <span class="nav-text">在虚拟机中配置网络环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux搭建Java环境"><span class="nav-number">3.</span> <span class="nav-text">Linux搭建Java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件环境"><span class="nav-number">3.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具："><span class="nav-number">3.2.</span> <span class="nav-text">工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">3.3.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1：查询当前系统版本"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">1：查询当前系统版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：首先确认当前系统是否已经存在java环境"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">2：首先确认当前系统是否已经存在java环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：查找当前系统是否存在JDK安装包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">3：查找当前系统是否存在JDK安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：如果没有，则进入到-opt目录下，新建一个文件夹java7，之后进入java7文件夹"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">4：如果没有，则进入到/opt目录下，新建一个文件夹java7，之后进入java7文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5：在java7目录下，在线下载jdk7"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">5：在java7目录下，在线下载jdk7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6：解压当前文件到文件夹下"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">6：解压当前文件到文件夹下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7：配置环境变量"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">7：配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8：使配置文件生效"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">8：使配置文件生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9：查看安装后的JDK版本"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">9：查看安装后的JDK版本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux里安装MySQL57"><span class="nav-number">4.</span> <span class="nav-text">Linux里安装MySQL57</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件要求"><span class="nav-number">4.1.</span> <span class="nav-text">软件要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果此时需要远程客户端访问数据库，则还需要进行如下配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">如果此时需要远程客户端访问数据库，则还需要进行如下配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux中搭建MYSQL主从配置"><span class="nav-number">5.</span> <span class="nav-text">Linux中搭建MYSQL主从配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤-1"><span class="nav-number">5.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下如何安装Nginx"><span class="nav-number">6.</span> <span class="nav-text">Linux下如何安装Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件环境-1"><span class="nav-number">6.0.1.</span> <span class="nav-text">软件环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具"><span class="nav-number">6.0.2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装步骤-1"><span class="nav-number">6.0.3.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装nginx"><span class="nav-number">6.0.4.</span> <span class="nav-text">安装nginx</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
