@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+  <meta name="keywords" content="AnJie,AnJie blog" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一次参加工作，入职3天了，对公司的情况有了一定的了解，写下这篇日记总结一下。 首先，公司使用的技术架构是jeesite。 什么是jeesite？JeeSite 是一个 Java EE 企业级快速开发平台，基于经典技术组合在线代码生成工具。 JeeSite是在Spring Framework基础上搭建的一个Java基础开发平台， 以Spring MVC为模型视图控制器， MyBatis为数据访问层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作日记-1">
+<meta property="og:url" content="http://yoursite.com/2018/05/18/工作日记-1/index.html">
+<meta property="og:site_name" content="AnJ">
+<meta property="og:description" content="第一次参加工作，入职3天了，对公司的情况有了一定的了解，写下这篇日记总结一下。 首先，公司使用的技术架构是jeesite。 什么是jeesite？JeeSite 是一个 Java EE 企业级快速开发平台，基于经典技术组合在线代码生成工具。 JeeSite是在Spring Framework基础上搭建的一个Java基础开发平台， 以Spring MVC为模型视图控制器， MyBatis为数据访问层">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-18T09:37:21.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工作日记-1">
+<meta name="twitter:description" content="第一次参加工作，入职3天了，对公司的情况有了一定的了解，写下这篇日记总结一下。 首先，公司使用的技术架构是jeesite。 什么是jeesite？JeeSite 是一个 Java EE 企业级快速开发平台，基于经典技术组合在线代码生成工具。 JeeSite是在Spring Framework基础上搭建的一个Java基础开发平台， 以Spring MVC为模型视图控制器， MyBatis为数据访问层">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/18/工作日记-1/"/>
+
+
+
+
+
+  <title>工作日记-1 | AnJ</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AnJ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/工作日记-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AnJie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AnJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">工作日记-1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T12:10:47+08:00">
+                2018-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第一次参加工作，入职3天了，对公司的情况有了一定的了解，写下这篇日记总结一下。</p>
+<p>首先，公司使用的技术架构是jeesite。</p>
+<h2 id="什么是jeesite？"><a href="#什么是jeesite？" class="headerlink" title="什么是jeesite？"></a>什么是jeesite？</h2><pre><code>JeeSite 是一个 Java EE 企业级快速开发平台，基于经典技术组合在线代码生成工具。
+JeeSite是在Spring Framework基础上搭建的一个Java基础开发平台，
+以Spring MVC为模型视图控制器，
+MyBatis为数据访问层， 
+Apache Shiro为权限授权层，
+Ehcahe对常用数据进行缓存，
+Activit为工作流引擎。
+是JavaEE界的最佳整合。
+</code></pre><p>JeeSite主要定位于信息化领域，已内置信息化系统的基础功能和高效的代码生成工具， </p>
+<pre><code>包括：系统权限组件、数据权限组件、数据字典组件、核心工具组件、视图操作组件、
+工作流组件、代码生成等。 前端界面风格采用了结构简单、性能优良、页面美观大气的Twitter Bootstrap页面展示框架。 
+采用分层设计、双重验证、提交数据安全编码、密码加密、访问验证、数据权限验证。 
+使用Maven做项目管理，提高项目的易开发性、扩展性。
+</code></pre><p>JeeSite目前包括以下三大模块</p>
+<pre><code>系统管理（SYS）模块、 内容管理（CMS）模块、在线办公（OA）模块、代码生成（GEN）模块。
+
+系统管理模块，包括组织架构（用户管理、机构管理、区域管理）、 菜单管理、角色权限管理、字典管理等功能； 
+内容管理模块 ，包括内容管理（文章、链接），栏目管理、站点管理、 公共留言、文件管理、前端网站展示等功能； 
+在线办公模块 ，提供简单的请假流程实例。代码生成模块 ，完成重复的工作。
+</code></pre><p>JeeSite 提供了常用工具进行封装</p>
+<pre><code>包括日志工具、缓存工具、服务器端验证、数据字典、当前组织机构数据 （用户、机构、区域）以及其它常用小工具等。
+另外还提供一个强大的在线 代码生成 工具， 此工具提供简单的单表、一对多、树结构功能的生成，如果对外观要求不是很高，生成的功能就可以用了。 
+如果你使用了JeeSite基础框架，就可以很高效的快速开发出，优秀的信息管理系统。
+</code></pre><h4 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h4><p>1、后端</p>
+<pre><code>核心框架：Spring Framework 4.1
+安全框架：Apache Shiro 1.2
+视图框架：Spring MVC 4.1
+服务端验证：Hibernate Validator 5.2
+布局框架：SiteMesh 2.4
+工作流引擎：Activiti 5.21
+任务调度：Spring Task 4.1
+持久层框架：MyBatis 3.2
+数据库连接池：Alibaba Druid 1.0
+缓存框架：Ehcache 2.6、Redis
+日志管理：SLF4J 1.7、Log4j
+工具类：Apache Commons、Jackson 2.2、Xstream 1.4、Dozer 5.3、POI 3.9
+</code></pre><p>2、前端</p>
+<pre><code>JS框架：jQuery 1.9。
+CSS框架：Twitter Bootstrap 2.3.1（稳定是后台，UI方面根据需求自己升级改造吧）。
+客户端验证：JQuery Validation Plugin 1.11。
+富文本在线编辑：CKEditor
+在线文件管理：CKFinder
+动态页签：Jerichotab
+手机端框架：Jingle
+数据表格：jqGrid
+对话框：jQuery jBox
+下拉选择框：jQuery Select2
+树结构控件：jQuery zTree
+日期控件： My97DatePicker
+</code></pre><p>4、平台</p>
+<pre><code>服务器中间件：在Java EE 5规范（Servlet 2.5、JSP 2.1）下开发，支持应用服务器中间件 有Tomcat 6+、Jboss 7+、WebLogic 10+、WebSphere 8+。
+数据库支持：目前仅提供MySql或Oracle数据库的支持，但不限于数据库，平台留有其它数据库支持接口， 你可以很方便的更改为其它数据库，如：SqlServer 2008、MySql 5.5、H2等
+开发环境：Java、Eclipse Java EE 4.3、Maven 3.1、Git
+安全考虑
+开发语言：系统采用Java 语言开发，具有卓越的通用性、高效性、平台移植性和安全性。
+分层设计：（数据库层，数据访问层，业务逻辑层，展示层）层次清楚，低耦合，各层必须通过接口才能接入并进行参数校验（如：在展示层不可直接操作数据库），保证数据操作的安全。
+双重验证：用户表单提交双验证：包括服务器端验证及客户端验证，防止用户通过浏览器恶意修改（如不可写文本域、隐藏变量篡改、上传非法文件等），跳过客户端验证操作数据库。
+安全编码：用户表单提交所有数据，在服务器端都进行安全编码，防止用户提交非法脚本及SQL注入获取敏感数据等，确保数据安全。
+密码加密：登录用户密码进行SHA1散列加密，此加密方法是不可逆的。保证密文泄露后的安全问题。
+强制访问：系统对所有管理端链接都进行用户身份权限验证，防止用户
+快速体验
+具备运行环境：JDK1.6+、Maven3.0+、MySql5+或Oracle10g+。
+修改src\main\resources\jeesite.properties文件中的数据库设置参数。
+根据修改参数创建对应MySql或Oracle数据库用户和参数。
+运行bin\init-db.bat脚本，即可导入表结构及演示数据(linux操作系统：在控制台中切换至项目根目录，运行命令：mvn antrun:run -Pinit-db)
+运行bin\run-tomcat7.bat或bin\run-jetty.bat，启动Web服务器（第一次运行，需要下载依赖jar包，请耐心等待）。
+最高管理员账号，用户名：thinkgem 密码：admin
+
+常见问题
+用一段时间提示内存溢出，请修改JVM参数：-Xmx512m -XX:MaxPermSize=256m
+有时出现文字乱码：修改Tomcat的server.xml文件的Connector项，增加URIEncoding=&quot;UTF-8&quot;
+为什么新建菜单后看不到新建的菜单？因为授权问题，菜单管理只允许最高管理员账号管理（最高管理员默认账号：thinkgem 密码：admin）。
+</code></pre><h2 id="使用到的技术点"><a href="#使用到的技术点" class="headerlink" title="使用到的技术点"></a>使用到的技术点</h2><h4 id="使用spring-task-任务调度。"><a href="#使用spring-task-任务调度。" class="headerlink" title="使用spring task 任务调度。"></a>使用spring task 任务调度。</h4><p>（一）在xml里加入task的命名空间</p>
+<pre><code>xmlns:task=&quot;http://www.springframework.org/schema/task&quot;   
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd  
+</code></pre><p>（二）启用注解驱动的定时任务</p>
+<pre><code>&lt;task:annotation-driven scheduler=&quot;myScheduler&quot;/&gt;  
+</code></pre><p>（三）配置定时任务的线程池</p>
+<p>推荐配置线程池，若不配置多任务下会有问题。后面会详细说明单线程的问题。</p>
+<pre><code>&lt;task:scheduler id=&quot;myScheduler&quot; pool-size=&quot;5&quot;/&gt;  
+</code></pre><p>（四）写我们的定时任务</p>
+<pre><code>@Scheduled注解为定时任务，cron表达式里写执行的时机    
+</code></pre><h4 id="shiro-安全框架"><a href="#shiro-安全框架" class="headerlink" title="shiro 安全框架"></a>shiro 安全框架</h4><pre><code>Shiro 与 Spring Security 比较
+
+shiro： 简单、灵活、可脱离spring,粒度比较粗
+
+Security ： 复杂、笨重、不可脱离spring，粒度更细
+</code></pre><p>整体架构 </p>
+<p>Security Manager（核心）<br>    SessionManager   —- session管理 （自己实现了一套管理器）<br>    SessionDAO       —- 对于session管理进行增删改查<br>    Authorizer         —- 授权<br>    Authenticator    —- 认证器<br>    Pluggable Realms —- shiro和数据库的桥梁<br>    CacheManager     —- 缓存管理    缓存角色数据和权限数据</p>
+<p>流程</p>
+<pre><code>SecurityManager --&gt; 主题提交认证 --&gt; SecurityManager认证 --&gt;
+Authenticator认证 --&gt; Realm验证
+</code></pre><h4 id="使用mina"><a href="#使用mina" class="headerlink" title="使用mina"></a>使用mina</h4><h4 id="数据字典-详细代码DictUtils-java"><a href="#数据字典-详细代码DictUtils-java" class="headerlink" title="数据字典(详细代码DictUtils.java)"></a>数据字典(详细代码DictUtils.java)</h4><p>使用SpringContextHolder获取bean实例  </p>
+<p>使用页面嵌入页面的方式，路径不会改变，</p>
+<h4 id="前端知识"><a href="#前端知识" class="headerlink" title="前端知识"></a>前端知识</h4><p>validate() </p>
+<p>serialize()</p>
+<pre><code>输出序列化表单值的结果
+</code></pre><p>$.each(data,function(i,value){<br>});</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/02/综合笔记/" rel="next" title="第四阶段综合笔记">
+                <i class="fa fa-chevron-left"></i> 第四阶段综合笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">AnJie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是jeesite？"><span class="nav-number">1.</span> <span class="nav-text">什么是jeesite？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#技术选型"><span class="nav-number">1.0.1.</span> <span class="nav-text">技术选型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用到的技术点"><span class="nav-number">2.</span> <span class="nav-text">使用到的技术点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用spring-task-任务调度。"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用spring task 任务调度。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shiro-安全框架"><span class="nav-number">2.0.2.</span> <span class="nav-text">shiro 安全框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用mina"><span class="nav-number">2.0.3.</span> <span class="nav-text">使用mina</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据字典-详细代码DictUtils-java"><span class="nav-number">2.0.4.</span> <span class="nav-text">数据字典(详细代码DictUtils.java)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端知识"><span class="nav-number">2.0.5.</span> <span class="nav-text">前端知识</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AnJie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
